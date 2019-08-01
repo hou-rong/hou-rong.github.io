@@ -3,12 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://hou-rong.github.io/categories/</loc>
-    <priority>0</priority>
+    <loc>https://hou-rong.github.io/about/</loc>
+    <lastmod>2019-07-30T08:55:38+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/</loc>
+    <lastmod>2019-07-30T08:55:38+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hou-rong.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
