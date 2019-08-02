@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>群晖 on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/%E7%BE%A4%E6%99%96/</link>
+    <description>Recent content in 群晖 on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/%E7%BE%A4%E6%99%96/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>群晖上配置生产力工具 gogs &#43; drone</title>
+      <link>https://hou-rong.github.io/post/sychnology&#43;gogs&#43;dronw/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/sychnology&#43;gogs&#43;dronw/</guid>
+      <description>引入 群晖的 docker 实在是好用，同时当前手上缺少一个私有的 Git 以及 CI / CD 的服务。先想到公司中使用的 gitlab + jenkins 比较好用，尝试在群晖上部署，不得不说 gitlab 动不动就</description>
+    </item>
+    
+  </channel>
+</rss>

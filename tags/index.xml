@@ -6,10 +6,28 @@
     <description>Recent content in Tags on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hou-rong.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>工具</title>
+      <link>https://hou-rong.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/tags/%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>群晖</title>
+      <link>https://hou-rong.github.io/tags/%E7%BE%A4%E6%99%96/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/tags/%E7%BE%A4%E6%99%96/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>MongoDB</title>
@@ -35,15 +53,6 @@
       <pubDate>Sat, 07 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>工具</title>
-      <link>https://hou-rong.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
-      <pubDate>Sat, 07 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://hou-rong.github.io/tags/%E5%B7%A5%E5%85%B7/</guid>
       <description></description>
     </item>
     
@@ -147,7 +156,7 @@
     </item>
     
     <item>
-      <title>uWSGI</title>
+      <title>uwsgi</title>
       <link>https://hou-rong.github.io/tags/uwsgi/</link>
       <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
       
