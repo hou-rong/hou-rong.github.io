@@ -5,7 +5,7 @@
     <link>https://hou-rong.github.io/tags/phpmyadmin/</link>
     <description>Recent content in PhpMyAdmin on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Mon, 16 Jan 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hou-rong.github.io/tags/phpmyadmin/index.xml" rel="self" type="application/rss+xml" />
@@ -17,9 +17,7 @@
       <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</guid>
-      <description>引入 在工作中经常需要进行数据库的查询，使用默认的命令行却不太好用。所有选择使用 PhpMyAdmin 进行图形化的搜索，由于不希望在本机安装太多服务程序，所以使用 Docker 管理 PhpMyAdmin 镜像。
-安装 Docker 官网安装
-安装镜像 docker pull phpmyadmin/phpmyadmin  配置 PhpMyAdmin config.user.inc.php 配置文件 &amp;lt;?php $connect_hosts = array( &#39;1&#39;=&amp;gt;array( &amp;quot;host&amp;quot; =&amp;gt; &amp;quot;Host 1&amp;quot;, // Server 1 ), &#39;2&#39; =&amp;gt; array( &amp;quot;host&amp;quot; =&amp;gt; &amp;quot;Host 2&amp;quot;, // Server 2 ); for ($i=1;$i&amp;lt;=count($connect_hosts);$i++) { /* Server parameters */ $cfg[&#39;Servers&#39;][$i][&#39;host&#39;] = $connect_hosts[$i][&#39;host&#39;]; //修改host $cfg[&#39;Servers&#39;][$i][&#39;connect_type&#39;] = &#39;tcp&#39;; $cfg[&#39;Servers&#39;][$i][&#39;compress&#39;] = false; /* Select mysqli if your server has it */ $cfg[&#39;Servers&#39;][$i][&#39;extension&#39;] = &#39;mysql&#39;; $cfg[&#39;Servers&#39;][$i][&#39;AllowNoPassword&#39;] = true; /* rajk - for blobstreaming */ $cfg[&#39;Servers&#39;][$i][&#39;bs_garbage_threshold&#39;] = 50; $cfg[&#39;Servers&#39;][$i][&#39;bs_repository_threshold&#39;] = &#39;32M&#39;; $cfg[&#39;Servers&#39;][$i][&#39;bs_temp_blob_timeout&#39;] = 600; $cfg[&#39;Servers&#39;][$i][&#39;bs_temp_log_threshold&#39;] = &#39;32M&#39;; }  使用外部配置开启服务 docker run --name myadmin -d -p 8080:80 -v /Users/hourong/Config/config.</description>
+      <description>引入 在工作中经常需要进行数据库的查询，使用默认的命令行却不太好用。所有选择使用 PhpMyAdmin 进行图形化的搜索，由于不希望在本机安装太多服务程序，所以使用</description>
     </item>
     
   </channel>

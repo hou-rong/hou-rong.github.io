@@ -5,7 +5,7 @@
     <link>https://hou-rong.github.io/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</link>
     <description>Recent content in 小问题 on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Fri, 26 May 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hou-rong.github.io/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
@@ -17,8 +17,7 @@
       <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</guid>
-      <description>引入 在做毕设时，系统需要用 uwsgi 进行启动，在打印日志中，请求即使成功也会报 UnicodeEncodeError，而在使用 Debug 模式下不会出现
-解决方案 在 Django 的官网中看到，uwsgi.ini 配置中添加 env = LANG=en_US.UTF-8 ，在重新启动应用后发现仍然有此错误。于是修改为 env = LANG=zh_CN.UTF-8 即可解决此错误。</description>
+      <description>引入 在做毕设时，系统需要用 uwsgi 进行启动，在打印日志中，请求即使成功也会报 UnicodeEncodeError，而在使用 Debug 模式下不会出现 解决方案</description>
     </item>
     
   </channel>

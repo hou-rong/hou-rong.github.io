@@ -5,7 +5,7 @@
     <link>https://hou-rong.github.io/tags/html/</link>
     <description>Recent content in Html on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Fri, 21 Apr 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hou-rong.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
@@ -17,8 +17,7 @@
       <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/iframe-%E5%85%A8%E5%B1%8F%E5%B9%95/</guid>
-      <description> 引入 在使用 iframe 时需要显示全屏的页面，故做了如下操作
-解决方案 &amp;lt;iframe id=&#39;page-iframe&#39; src=&amp;quot;&amp;quot; style=&amp;quot;position:fixed; top:200px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;&amp;quot;&amp;gt;  </description>
+      <description>引入 在使用 iframe 时需要显示全屏的页面，故做了如下操作 解决方案 1 &amp;lt;iframe id=&amp;#39;page-iframe&amp;#39; src=&amp;#34;&amp;#34; style=&amp;#34;position:fixed; top:200px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;&amp;#34;&amp;gt;</description>
     </item>
     
   </channel>

@@ -5,7 +5,7 @@
     <link>https://hou-rong.github.io/tags/%E7%A1%AC%E4%BB%B6/</link>
     <description>Recent content in 硬件 on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Thu, 19 Nov 2015 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hou-rong.github.io/tags/%E7%A1%AC%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
@@ -17,9 +17,7 @@
       <pubDate>Thu, 19 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/%E6%9E%81%E8%B7%AF%E7%94%B11s-9015%E9%99%8D%E7%BA%A79006-%E9%80%9A%E8%BF%87ttl-%E5%88%B7openwrt/</guid>
-      <description>极路由降级  拔掉路由器电源 用网线将LAN口语电脑网口项链 将电脑本地连接的IP设置为192.168.1.88，子网掩码255.255.255.0，网关和DNS服务器空着就可以了，设置方法：  Win7/Win8/Win10 XP  下载资源 32位系统运行tftpd32，64位系统运行tftpd64 在已经用尖锐物体按下RESET键，并保持按压的情况下，给路由器供电 待电脑tftpd出现传输recovery.bin的进度条时松开RESET键 路由器面板进入跑马灯状态，待跑马灯结束后，路由器重启，刷机完成 改回正常的本地连接IP属性，访问路由器管理界面，进行初始化设置，在系统版本中可以看到已经路由器版本已经降级到9006  通过TTL建立计算机与路由器的连接  PL2023模块的驱动，从网页上面找一个适合自己电脑的 USB插入PL2023模块，如果在设备管理器中显示正常，说明驱动安装成功。如果你的系统是WIn10，或者其他原因导致显示设备不能使用，显示错误代码Code 10，看解决方案 取下极路由SD卡，用内三角螺丝刀拧开极路由后部的6个螺丝，将电路板拆出 在TX TX GND 3.3V处焊上排针  用排线将PL2023模块与刚焊的排针连接，注意3.3V处一定不要接线  使用Putty，Connection Type选择Serial，Serial line根据自己使用的端口选择，Speed填入115200，使用Open打开
-   接通电源，但出现这句话的时候按F，而后Enter   当出现这句话的时候，按Enter   而后会出现极路由的界面   此时极路由已经与计算机建立了连接  极路由刷PandoraBox系统  给极路由接入网线，Ping某一网址检查路由器网络连接状态 输入
-rm -rf tool.sh &amp;amp;&amp;amp; wget -c http://www.hiwifimi.com/app/tool.sh &amp;amp;&amp;amp; chmod +x tool.sh &amp;amp;&amp;amp; ./tool.sh   输入openwrt后按回车即可  用户名root，密码admin 进入   极路由刷OpenWrt系统  如果需要的话，可以下载镜像 给极路由接入网线，Ping某一网址检查路由器网络连接状态 如果希望使用网上的镜像 输入  cd /tmp wget http://xxxx.</description>
+      <description>极路由降级 拔掉路由器电源 用网线将LAN口语电脑网口项链 将电脑本地连接的IP设置为192.168.1.88，子网掩码255.255.255.0</description>
     </item>
     
   </channel>

@@ -5,7 +5,7 @@
     <link>https://hou-rong.github.io/tags/supervisor/</link>
     <description>Recent content in Supervisor on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Sat, 07 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hou-rong.github.io/tags/supervisor/index.xml" rel="self" type="application/rss+xml" />
@@ -17,10 +17,7 @@
       <pubDate>Sat, 07 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</guid>
-      <description>引入 由于单一项目需要使用不同的 workdir 以及 environment ，将 supervisor 从 2 更新到 3
-卸载与安装 卸载旧的 supervisor ，安装最新的 supervisor
-yum remove supervisor pip install supervisor  service 配置 由于安装后的 supervisor 没有默认的 init script，官方[https://github.com/Supervisor/initscripts]只给出了 centos 7 的 systemd 的启动脚本，所以修改 redhat 的启动脚本以便使用，如下为修改后的 supervisord 启动脚本
-vim /etc/init.d/supervisord  #!/bin/bash # Source function library . /etc/rc.d/init.d/functions # Source system settings if [ -f /etc/sysconfig/supervisord ]; then . /etc/sysconfig/supervisord fi # Path to the supervisorctl script, server binary, # and short-form for messages.</description>
+      <description>引入 由于单一项目需要使用不同的 workdir 以及 environment ，将 supervisor 从 2 更新到 3 卸载与安装 卸载旧的 supervisor ，安装最新的 supervisor 1 2 3 yum remove supervisor pip install supervisor service 配置 由于安装后的 supervisor 没有默认的 init</description>
     </item>
     
   </channel>

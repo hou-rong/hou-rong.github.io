@@ -5,7 +5,7 @@
     <link>https://hou-rong.github.io/tags/linux/</link>
     <description>Recent content in Linux on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Wed, 26 Jul 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hou-rong.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
@@ -17,9 +17,7 @@
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</guid>
-      <description>引入 通常我们 pip 安装的 python 包都是从 https://pypi.python.org/pypi 安装，偶尔国内网速慢的话也可以修改为 https://pypi.doubanio.com/simple 但是遇到一些公司内部的私有包需要管理，搭建自己的 pypi server ，可以简化很多
-安装 pip install pypiserver mkdir /data/pypi-package /usr/local/bin/python3.5 /usr/local/bin/pypi-server -p 28080 --fallback-url https://pypi.doubanio.com/simple /data/pypi-package/  增加上传 package 的用户认证部分 pip install passlib yum install httpd-tools htpasswd -sc /PATH/TO/PRIVATEPYPI/.htaccess user_name # 回车后输入用户密码 /usr/local/bin/python3.5 /usr/local/bin/pypi-server -p 28080 -P /root/.htaccess --fallback-url https://pypi.doubanio.com/simple /data/pypi-package/ # 设置密码后使用此方法启动  进程守护 发现可以正常使用，使用 supervisor 进行进程守护，修改如下配置文件后重启 supervisor 这部分即可
-[program:pypiserver] command=/usr/local/bin/python3.5 /usr/local/bin/pypi-server -p 28080 -P /root/.htaccess --fallback-url https://pypi.doubanio.com/simple /data/pypi-package/ numprocs=4 stdout_logfile=/var/log/pypi_server.</description>
+      <description>引入 通常我们 pip 安装的 python 包都是从 https://pypi.python.org/pypi 安装，偶尔国内网速慢的话也可以修改为 https://pypi.doubanio.com/simple 但是遇到一些公司内部的私有包需要管理，搭建自己的 pypi server ，可以简化很多 安装</description>
     </item>
     
     <item>
@@ -28,13 +26,7 @@
       <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/centos-%E5%AE%89%E8%A3%85-autofs/</guid>
-      <description> Install 安装 autofs ，直接使用 yum 安装即可
-yum install autofs  Configuration 配置 autofs 相关项
-auto.master 中添加一下语句
-/data/nfs /etc/auto.nfs  auto.nfs 中添加一下语句
-image -rw,soft,intr your-host:/your/folder/path page_saver -rw,soft,intr you-host:/your/folder/path  Auto Start 开机自启动
-rc.local 中添加以下语句
-/sbin/service autofs restart  </description>
+      <description>Install 安装 autofs ，直接使用 yum 安装即可 1 yum install autofs Configuration 配置 autofs 相关项 auto.master 中添加一下语句 1 /data/nfs /etc/auto.nfs auto.nfs 中添加一下语句 1 2 image -rw,soft,intr your-host:/your/folder/path page_saver -rw,soft,intr you-host:/your/folder/path Auto Start 开机自启动 rc.local 中添加以下语句 1 /sbin/service autofs</description>
     </item>
     
     <item>
@@ -43,8 +35,7 @@ rc.local 中添加以下语句
       <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</guid>
-      <description>引入 在做毕设时需要将 tomcat 配置成开机自启，同时希望可以快速的开启或关闭 Tomcat，通过查阅资料后增加了 tomcat 的服务脚本，同时添加了开机启动
-Tomcat 服务脚本 vim /etc/init.d/tomcat7  #!/bin/bash export JAVA_HOME=/usr/local/jdk1.7.0_45 PATH=/sbin:/bin:/usr/sbin:/usr/bin start() { sh /usr/local/apache-tomcat-7.0.62/bin/startup.sh } stop() { sh /usr/local/apache-tomcat-7.0.62/bin/shutdown.sh } case $1 in start|stop) $1;; restart) stop; start;; *) echo &amp;quot;Run as $0 &amp;lt;start|stop|restart&amp;gt;&amp;quot;; exit 1;; esac  添加开机自启 vim /etc/rc.local  添加一行 service tomcat7 start</description>
+      <description>引入 在做毕设时需要将 tomcat 配置成开机自启，同时希望可以快速的开启或关闭 Tomcat，通过查阅资料后增加了 tomcat 的服务脚本，同时添加了开机启动 Tomcat 服务脚</description>
     </item>
     
     <item>
@@ -53,9 +44,7 @@ Tomcat 服务脚本 vim /etc/init.d/tomcat7  #!/bin/bash export JAVA_HOME=/usr/l
       <pubDate>Wed, 19 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</guid>
-      <description> 引入 ubuntu 安装 uwsgi 时报出错误 collect2: ld returned 1 exit status
-解决方案 Python3.5 在安装时少了 --enable-shared 在如下添加编译后即可解决
-./configure --enable-shared --prefix=/usr/local LDFLAGS=&amp;quot;-Wl,--rpath=/usr/local/lib&amp;quot; make -j 16 make install  </description>
+      <description>引入 ubuntu 安装 uwsgi 时报出错误 collect2: ld returned 1 exit status 解决方案 Python3.5 在安装时少了 --enable-shared 在如下添加编译后即可解决 1 2 3 4 ./configure --enable-shared --prefix=/usr/local LDFLAGS=&amp;#34;-Wl,--rpath=/usr/local/lib&amp;#34; make -j 16 make install</description>
     </item>
     
     <item>
@@ -64,10 +53,7 @@ Tomcat 服务脚本 vim /etc/init.d/tomcat7  #!/bin/bash export JAVA_HOME=/usr/l
       <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
-      <description>引入 在公司中需要使用跳板机登录服务器，这时候登录需要数据多次命令，十分麻烦。在同事的指点下，使用了 expect + iterm 的配置直接登录，十分方便。
-跳转机添加自己的公钥 在文件 ~/.ssh/authorized_keys 中将自己的公钥字符串添加
-安装 expect yum install expect  expect 登录脚本 vim login.exp
-#!/usr/bin/expect // 设置超时 30 s set timeout 30 // ssh 登录 参数 0 为 user 参数 1 为 hosts spawn ssh [lindex $argv 0]@[lindex $argv 1] expect { // 当首次登录需要确认对方服务器身份时输出 yes &amp;quot;(yes/no)?&amp;quot; {send &amp;quot;yes\n&amp;quot;;exp_continue} // 如果需要输入密码则键入参数 2 &amp;quot;password:&amp;quot; {send &amp;quot;[lindex $argv 2]\n&amp;quot;} } //交互模式,用户会停留在远程服务器上面 interact  Iterm 配置 在 Iterm 中打开设置，进行如下配置</description>
+      <description>引入 在公司中需要使用跳板机登录服务器，这时候登录需要数据多次命令，十分麻烦。在同事的指点下，使用了 expect + iterm 的配置直接登录，十分方便。 跳转机添加</description>
     </item>
     
     <item>
@@ -76,11 +62,7 @@ Tomcat 服务脚本 vim /etc/init.d/tomcat7  #!/bin/bash export JAVA_HOME=/usr/l
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</guid>
-      <description>引言 在开发 Django 项目开发完成后需要进行部署，使用 uWSGI + Nginx 的方式部署，以增加并发
-Django  测试 $ python manage.py runserver  如果可以正常运行，且可访问页面，证明项目环境已配置完全，可以正常使用。
-uWSGI 安装 sudo apt-get install nginx uwsgi uwsgi-plugin-python  可以使用 uwsgi &amp;ndash;version 查看 uwsgi 版本，如果版本过低则
-$ pip install -U uwsgi $ cd /usr/bin $ mv uwsgi uwsgi-old $ ln -s /usr/local/bin/uwsgi uwsgi   配置 为了测试可以先生成一个测试文件 test.py
-# test.py def application(env, start_response): start_response(&#39;200 OK&#39;, [(&#39;Content-Type&#39;,&#39;text/html&#39;)]) #return [&amp;quot;Hello World&amp;quot;] # python2 return [b&amp;quot;Hello World&amp;quot;] # python3  然后使用 8000 端口架设</description>
+      <description>引言 在开发 Django 项目开发完成后需要进行部署，使用 uWSGI + Nginx 的方式部署，以增加并发 Django 测试 1 $ python manage.py runserver 如果可以正常运行，且可访问页面，证明项目环境已配置完</description>
     </item>
     
     <item>
@@ -89,10 +71,7 @@ $ pip install -U uwsgi $ cd /usr/bin $ mv uwsgi uwsgi-old $ ln -s /usr/local/bin
       <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</guid>
-      <description>引言 浏览自己的博客的时候发现需要等待很长时间才能完成页面的加载，通过工具检测后，发现默认配置中只有 html 页面被压缩了，于是进行了如下更改
-开启 Gzip 加速 修改配置 nginx 配置中修改 gzip 部分 http {} 中
-# 默认配置 gzip on; # 开启 gzip gzip_disable &amp;quot;msie6&amp;quot;; # ie6 不压缩 # 增加配置 gzip_proxied any; # 所有请求进行压缩 gzip_min_length 1k; # 最小 1k 进行压缩 gzip_comp_level 4; # 压缩等级 4 （1-10） gzip_types text/plain text/css application/json application/x-javascript text/javascript text/xml image/jpeg image/png image/gif; # 压缩文件类型 # 可选配置 gzip_vary on; # 前端缓存服务器缓存经压缩的页面  修改完配置后重启 nginx 服务
-验证改动 通过工具检测需要进行压缩的文件，可以看到变化还是很大的</description>
+      <description>引言 浏览自己的博客的时候发现需要等待很长时间才能完成页面的加载，通过工具检测后，发现默认配置中只有 html 页面被压缩了，于是进行了如下更改 开启 Gzip 加</description>
     </item>
     
     <item>
@@ -101,11 +80,7 @@ $ pip install -U uwsgi $ cd /usr/bin $ mv uwsgi uwsgi-old $ ln -s /usr/local/bin
       <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
-      <description>引入 近期使用 celery 作为任务平台处理大量任务，在 Redis 和 RabbitMQ 中进行选择，于是选择了后者。一则由于看到文档中 broker 的默认值为 ampq:// ，二则由于 RabbitMQ 的监控以及 celery flower 进行任务监控界面都十分友好。
-安装 Erlang centos 环境上使用 yum 安装
-vim /etc/yum.repos.d/erlang-sulutions.repo  [erlang-solutions] name=Centos $releasever - $basearch - Erlang Solutions baseurl=http://binaries.erlang-solutions.com/rpm/centos/$releasever/$basearch gpgcheck=1 gpgkey=http://binaries.erlang-solutions.com/debian/erlang_solutions.asc enabled=1  rpm --import http://binaries.erlang-solutions.com/debian/erlang_solutions.asc 指定源安装 yum install erlang --enablerepo=erlang-solutions 不指定源安装 yum install erlang  也可以使用清华镜像源直接下载某一版本的所有的安装包 https://mirrors.tuna.tsinghua.edu.cn/erlang-solutions/centos/6/
-yum install *.rpm  安装 RabbitMQ 及简单配置 正常安装即可
-wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el6.noarch.rpm yum install **  配置 rabbitmq</description>
+      <description>引入 近期使用 celery 作为任务平台处理大量任务，在 Redis 和 RabbitMQ 中进行选择，于是选择了后者。一则由于看到文档中 broker 的默认值为 ampq:// ，二则由于 RabbitMQ 的监控以及 celery flower 进行任</description>
     </item>
     
     <item>
@@ -114,9 +89,7 @@ wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.
       <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</guid>
-      <description>引入 在工作中经常需要进行数据库的查询，使用默认的命令行却不太好用。所有选择使用 PhpMyAdmin 进行图形化的搜索，由于不希望在本机安装太多服务程序，所以使用 Docker 管理 PhpMyAdmin 镜像。
-安装 Docker 官网安装
-安装镜像 docker pull phpmyadmin/phpmyadmin  配置 PhpMyAdmin config.user.inc.php 配置文件 &amp;lt;?php $connect_hosts = array( &#39;1&#39;=&amp;gt;array( &amp;quot;host&amp;quot; =&amp;gt; &amp;quot;Host 1&amp;quot;, // Server 1 ), &#39;2&#39; =&amp;gt; array( &amp;quot;host&amp;quot; =&amp;gt; &amp;quot;Host 2&amp;quot;, // Server 2 ); for ($i=1;$i&amp;lt;=count($connect_hosts);$i++) { /* Server parameters */ $cfg[&#39;Servers&#39;][$i][&#39;host&#39;] = $connect_hosts[$i][&#39;host&#39;]; //修改host $cfg[&#39;Servers&#39;][$i][&#39;connect_type&#39;] = &#39;tcp&#39;; $cfg[&#39;Servers&#39;][$i][&#39;compress&#39;] = false; /* Select mysqli if your server has it */ $cfg[&#39;Servers&#39;][$i][&#39;extension&#39;] = &#39;mysql&#39;; $cfg[&#39;Servers&#39;][$i][&#39;AllowNoPassword&#39;] = true; /* rajk - for blobstreaming */ $cfg[&#39;Servers&#39;][$i][&#39;bs_garbage_threshold&#39;] = 50; $cfg[&#39;Servers&#39;][$i][&#39;bs_repository_threshold&#39;] = &#39;32M&#39;; $cfg[&#39;Servers&#39;][$i][&#39;bs_temp_blob_timeout&#39;] = 600; $cfg[&#39;Servers&#39;][$i][&#39;bs_temp_log_threshold&#39;] = &#39;32M&#39;; }  使用外部配置开启服务 docker run --name myadmin -d -p 8080:80 -v /Users/hourong/Config/config.</description>
+      <description>引入 在工作中经常需要进行数据库的查询，使用默认的命令行却不太好用。所有选择使用 PhpMyAdmin 进行图形化的搜索，由于不希望在本机安装太多服务程序，所以使用</description>
     </item>
     
     <item>
@@ -125,10 +98,7 @@ wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.
       <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</guid>
-      <description> 下载源文件 从 python.org 下载相应源代码
-安装依赖环境 yum install bzip2-devel curses-devel dbm-devel gdbm-devel xz-devel sqlite sqlite-devel openssl openssl-devel tkinter tcl-devel tk-devel readline readline-devel zlib zlib-devel  一些其它库的名称
-build-essential zlib1g-dev libbz2-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev libgdbm-dev liblzma-dev tk8.5-dev  添加依赖库的 path
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib  程序编译安装 tar zxvf xxx.tar.gz ./configure --prefix=/usr/local/ # 其他可以通过 ./configure --help 查看 make -j &amp;lt;编译线程数&amp;gt;（不超过线程数的两倍） make install  </description>
+      <description>下载源文件 从 python.org 下载相应源代码 安装依赖环境 1 yum install bzip2-devel curses-devel dbm-devel gdbm-devel xz-devel sqlite sqlite-devel openssl openssl-devel tkinter tcl-devel tk-devel readline readline-devel zlib zlib-devel 一些其它库的名称 1 2 3 4 5 6 7 8 9 10 build-essential zlib1g-dev libbz2-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev libgdbm-dev liblzma-dev tk8.5-dev 添加依</description>
     </item>
     
     <item>
@@ -137,10 +107,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib  程序编译安装 tar z
       <pubDate>Sun, 29 Nov 2015 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</guid>
-      <description>LVS-DR模式以及工作原理  LVS有LVS-DR，LVS-NAT，LVS-TUN三种模式，其中DR模式意为Direct Routing（直接路由），是调度器与实际服务器都有一块网卡连在同一物理网段上的情况 Director接收用户的请求，然后根据负载均衡算法选取一台realserver，将包转发过去，最后由realserver直接回复给用户 详细工作原理以及相关问题  ipvsadm 的安装以及调度算法 安装 yum install ipvsadm -y
-调度算法 ipvsadm -A -t 192.168.1.50:80 -s rr，其中rr为调度算法的一种 - 静态方法：仅根据调度算法本身进行调度 - rr: 轮询调度，轮叫调度 - wrr:加权轮询 - sh: 源地址hash - dh: 目标地址hash - 动态方法：根据算法及各RS当前的负载情况进行调度 - lc: 最少连接 - wlc:加权最少连接 - sed: 最短期望延迟 - nq: 永不排队连接 - lblc:基于局部性的最少连接 - lblcr: 带复制的基于局部性的最少连接
-十种调度算法的具体介绍 基本配置 Load Balance 节点  主机节点已将物理网卡改名为eth0 ``` conf
-ifconfig eth0:0 192.168.1.88&amp;frasl;24 up ifconfig eth0:0  eth0:0: flags=4163 mtu 1500 inet 192.</description>
+      <description>LVS-DR模式以及工作原理 LVS有LVS-DR，LVS-NAT，LVS-TUN三种模式，其中DR模式意为Direct Routing（直接路</description>
     </item>
     
     <item>
@@ -149,12 +116,7 @@ ifconfig eth0:0 192.168.1.88&amp;frasl;24 up ifconfig eth0:0  eth0:0: flags=4163
       <pubDate>Wed, 15 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/ubuntu_disable_ping/</guid>
-      <description>sudo su  Disable ping:
-echo 1 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_all  or
-iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j DROP  To re-enable ping:
-echo 0 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_all  or
-iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j ACCEPT  To make it permanently, edit the &amp;ldquo;etc/sysctl.conf&amp;rdquo; file so that the setting gets picked up at boot time.
-net.ipv4.icmp_echo_ignore_all=1  </description>
+      <description>1 sudo su Disable ping: 1 echo 1 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_all or 1 iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j DROP To re-enable ping: 1 echo 0 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_all or 1 iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j ACCEPT To make it permanently, edit the &amp;ldquo;etc/sysctl.conf&amp;rdquo; file so that the setting gets picked up at boot time. 1 net.ipv4.icmp_echo_ignore_all=1</description>
     </item>
     
   </channel>

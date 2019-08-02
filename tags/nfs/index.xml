@@ -5,7 +5,7 @@
     <link>https://hou-rong.github.io/tags/nfs/</link>
     <description>Recent content in NFS on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Thu, 22 Jun 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hou-rong.github.io/tags/nfs/index.xml" rel="self" type="application/rss+xml" />
@@ -17,13 +17,7 @@
       <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/centos-%E5%AE%89%E8%A3%85-autofs/</guid>
-      <description> Install 安装 autofs ，直接使用 yum 安装即可
-yum install autofs  Configuration 配置 autofs 相关项
-auto.master 中添加一下语句
-/data/nfs /etc/auto.nfs  auto.nfs 中添加一下语句
-image -rw,soft,intr your-host:/your/folder/path page_saver -rw,soft,intr you-host:/your/folder/path  Auto Start 开机自启动
-rc.local 中添加以下语句
-/sbin/service autofs restart  </description>
+      <description>Install 安装 autofs ，直接使用 yum 安装即可 1 yum install autofs Configuration 配置 autofs 相关项 auto.master 中添加一下语句 1 /data/nfs /etc/auto.nfs auto.nfs 中添加一下语句 1 2 image -rw,soft,intr your-host:/your/folder/path page_saver -rw,soft,intr you-host:/your/folder/path Auto Start 开机自启动 rc.local 中添加以下语句 1 /sbin/service autofs</description>
     </item>
     
   </channel>

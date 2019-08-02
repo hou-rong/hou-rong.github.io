@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://hou-rong.github.io/sitemap.xml

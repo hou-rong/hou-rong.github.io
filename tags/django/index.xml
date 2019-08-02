@@ -5,7 +5,7 @@
     <link>https://hou-rong.github.io/tags/django/</link>
     <description>Recent content in Django on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Fri, 26 May 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hou-rong.github.io/tags/django/index.xml" rel="self" type="application/rss+xml" />
@@ -17,8 +17,7 @@
       <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</guid>
-      <description>引入 在做毕设时，系统需要用 uwsgi 进行启动，在打印日志中，请求即使成功也会报 UnicodeEncodeError，而在使用 Debug 模式下不会出现
-解决方案 在 Django 的官网中看到，uwsgi.ini 配置中添加 env = LANG=en_US.UTF-8 ，在重新启动应用后发现仍然有此错误。于是修改为 env = LANG=zh_CN.UTF-8 即可解决此错误。</description>
+      <description>引入 在做毕设时，系统需要用 uwsgi 进行启动，在打印日志中，请求即使成功也会报 UnicodeEncodeError，而在使用 Debug 模式下不会出现 解决方案</description>
     </item>
     
     <item>
@@ -27,11 +26,7 @@
       <pubDate>Mon, 08 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</guid>
-      <description>引入 在毕设的初期 csrf 的中间件 CsrfViewMiddleware 都是被我注视掉的，在之后了解了跨域攻击，认为防御跨域攻击还是需要的
-CsrfViewMiddleware 防止跨域攻击的原理 Django 防止 CSRF 攻击的方法其实是在 cookie 中保存 csrftoken 信息，在 Form 请求或者 Ajax 请求中确认本次请求是否携带有相关参数 。
-CsrfViewMiddleware 中存在 4 个函数
- _accept csrf 验证成功，允许请求所返回的函数 _reject csrf 验证失败，拒绝请求，默认返回 403 process_view 用于验证返回的 csrf 值是否正确 process_response 用于在 Cookie 中设置 csrftoken  process_response 设置 Cookie 部分 核心部分为 set_cookie
-response.set_cookie(settings.CSRF_COOKIE_NAME, request.META[&amp;quot;CSRF_COOKIE&amp;quot;], max_age=settings.CSRF_COOKIE_AGE, domain=settings.CSRF_COOKIE_DOMAIN, path=settings.CSRF_COOKIE_PATH, secure=settings.CSRF_COOKIE_SECURE, httponly=settings.CSRF_COOKIE_HTTPONLY )  请求部分 Form 部分 如果使用 Django 默认的 Form 可以知道实现原理其实是在 Form 中添加了一条 Hidden 的 input 用于传入 csrfmiddlewaretoken 参数</description>
+      <description>引入 在毕设的初期 csrf 的中间件 CsrfViewMiddleware 都是被我注视掉的，在之后了解了跨域攻击，认为防御跨域攻击还是需要的 CsrfViewMiddleware 防止跨域攻击的原理 Django 防止 CSRF 攻击的方法其实是在</description>
     </item>
     
     <item>
@@ -40,8 +35,7 @@ response.set_cookie(settings.CSRF_COOKIE_NAME, request.META[&amp;quot;CSRF_COOKI
       <pubDate>Tue, 18 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/django-%E9%85%8D%E7%BD%AE-email/</guid>
-      <description> 引入 在完成毕设的时候，需要发送验证码邮件。由于 Django 有自带的邮件发送函数，所以进行如下配置。
-setting.py 配置 EMAIL_BACKEND = &#39;django.core.mail.backends.smtp.EmailBackend&#39; EMAIL_HOST = &#39;smtp.xxxx&#39; EMAIL_HOST_USER = &#39;from@mail.xxxx&#39; EMAIL_HOST_PASSWORD = &#39;passwd&#39; EMAIL_PORT = 25 EMAIL_USE_TLS = False # 对方看到的 email 发件人 DEFAULT_FROM_EMAIL = &#39;UserName &amp;lt;from@mail.xxx&amp;gt;&#39;  邮件发送部分代码 from django.core.mail import send_mail send_mail( &#39;Title&#39;, &#39;Content&#39;, &#39;from@mail&#39;, [&#39;to@mail&#39;], fail_silently=False, )  </description>
+      <description>引入 在完成毕设的时候，需要发送验证码邮件。由于 Django 有自带的邮件发送函数，所以进行如下配置。 setting.py 配置 1 2 3 4 5 6 7 8 EMAIL_BACKEND = &amp;#39;django.core.mail.backends.smtp.EmailBackend&amp;#39; EMAIL_HOST = &amp;#39;smtp.xxxx&amp;#39; EMAIL_HOST_USER = &amp;#39;from@mail.xxxx&amp;#39; EMAIL_HOST_PASSWORD = &amp;#39;passwd&amp;#39; EMAIL_PORT = 25</description>
     </item>
     
     <item>
@@ -50,11 +44,7 @@ setting.py 配置 EMAIL_BACKEND = &#39;django.core.mail.backends.smtp.EmailBacke
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</guid>
-      <description>引言 在开发 Django 项目开发完成后需要进行部署，使用 uWSGI + Nginx 的方式部署，以增加并发
-Django  测试 $ python manage.py runserver  如果可以正常运行，且可访问页面，证明项目环境已配置完全，可以正常使用。
-uWSGI 安装 sudo apt-get install nginx uwsgi uwsgi-plugin-python  可以使用 uwsgi &amp;ndash;version 查看 uwsgi 版本，如果版本过低则
-$ pip install -U uwsgi $ cd /usr/bin $ mv uwsgi uwsgi-old $ ln -s /usr/local/bin/uwsgi uwsgi   配置 为了测试可以先生成一个测试文件 test.py
-# test.py def application(env, start_response): start_response(&#39;200 OK&#39;, [(&#39;Content-Type&#39;,&#39;text/html&#39;)]) #return [&amp;quot;Hello World&amp;quot;] # python2 return [b&amp;quot;Hello World&amp;quot;] # python3  然后使用 8000 端口架设</description>
+      <description>引言 在开发 Django 项目开发完成后需要进行部署，使用 uWSGI + Nginx 的方式部署，以增加并发 Django 测试 1 $ python manage.py runserver 如果可以正常运行，且可访问页面，证明项目环境已配置完</description>
     </item>
     
     <item>
@@ -63,10 +53,7 @@ $ pip install -U uwsgi $ cd /usr/bin $ mv uwsgi uwsgi-old $ ln -s /usr/local/bin
       <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</guid>
-      <description>引入 现在在做毕业设计，需要做一个管理系统。系统中的用户部分需要使用学校的用户进行认证。于是采用修改 ModelBackend 来实现。
-Backend 以下为 Backend 部分的实现。经一同学建议，&amp;rdquo;通过外部认证，如果有此用户则返回，无此用户则新建&amp;rdquo;，觉得这个想法特别好，于是采用。
-同时这一部分也可以用于之后第三方登录的用户认证
-from django.contrib.auth.models import User from django.contrib.auth.backends import ModelBackend def check_username_and_passwd(username, password): # your check function pass class ThirdPartBackend(ModelBackend): def authenticate(self, username=None, password=None, **kwargs): if check_username_and_passwd(username, password): try: user = User.objects.get(username=username) except User.DoesNotExist: user = User(username=username) user.set_password(password) user.save() return user return None def get_user(self, user_id): try: return User.objects.get(pk=user_id) except User.DoesNotExist: return None  Setting 编写新的 Backend 后，需要在 setting 中修改 AUTHENTICATION_BACKENDS 使配置生效</description>
+      <description>引入 现在在做毕业设计，需要做一个管理系统。系统中的用户部分需要使用学校的用户进行认证。于是采用修改 ModelBackend 来实现。 Backend 以下为 Backend 部分的实现。经一同学建</description>
     </item>
     
     <item>
@@ -75,12 +62,7 @@ from django.contrib.auth.models import User from django.contrib.auth.backends im
       <pubDate>Sun, 12 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
-      <description> 引入 在使用 Django 默认的 sqlite 开发一点时间后，需要将数据库修改为 mysql 进行测试
-数据库地址修改 your/project/settings.py
-DATABASES = { &#39;default&#39;: { &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;, &#39;NAME&#39;: &#39;db&#39;, &#39;USER&#39;: &#39;user&#39;, &#39;PASSWORD&#39;: &#39;passwd&#39;, &#39;HOST&#39;: &#39;host&#39;, &#39;PORT&#39;: &#39;port&#39;, } }  如此连接后在 python3 中会报出缺失模块 MySQLdb 的错误，由于 MySQLdb 暂时还没有 python3 版本，则使用 pymysql 代替 MySQLdb，进行如下修改
-your/project/settings.py
-import pymysql pymysql.install_as_MySQLdb()  更新数据表
-python manage.py migrate  </description>
+      <description>引入 在使用 Django 默认的 sqlite 开发一点时间后，需要将数据库修改为 mysql 进行测试 数据库地址修改 your/project/settings.py 1 2 3 4 5 6 7 8 9 10 DATABASES = { &amp;#39;default&amp;#39;: { &amp;#39;ENGINE&amp;#39;: &amp;#39;django.db.backends.mysql&amp;#39;, &amp;#39;NAME&amp;#39;: &amp;#39;db&amp;#39;, &amp;#39;USER&amp;#39;: &amp;#39;user&amp;#39;, &amp;#39;PASSWORD&amp;#39;: &amp;#39;passwd&amp;#39;, &amp;#39;HOST&amp;#39;: &amp;#39;host&amp;#39;, &amp;#39;PORT&amp;#39;: &amp;#39;port&amp;#39;, } } 如</description>
     </item>
     
   </channel>

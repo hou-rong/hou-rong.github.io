@@ -5,7 +5,7 @@
     <link>https://hou-rong.github.io/tags/celery/</link>
     <description>Recent content in Celery on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Fri, 06 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hou-rong.github.io/tags/celery/index.xml" rel="self" type="application/rss+xml" />
@@ -17,11 +17,7 @@
       <pubDate>Fri, 06 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/</guid>
-      <description>引入 在使用 celery 进行并发时，发现默认的自动控制并发的算法中没有进行内存的控制，导致服务占用过多内存而出现服务器宕机，现实现 Custom AutoScaler 以解决此问题
-项目配置 首先进行项目配置，将 AutoScaler 配置到 Celery 中
-CELERYD_AUTOSCALER = &#39;proj.tasks.CustomAutoScale&#39;  使用 worker name 区分不同的 worker 仅需在 celery 启动参数的 -n 中添加名称即可
-worker -A proj -l info -P eventlet --autoscale 10,2 -n test_worker  实现 CustomAutoScale 实现自己的 AutoScaler 的主要内容是实现 mabe_scale 函数，或者直接实现 _maybe_scale，本示例为对原先只判断 process 扩充 memory 的判断，当前该方法可以确保内存占用保持在 60-85% 之间
-class CustomAutoScale(Autoscaler): def _maybe_scale(self, req=None): worker_name = self.worker.hostname memory_obj = psutil.virtual_memory() memory_percent = memory_obj.percent procs = self.</description>
+      <description>引入 在使用 celery 进行并发时，发现默认的自动控制并发的算法中没有进行内存的控制，导致服务占用过多内存而出现服务器宕机，现实现 Custom AutoScaler 以解决此问题 项目配</description>
     </item>
     
     <item>
@@ -30,8 +26,7 @@ class CustomAutoScale(Autoscaler): def _maybe_scale(self, req=None): worker_name
       <pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/celery-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%AF%E8%83%BD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</guid>
-      <description>Celery 不能用 root 用户启动问题 celery 中增加如下代码
-from celery import platforms platforms.C_FORCE_ROOT = True  config.py 中的一些配置 # Backend CELERY_RESULT_BACKEND = &#39;amqp://rabbit&#39; # Broker 可以配置为 HaProxy 监控的端口 BROKER_URL = &#39;amqp://rabbit&#39; # Broker 支持设置为 list，可以同时设置多个 rabbit BROKER_URL = [ &#39;amqp://rabbit1&#39;, &#39;amqp://rabbit2&#39;, &#39;amqp://rabbit3&#39; ] # 每个子线程 ( 协程 ) 最多执行 40 个任务，防止内存泄漏导致进程僵死 CELERYD_MAX_TASKS_PER_CHILD = 40 # 不保存结果（如果结果不太重要的话直接选择不保存结果， # 否则会随着任务的继续占用过多的空间） CELERY_IGNORE_RESULT = True # celery 更新到 4.0 后会出现非认证中间包的报错，修改包类型为 # pickle，并压缩以及添加 pickle 包的认证 CELERY_ACCEPT_CONTENT = [&#39;pickle&#39;] CELERY_TASK_SERIALIZER = &#39;pickle&#39; CELERY_MESSAGE_COMPRESSION = &#39;gzip&#39;  celery.</description>
+      <description>Celery 不能用 root 用户启动问题 celery 中增加如下代码 1 2 from celery import platforms platforms.C_FORCE_ROOT = True config.py 中的一些配置 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 # Backend CELERY_RESULT_BACKEND = &amp;#39;amqp://rabbit&amp;#39; # Broker 可以配置</description>
     </item>
     
     <item>
@@ -40,11 +35,7 @@ from celery import platforms platforms.C_FORCE_ROOT = True  config.py 中的一�
       <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
-      <description>引入 近期使用 celery 作为任务平台处理大量任务，在 Redis 和 RabbitMQ 中进行选择，于是选择了后者。一则由于看到文档中 broker 的默认值为 ampq:// ，二则由于 RabbitMQ 的监控以及 celery flower 进行任务监控界面都十分友好。
-安装 Erlang centos 环境上使用 yum 安装
-vim /etc/yum.repos.d/erlang-sulutions.repo  [erlang-solutions] name=Centos $releasever - $basearch - Erlang Solutions baseurl=http://binaries.erlang-solutions.com/rpm/centos/$releasever/$basearch gpgcheck=1 gpgkey=http://binaries.erlang-solutions.com/debian/erlang_solutions.asc enabled=1  rpm --import http://binaries.erlang-solutions.com/debian/erlang_solutions.asc 指定源安装 yum install erlang --enablerepo=erlang-solutions 不指定源安装 yum install erlang  也可以使用清华镜像源直接下载某一版本的所有的安装包 https://mirrors.tuna.tsinghua.edu.cn/erlang-solutions/centos/6/
-yum install *.rpm  安装 RabbitMQ 及简单配置 正常安装即可
-wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el6.noarch.rpm yum install **  配置 rabbitmq</description>
+      <description>引入 近期使用 celery 作为任务平台处理大量任务，在 Redis 和 RabbitMQ 中进行选择，于是选择了后者。一则由于看到文档中 broker 的默认值为 ampq:// ，二则由于 RabbitMQ 的监控以及 celery flower 进行任</description>
     </item>
     
   </channel>

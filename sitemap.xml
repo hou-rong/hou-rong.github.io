@@ -1,27 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://hou-rong.github.io/post/first/</loc>
-    <lastmod>2019-07-30T08:55:43+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hou-rong.github.io/post/</loc>
-    <lastmod>2019-07-30T08:55:43+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hou-rong.github.io/</loc>
-    <lastmod>2019-07-30T08:55:43+08:00</lastmod>
-    <priority>0</priority>
-  </url>
+<?xml-stylesheet type="text/xsl" href="https://hou-rong.github.io/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
     <loc>https://hou-rong.github.io/about/</loc>
     <lastmod>2019-07-30T08:55:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://hou-rong.github.io/</loc>
+    <lastmod>2019-07-30T08:55:38+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -33,6 +23,14 @@
   <url>
     <loc>https://hou-rong.github.io/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</loc>
     <lastmod>2018-02-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://hou-rong.github.io/post/</loc>
+    <lastmod>2018-02-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -50,6 +48,8 @@
   <url>
     <loc>https://hou-rong.github.io/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/</loc>
     <lastmod>2018-01-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -67,6 +67,8 @@
   <url>
     <loc>https://hou-rong.github.io/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2017-10-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -78,11 +80,15 @@
   <url>
     <loc>https://hou-rong.github.io/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/</loc>
     <lastmod>2017-10-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/</loc>
     <lastmod>2017-08-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -94,6 +100,8 @@
   <url>
     <loc>https://hou-rong.github.io/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2017-08-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -105,11 +113,15 @@
   <url>
     <loc>https://hou-rong.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</loc>
     <lastmod>2017-07-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2017-07-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -121,6 +133,8 @@
   <url>
     <loc>https://hou-rong.github.io/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/</loc>
     <lastmod>2017-07-18T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -132,6 +146,8 @@
   <url>
     <loc>https://hou-rong.github.io/post/%E7%88%AC%E8%99%AB%E6%8A%93%E5%8F%96%E5%9B%9E%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E9%87%8D%E5%A4%8D%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2017-07-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -149,6 +165,8 @@
   <url>
     <loc>https://hou-rong.github.io/post/js-%E7%9B%B8%E5%85%B3%E7%88%AC%E8%99%AB%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95%E5%88%86%E4%BA%AB/</loc>
     <lastmod>2017-07-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -166,6 +184,8 @@
   <url>
     <loc>https://hou-rong.github.io/post/centos-%E5%AE%89%E8%A3%85-autofs/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -183,6 +203,8 @@
   <url>
     <loc>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</loc>
     <lastmod>2017-05-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -200,16 +222,22 @@
   <url>
     <loc>https://hou-rong.github.io/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</loc>
     <lastmod>2017-05-08T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2017-04-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/valueerror-do_handshake_on_connect-should-not-be-specified-for-non-blocking-sockets-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</loc>
     <lastmod>2017-04-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -221,16 +249,22 @@
   <url>
     <loc>https://hou-rong.github.io/post/iframe-%E5%85%A8%E5%B1%8F%E5%B9%95/</loc>
     <lastmod>2017-04-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</loc>
     <lastmod>2017-04-19T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/django-%E9%85%8D%E7%BD%AE-email/</loc>
     <lastmod>2017-04-18T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -242,6 +276,8 @@
   <url>
     <loc>https://hou-rong.github.io/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2017-04-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -253,16 +289,22 @@
   <url>
     <loc>https://hou-rong.github.io/post/pycharm-debug-unable-to-display-frame-variables-%E8%A7%A3%E5%86%B3/</loc>
     <lastmod>2017-04-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2017-03-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</loc>
     <lastmod>2017-03-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -274,11 +316,15 @@
   <url>
     <loc>https://hou-rong.github.io/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</loc>
     <lastmod>2017-03-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2017-03-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -296,11 +342,15 @@
   <url>
     <loc>https://hou-rong.github.io/post/%E5%A8%B1%E4%B9%90-%E6%8B%8D%E4%B8%83%E4%BB%A4/</loc>
     <lastmod>2017-03-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/celery-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%AF%E8%83%BD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2017-02-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -312,6 +362,8 @@
   <url>
     <loc>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2017-02-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -329,11 +381,15 @@
   <url>
     <loc>https://hou-rong.github.io/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2017-01-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/python-%E4%BD%BF%E7%94%A8-mysql-%E7%9A%84%E5%88%86%E7%89%87%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2016-12-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -345,21 +401,29 @@
   <url>
     <loc>https://hou-rong.github.io/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2016-12-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2016-10-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2015-11-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/%E6%9E%81%E8%B7%AF%E7%94%B11s-9015%E9%99%8D%E7%BA%A79006-%E9%80%9A%E8%BF%87ttl-%E5%88%B7openwrt/</loc>
     <lastmod>2015-11-19T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -377,11 +441,15 @@
   <url>
     <loc>https://hou-rong.github.io/post/%E8%8E%B7%E5%8F%96android%E5%B1%8F%E5%B9%95%E5%8F%82%E6%95%B0/</loc>
     <lastmod>2015-10-18T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/ubuntu_disable_ping/</loc>
     <lastmod>2015-07-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -393,16 +461,22 @@
   <url>
     <loc>https://hou-rong.github.io/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</loc>
     <lastmod>2015-06-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/cx_freeze-%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2015-01-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://hou-rong.github.io/post/python%E4%BF%AE%E9%A5%B0%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2014-12-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
