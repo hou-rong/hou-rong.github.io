@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="canonical" href="https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" />
+    <meta name="description" content="">
+    
+
+    <title>RabbitMQ 服务搭建 &middot; 海纳百川，有容乃大</title>
+
+    <link rel="shortcut icon" href="https://hou-rong.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://hou-rong.github.io/css/main.css" />
+    
+    
+    
+</head>
+
+
+<body class="loading -mode">
+    
+<div class="top">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+<div class="bottom">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+
+    <header class="header">
+    <ul class="menu clearfix control">
+        
+
+<li class="logo-container logo-default">
+    <a href="https://hou-rong.github.io/" class="btn logo-link">
+        <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+    </a>
+</li>
+
+        
+        
+    </ul>
+</header>
+
+    <div class="middle">
+        <nav class="sidebar">
+            <ul class="posts control">
+    
+    <li><a class="no-break btn" href='/post/first/'><i class="icon icon-post"></i>First</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/'><i class="icon icon-post"></i>MongoDB 数据导入导出</a></li>
+    
+    <li><a class="no-break btn" href='/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/'><i class="icon icon-post"></i>Docker 监控 ui-for-docker</a></li>
+    
+    <li><a class="no-break btn" href='/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/'><i class="icon icon-post"></i>supervisor 3.3.3 在 centos 6 上的安装以及配置</a></li>
+    
+    <li><a class="no-break btn" href='/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/'><i class="icon icon-post"></i>Celery 使用 Customer AutoScaler</a></li>
+    
+    <li><a class="no-break btn" href='/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/'><i class="icon icon-post"></i>requests 请求打印请求信息</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/'><i class="icon icon-post"></i>修复 ssh key 登录服务器</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/'><i class="icon icon-post"></i>搭建自己的 pypi server</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/'><i class="icon icon-post"></i>Mongo 迭代方式查询大量数据</a></li>
+    
+    <li><a class="no-break btn" href='/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/'><i class="icon icon-post"></i>MySql 表，库大小查询</a></li>
+    
+</ul>
+
+        </nav>
+        <main class="main">
+            <article class="article">
+    <h2 class="title"><a href='/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/' class="btn">RabbitMQ 服务搭建</a></h2>
+    <div class="article-meta clearfix">
+        <ul class="dates clearfix left control">
+            <li><i class="icon icon-date"></i></li>
+            <li class="publish-date">
+                <time datetime="2017.02.23">2017.02.23</time>
+            </li>
+        </ul>
+        
+        
+        <div class="article-meta-splitter clearfix"></div>
+        <ul class="article-tags clearfix control">
+            <li><i class="icon icon-tags"></i></li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/linux/" class="btn">Linux</a>
+            </li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/rabbitmq/" class="btn">RabbitMQ</a>
+            </li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/celery/" class="btn">Celery</a>
+            </li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="btn">负载均衡</a>
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="content">
+        
+        
+
+<h2 id="引入">引入</h2>
+
+<p>近期使用 celery 作为任务平台处理大量任务，在 Redis 和 RabbitMQ 中进行选择，于是选择了后者。一则由于看到文档中 broker 的默认值为 <code>ampq://</code> ，二则由于 RabbitMQ 的监控以及 celery flower 进行任务监控界面都十分友好。</p>
+
+<h2 id="安装-erlang">安装 Erlang</h2>
+
+<p>centos 环境上使用 yum 安装</p>
+
+<pre><code class="language-bash">vim /etc/yum.repos.d/erlang-sulutions.repo
+</code></pre>
+
+<pre><code>[erlang-solutions]
+name=Centos $releasever - $basearch - Erlang Solutions
+baseurl=http://binaries.erlang-solutions.com/rpm/centos/$releasever/$basearch
+gpgcheck=1
+gpgkey=http://binaries.erlang-solutions.com/debian/erlang_solutions.asc
+enabled=1
+</code></pre>
+
+<pre><code class="language-bash">rpm --import http://binaries.erlang-solutions.com/debian/erlang_solutions.asc
+
+指定源安装
+yum install erlang --enablerepo=erlang-solutions
+不指定源安装
+yum install erlang
+</code></pre>
+
+<p>也可以使用清华镜像源直接下载某一版本的所有的安装包
+<code>https://mirrors.tuna.tsinghua.edu.cn/erlang-solutions/centos/6/</code></p>
+
+<pre><code class="language-bash">yum install *.rpm
+</code></pre>
+
+<h2 id="安装-rabbitmq-及简单配置">安装 RabbitMQ 及简单配置</h2>
+
+<p>正常安装即可</p>
+
+<pre><code class="language-bash">wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el6.noarch.rpm
+
+yum install **
+</code></pre>
+
+<p>配置 rabbitmq</p>
+
+<pre><code class="language-bash">vim /etc/rabbitmq/rabbitmq-env.conf
+</code></pre>
+
+<p>开启网页监控</p>
+
+<pre><code>rabbitmq-plugins enable rabbitmq_management
+</code></pre>
+
+<p>用户操作</p>
+
+<pre><code class="language-bash">rabbitmqctl  add_user  Username  Password 新建用户
+rabbitmqctl  delete_user  Username 删除用户
+rabbitmqctl  change_password  Username  Newpassword 修改用户密码
+rabbitmqctl  list_users 查看用户列表
+rabbitmqctl  set_user_tags  User  Tag 设置用户类
+
+</code></pre>
+
+<p>RabbitMQ 路径配置</p>
+
+<pre><code class="language-conf">RABBITMQ_MNESIA_BASE=/data/rabbitmq/data
+RABBITMQ_LOG_BASE=/data/rabbitmq/log
+RABBITMQ_PLUGINS_DIR=/data/rabbitmq/plugins
+</code></pre>
+
+<h2 id="rabbitmq-集群配置">RabbitMQ 集群配置</h2>
+
+<p>之后工作时提升了任务量，导致部分 celery 的 worker 连接 RabbitMQ 时出现失败，于是希望搭建 RabbitMQ 镜像集群，同时使用 HaProxy 进行负载均衡</p>
+
+<h3 id="修改-erlang-cookie-将各-rabbitmq-服务器中的-erlang-cookie-配置为相同-并修改权限">修改 .erlang.cookie 将各 rabbitmq 服务器中的 erlang.cookie 配置为相同，并修改权限</h3>
+
+<p><strong>首先将 .erlang.cookie 拷贝到各台机器中</strong></p>
+
+<p><strong>修改 .erlang.cookie 权限</strong></p>
+
+<pre><code class="language-bash">chmod 400 /var/lib/rabbitmq/.erlang.cookie
+chown rabbitmq /var/lib/rabbitmq/.erlang.cookie
+chgrp rabbitmq /var/lib/rabbitmq/.erlang.cookie
+</code></pre>
+
+<h3 id="添加-node-组成集群">添加 node 组成集群</h3>
+
+<p>首先要在执行这条语句的服务器的 /etc/hosts 中添加另一条服务器的域名解析，同时保证此解析为对方的 hostname，使用 hostname 查看</p>
+
+<pre><code class="language-bash">rabbitmqctl join_cluster rabbit@server-hostname
+rabbitmqctl join_cluster --ram rabbit@server-hostname
+</code></pre>
+
+<h3 id="镜像队列策略">镜像队列策略</h3>
+
+<pre><code class="language-bash">rabbitmqctl set_policy ha-all &quot;^&quot; '{&quot;ha-mode&quot;:&quot;all&quot;}'
+</code></pre>
+
+<h3 id="均衡器安装及配置">均衡器安装及配置</h3>
+
+<pre><code class="language-bash">yum install haproxy
+</code></pre>
+
+<pre><code class="language-conf">listen rabbitmq_cluster 0.0.0.0:5672
+
+mode tcp
+balance roundrobin
+
+server   node1 node1-ip:5672 check inter 2000 rise 2 fall 3
+server   node2 node2-ip:5672 check inter 2000 rise 2 fall 3
+server   node3 node3-ip:5672 check inter 2000 rise 2 fall 3
+
+# 监控地址 0.0.0.0:8100/rabbitmq
+
+listen private_monitoring :8100
+       mode    http
+       option  httplog
+       stats   enable
+       stats   uri  /rabbitmq
+       stats   refresh 5s
+</code></pre>
+
+        
+    </div>
+
+</article>
+<section class="comment">
+    <p class="local-info">
+        Comment is disabled to avoid unwanted discussions from 'localhost:1313' on your Disqus
+        account...
+    </p>
+    <div id="disqus_thread"></div>
+</section>
+<script type="text/javascript">
+
+    (function () {
+        if (window.location.hostname == "localhost") {
+            return
+        }
+        document.querySelector('.local-info').classList.add('hide')
+
+        let dsq = document.createElement('script')
+        dsq.type = 'text/javascript'
+        dsq.async = true
+        let disqus_shortname = ''
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
+    })()
+</script>
+
+
+        </main>
+    </div>
+    <footer class="footer clearfix">
+    <ul class="control social clearfix">
+        <li><a class="author btn" href="#"></a></li>
+        
+        <li>
+            <a class="icon-link btn" href="https://hou-rong.github.io/index.xml" type="application/rss+xml" title="rss">
+                <i class="rss icon"></i></a>
+        </li>
+    </ul>
+
+    <ul class="control status clearfix">
+        <li><a href="#" class="btn">Posts:
+                0</a>
+        </li>
+        <li><a href="#" class="btn">Pages:
+                0</a></li>
+        <li><a href="#" class="btn">en</a></li>
+        <li><a href="https://gohugo.io" class="btn">Hugo, 0.55.5</a></li>
+        <li><a href="https://github.com/jacobsun/edidor" class="btn">Theme: Edidor</a></li>
+        <li>
+            
+        </li>
+    </ul>
+</footer>
+<div class="dialog">
+    <div class="wrapper">
+        <div class="clearfix"><button class="btn close-dialog">X</button></div>
+        <header>
+            <h1 class="title">Theme Name</h1>
+        </header>
+        <main>
+            <div class="clearfix">
+                <label for="theme-name">
+                    <p>Only English Character, space, hyphen are allowed!</p>
+                    <p>Valid name examples: "custom", "fantastic theme", "my-theme"</p>
+                    <p>Invalid name examles: "我的主题", ":)", "123"</p>
+                </label>
+                <input type="text" name="theme-name" id="theme-name">
+            </div>
+            <div class="clearfix">
+                <button class="btn export">Export</button>
+            </div>
+
+        </main>
+        <footer></footer>
+    </div>
+</div>
+
+    <script src="https://hou-rong.github.io/js/main.js"></script>
+
+
+</body>
+
+</html>

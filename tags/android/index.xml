@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/android/</link>
+    <description>Recent content in Android on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 18 Oct 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Android获得屏幕参数</title>
+      <link>https://hou-rong.github.io/post/%E8%8E%B7%E5%8F%96android%E5%B1%8F%E5%B9%95%E5%8F%82%E6%95%B0/</link>
+      <pubDate>Sun, 18 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/%E8%8E%B7%E5%8F%96android%E5%B1%8F%E5%B9%95%E5%8F%82%E6%95%B0/</guid>
+      <description>public static int getStatusBarHeight(Context context) { Class&amp;lt;?&amp;gt; c = null; Object obj = null; Field field = null; int x = 0, statusBarHeight = 0; try { c = Class.forName(&amp;quot;com.android.internal.R$dimen&amp;quot;); obj = c.newInstance(); field = c.getField(&amp;quot;status_bar_height&amp;quot;); x = Integer.parseInt(field.get(obj).toString()); statusBarHeight = context.getResources().getDimensionPixelSize(x); } catch (Exception e1) { e1.printStackTrace(); } return statusBarHeight; } public static int getNavigationBarHeight(Activity activity) { Resources resources = activity.getResources(); int resourceId = resources.getIdentifier(&amp;quot;navigation_bar_height&amp;quot;, &amp;quot;dimen&amp;quot;, &amp;quot;android&amp;quot;); int height = resources.</description>
+    </item>
+    
+  </channel>
+</rss>

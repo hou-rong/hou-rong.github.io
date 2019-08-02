@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>娱乐 on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/%E5%A8%B1%E4%B9%90/</link>
+    <description>Recent content in 娱乐 on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 06 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/%E5%A8%B1%E4%B9%90/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>娱乐：拍七令</title>
+      <link>https://hou-rong.github.io/post/%E5%A8%B1%E4%B9%90-%E6%8B%8D%E4%B8%83%E4%BB%A4/</link>
+      <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/%E5%A8%B1%E4%B9%90-%E6%8B%8D%E4%B8%83%E4%BB%A4/</guid>
+      <description>引言 这两天班级聚会，喝酒时玩起了拍七令的游戏，输了就罚喝酒。基本上谁输的越多喝的越多就越容易输。于是写个程序，生成数字表，给大家做个参考。同时也给已经喝醉的朋友们一点提示 页面链接
+Python 版本 两个条件：
+ 可迭代对象 not_mod 中任一数与当前数字的取余不为 0 not_in 中的任一数不在当前数字中   def seven_shots(start, end, not_mod, not_in): for i in range(int(start), int(end)): if any(map(lambda x: i % int(x) == 0, not_mod)) or any(map(lambda x: str(x) in str(i), not_in)): yield &#39;拍手&#39; else: yield str(i)  JavaScript 版本  首先实现 Python 中的 any 函数与 Python 版本类似。区别是返回值为 Array  function any(iter) { for (var index = 0; index &amp;lt; iter.</description>
+    </item>
+    
+  </channel>
+</rss>

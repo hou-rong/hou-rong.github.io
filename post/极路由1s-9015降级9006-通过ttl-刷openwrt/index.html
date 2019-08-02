@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="canonical" href="https://hou-rong.github.io/post/%E6%9E%81%E8%B7%AF%E7%94%B11s-9015%E9%99%8D%E7%BA%A79006-%E9%80%9A%E8%BF%87ttl-%E5%88%B7openwrt/" />
+    <meta name="description" content="">
+    
+
+    <title>极路由1s 9015降级9006 通过TTL 刷OpenWrt &middot; 海纳百川，有容乃大</title>
+
+    <link rel="shortcut icon" href="https://hou-rong.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://hou-rong.github.io/css/main.css" />
+    
+    
+    
+</head>
+
+
+<body class="loading -mode">
+    
+<div class="top">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+<div class="bottom">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+
+    <header class="header">
+    <ul class="menu clearfix control">
+        
+
+<li class="logo-container logo-default">
+    <a href="https://hou-rong.github.io/" class="btn logo-link">
+        <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+    </a>
+</li>
+
+        
+        
+    </ul>
+</header>
+
+    <div class="middle">
+        <nav class="sidebar">
+            <ul class="posts control">
+    
+    <li><a class="no-break btn" href='/post/first/'><i class="icon icon-post"></i>First</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/'><i class="icon icon-post"></i>MongoDB 数据导入导出</a></li>
+    
+    <li><a class="no-break btn" href='/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/'><i class="icon icon-post"></i>Docker 监控 ui-for-docker</a></li>
+    
+    <li><a class="no-break btn" href='/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/'><i class="icon icon-post"></i>supervisor 3.3.3 在 centos 6 上的安装以及配置</a></li>
+    
+    <li><a class="no-break btn" href='/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/'><i class="icon icon-post"></i>Celery 使用 Customer AutoScaler</a></li>
+    
+    <li><a class="no-break btn" href='/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/'><i class="icon icon-post"></i>requests 请求打印请求信息</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/'><i class="icon icon-post"></i>修复 ssh key 登录服务器</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/'><i class="icon icon-post"></i>搭建自己的 pypi server</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/'><i class="icon icon-post"></i>Mongo 迭代方式查询大量数据</a></li>
+    
+    <li><a class="no-break btn" href='/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/'><i class="icon icon-post"></i>MySql 表，库大小查询</a></li>
+    
+</ul>
+
+        </nav>
+        <main class="main">
+            <article class="article">
+    <h2 class="title"><a href='/post/%E6%9E%81%E8%B7%AF%E7%94%B11s-9015%E9%99%8D%E7%BA%A79006-%E9%80%9A%E8%BF%87ttl-%E5%88%B7openwrt/' class="btn">极路由1s 9015降级9006 通过TTL 刷OpenWrt</a></h2>
+    <div class="article-meta clearfix">
+        <ul class="dates clearfix left control">
+            <li><i class="icon icon-date"></i></li>
+            <li class="publish-date">
+                <time datetime="2015.11.19">2015.11.19</time>
+            </li>
+        </ul>
+        
+        
+        <div class="article-meta-splitter clearfix"></div>
+        <ul class="article-tags clearfix control">
+            <li><i class="icon icon-tags"></i></li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/%E7%A1%AC%E4%BB%B6/" class="btn">硬件</a>
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="content">
+        
+        
+
+<h2 id="极路由降级">极路由降级</h2>
+
+<ul>
+<li>拔掉路由器电源</li>
+<li>用网线将LAN口语电脑网口项链</li>
+<li>将电脑本地连接的IP设置为<code>192.168.1.88</code>，子网掩码<code>255.255.255.0</code>，网关和DNS服务器空着就可以了，设置方法：
+
+<ul>
+<li><a href="http://jingyan.baidu.com/article/22fe7ced18876f3003617f5e.html">Win7/Win8/Win10</a></li>
+<li><a href="http://jingyan.baidu.com/article/77b8dc7fc0f5786174eab6af.html">XP</a></li>
+</ul></li>
+<li>下载<a href="http://pan.baidu.com/s/1bWlg6">资源</a></li>
+<li>32位系统运行tftpd32，64位系统运行tftpd64</li>
+<li>在已经用尖锐物体按下RESET键，并保持按压的情况下，给路由器供电</li>
+<li>待电脑tftpd出现传输<code>recovery.bin</code>的进度条时松开RESET键</li>
+<li>路由器面板进入跑马灯状态，待跑马灯结束后，路由器重启，刷机完成</li>
+<li>改回正常的本地连接IP属性，访问<a href="http://192.168.199.1">路由器管理界面</a>，进行初始化设置，在系统版本中可以看到已经路由器版本已经降级到9006</li>
+</ul>
+
+<!-- more -->
+
+<h2 id="通过ttl建立计算机与路由器的连接">通过TTL建立计算机与路由器的连接</h2>
+
+<ul>
+<li>PL2023模块的<a href="http://support.lenovo.com/us/en/downloads/ds034089">驱动</a>，从网页上面找一个适合自己电脑的</li>
+<li>USB插入PL2023模块，如果在设备管理器中显示正常，说明驱动安装成功。如果你的系统是WIn10，或者其他原因导致显示设备不能使用，显示错误代码Code 10，看<a href="http://www.ifamilysoftware.com/news37.html">解决方案</a></li>
+<li>取下极路由SD卡，用内三角螺丝刀拧开极路由后部的6个螺丝，将电路板拆出</li>
+
+<li><p>在TX TX GND 3.3V处焊上排针
+<img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-IMG_20151107_131437.jpg" alt="路由器排针" /></p></li>
+
+<li><p>用排线将PL2023模块与刚焊的排针连接，注意<code>3.3V处一定不要接线</code>
+<img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-IMG_20151107_133034.jpg" alt="PL2023模块与路由器的连接" /></p></li>
+
+<li><p>使用<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a>，<code>Connection Type</code>选择<code>Serial</code>，<code>Serial line</code>根据自己使用的端口选择，<code>Speed</code>填入<code>115200</code>，使用Open打开</p></li>
+</ul>
+
+<p><img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image1-1.png" alt="Image1" /></p>
+
+<ul>
+<li>接通电源，但出现这句话的时候按F，而后Enter</li>
+</ul>
+
+<p><img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image4.png" alt="Image4" /></p>
+
+<ul>
+<li>当出现这句话的时候，按Enter</li>
+</ul>
+
+<p><img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image5.png" alt="Image5" /></p>
+
+<ul>
+<li>而后会出现极路由的界面</li>
+</ul>
+
+<p><img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image6.png" alt="Image6" /></p>
+
+<ul>
+<li>此时极路由已经与计算机建立了连接</li>
+</ul>
+
+<h2 id="极路由刷pandorabox系统">极路由刷PandoraBox系统</h2>
+
+<ul>
+<li>给极路由接入网线，Ping某一网址检查路由器网络连接状态</li>
+
+<li><p>输入</p>
+
+<pre><code class="language-shell">rm -rf tool.sh &amp;&amp; wget -c http://www.hiwifimi.com/app/tool.sh &amp;&amp; chmod +x tool.sh &amp;&amp; ./tool.sh
+</code></pre>
+
+<p><img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image7.png" alt="PandoraBox的Option选择" /></p>
+
+<ul>
+<li><p>输入<code>openwrt</code>后按回车即可
+<img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image8.png" alt="Image8" /></p></li>
+
+<li><p>用户名root，密码admin 进入
+<img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image9.png" alt="Image9" /></p></li>
+</ul>
+
+<h2 id="极路由刷openwrt系统">极路由刷OpenWrt系统</h2>
+
+<ul>
+<li>如果需要的话，可以下载<a href="http://pan.baidu.com/s/1eQ162vo">镜像</a></li>
+<li>给极路由接入网线，Ping某一网址检查路由器网络连接状态</li>
+<li>如果希望使用网上的镜像</li>
+<li>输入</li>
+</ul>
+
+<pre><code class="language-shell">cd /tmp
+wget http://xxxx.xxx/xxx.bin
+mtd write *.bin firmware
+</code></pre></li>
+
+<li><p>如果希望使用本地镜像，则可以通过SD卡或者Scp将镜像文件从计算机传到路由器中，如果使用SD卡进行传递的时候注意文件系统的格式为EXT2格式，需要使用可以读EXT2的程序，或者直接在Linux中操作。而后在路由器中找到目标文件夹执行</p>
+
+<pre><code class="language-shell">mtd write HIWIFI_OpenWrt.bin
+</code></pre>
+
+<ul>
+<li><p>待执行完成后，路由器重启，出现如图界面，说明系统安装成功
+<img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image10.png" alt="Image10" /></p></li>
+
+<li><p>打开<a href="192.168.1.1">管理界面</a>，通过在网页中设置设置root的密码以及ssh的相关参数，方便我们通过ssh直接连入路由器进行修改
+<img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image11.png" alt="Image11" /></p></li>
+</ul></li>
+</ul>
+
+        
+    </div>
+
+</article>
+<section class="comment">
+    <p class="local-info">
+        Comment is disabled to avoid unwanted discussions from 'localhost:1313' on your Disqus
+        account...
+    </p>
+    <div id="disqus_thread"></div>
+</section>
+<script type="text/javascript">
+
+    (function () {
+        if (window.location.hostname == "localhost") {
+            return
+        }
+        document.querySelector('.local-info').classList.add('hide')
+
+        let dsq = document.createElement('script')
+        dsq.type = 'text/javascript'
+        dsq.async = true
+        let disqus_shortname = ''
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
+    })()
+</script>
+
+
+        </main>
+    </div>
+    <footer class="footer clearfix">
+    <ul class="control social clearfix">
+        <li><a class="author btn" href="#"></a></li>
+        
+        <li>
+            <a class="icon-link btn" href="https://hou-rong.github.io/index.xml" type="application/rss+xml" title="rss">
+                <i class="rss icon"></i></a>
+        </li>
+    </ul>
+
+    <ul class="control status clearfix">
+        <li><a href="#" class="btn">Posts:
+                0</a>
+        </li>
+        <li><a href="#" class="btn">Pages:
+                0</a></li>
+        <li><a href="#" class="btn">en</a></li>
+        <li><a href="https://gohugo.io" class="btn">Hugo, 0.55.5</a></li>
+        <li><a href="https://github.com/jacobsun/edidor" class="btn">Theme: Edidor</a></li>
+        <li>
+            
+        </li>
+    </ul>
+</footer>
+<div class="dialog">
+    <div class="wrapper">
+        <div class="clearfix"><button class="btn close-dialog">X</button></div>
+        <header>
+            <h1 class="title">Theme Name</h1>
+        </header>
+        <main>
+            <div class="clearfix">
+                <label for="theme-name">
+                    <p>Only English Character, space, hyphen are allowed!</p>
+                    <p>Valid name examples: "custom", "fantastic theme", "my-theme"</p>
+                    <p>Invalid name examles: "我的主题", ":)", "123"</p>
+                </label>
+                <input type="text" name="theme-name" id="theme-name">
+            </div>
+            <div class="clearfix">
+                <button class="btn export">Export</button>
+            </div>
+
+        </main>
+        <footer></footer>
+    </div>
+</div>
+
+    <script src="https://hou-rong.github.io/js/main.js"></script>
+
+
+</body>
+
+</html>

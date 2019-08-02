@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="canonical" href="https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/" />
+    <meta name="description" content="">
+    
+
+    <title>uWSGI &#43; Nginx &#43; Django配置 &middot; 海纳百川，有容乃大</title>
+
+    <link rel="shortcut icon" href="https://hou-rong.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://hou-rong.github.io/css/main.css" />
+    
+    
+    
+</head>
+
+
+<body class="loading -mode">
+    
+<div class="top">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+<div class="bottom">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+
+    <header class="header">
+    <ul class="menu clearfix control">
+        
+
+<li class="logo-container logo-default">
+    <a href="https://hou-rong.github.io/" class="btn logo-link">
+        <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+    </a>
+</li>
+
+        
+        
+    </ul>
+</header>
+
+    <div class="middle">
+        <nav class="sidebar">
+            <ul class="posts control">
+    
+    <li><a class="no-break btn" href='/post/first/'><i class="icon icon-post"></i>First</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/'><i class="icon icon-post"></i>MongoDB 数据导入导出</a></li>
+    
+    <li><a class="no-break btn" href='/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/'><i class="icon icon-post"></i>Docker 监控 ui-for-docker</a></li>
+    
+    <li><a class="no-break btn" href='/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/'><i class="icon icon-post"></i>supervisor 3.3.3 在 centos 6 上的安装以及配置</a></li>
+    
+    <li><a class="no-break btn" href='/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/'><i class="icon icon-post"></i>Celery 使用 Customer AutoScaler</a></li>
+    
+    <li><a class="no-break btn" href='/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/'><i class="icon icon-post"></i>requests 请求打印请求信息</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/'><i class="icon icon-post"></i>修复 ssh key 登录服务器</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/'><i class="icon icon-post"></i>搭建自己的 pypi server</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/'><i class="icon icon-post"></i>Mongo 迭代方式查询大量数据</a></li>
+    
+    <li><a class="no-break btn" href='/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/'><i class="icon icon-post"></i>MySql 表，库大小查询</a></li>
+    
+</ul>
+
+        </nav>
+        <main class="main">
+            <article class="article">
+    <h2 class="title"><a href='/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/' class="btn">uWSGI &#43; Nginx &#43; Django配置</a></h2>
+    <div class="article-meta clearfix">
+        <ul class="dates clearfix left control">
+            <li><i class="icon icon-date"></i></li>
+            <li class="publish-date">
+                <time datetime="2017.03.15">2017.03.15</time>
+            </li>
+        </ul>
+        
+        
+        <div class="article-meta-splitter clearfix"></div>
+        <ul class="article-tags clearfix control">
+            <li><i class="icon icon-tags"></i></li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/python/" class="btn">Python</a>
+            </li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/linux/" class="btn">Linux</a>
+            </li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/django/" class="btn">Django</a>
+            </li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/uwsgi/" class="btn">uWSGI</a>
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="content">
+        
+        
+
+<h2 id="引言">引言</h2>
+
+<p>在开发 Django 项目开发完成后需要进行部署，使用 uWSGI + Nginx 的方式部署，以增加并发</p>
+
+<h2 id="django">Django</h2>
+
+<p> </p>
+
+<h3 id="测试">测试</h3>
+
+<pre><code>$ python manage.py runserver
+</code></pre>
+
+<p>如果可以正常运行，且可访问页面，证明项目环境已配置完全，可以正常使用。</p>
+
+<h2 id="uwsgi">uWSGI</h2>
+
+<h3 id="安装">安装</h3>
+
+<pre><code class="language-bash">sudo apt-get install nginx uwsgi uwsgi-plugin-python
+</code></pre>
+
+<p><strong>可以使用 uwsgi &ndash;version 查看 uwsgi 版本，如果版本过低则</strong></p>
+
+<pre><code>$ pip install -U uwsgi
+$ cd /usr/bin
+$ mv uwsgi uwsgi-old
+$ ln -s /usr/local/bin/uwsgi uwsgi
+</code></pre>
+
+<p> </p>
+
+<h3 id="配置">配置</h3>
+
+<p>为了测试可以先生成一个测试文件 test.py</p>
+
+<pre><code class="language-python"># test.py
+def application(env, start_response):
+    start_response('200 OK', [('Content-Type','text/html')])
+    #return [&quot;Hello World&quot;] # python2
+    return [b&quot;Hello World&quot;] # python3
+</code></pre>
+
+<p>然后使用 8000 端口架设</p>
+
+<pre><code class="language-bash">$ uwsgi --http :8000 --wsgi-file test.py
+</code></pre>
+
+<p>在 django 中项正常运行，nginx 中静态文件能够直接打开后</p>
+
+<pre><code class="language-bash">$ uwsgi --http :8000 --module /path/to/file/wsgi.py
+</code></pre>
+
+<p>如果正常后可以使用 UNIX_SOCK</p>
+
+<pre><code class="language-bash">$ uwsgi --socket /tmp/mysite.sock --chmod-socket=664 --module /path/to/file/wsgi.py
+</code></pre>
+
+<p>如果正常则写配置文件 mysite.ini</p>
+
+<pre><code class="language-ini">[uwsgi]
+# 项目目录
+chdir=/Users/hourong/PycharmProjects/examination
+# 从文件夹中找 /your/project/wsgi.py 中的 application
+module=examination.wsgi:application
+# 设置环境
+env=DJANGO_SETTINGS_MODULE=examination.settings
+# pid 文件地址
+pidfile=/tmp/project-master.pid
+# 开放的端口（ http, tcp, unix socket ）
+# http=127.0.0.1:49152
+# socket=127.0.0.1:18001
+socket=/tmp/mysite.sock
+# unix socket 需要指定文件的
+chmod-socket=664
+# 用于添加 virtualenv 的地址
+home=/Users/hourong/venv/examnation
+# 当前进程数
+processes=1
+# 允许多线程
+enable-threads=True
+</code></pre>
+
+<p>启动时只需</p>
+
+<pre><code class="language-bash">$ uwsgi --ini mysite.ini
+</code></pre>
+
+<h2 id="nginx">Nginx</h2>
+
+<h3 id="安装-1">安装</h3>
+
+<pre><code class="language-bash">apt-get install nginx
+</code></pre>
+
+<p>    </p>
+
+<h3 id="基本命令">基本命令</h3>
+
+<pre><code class="language-conf">/etc/init.d/nginx start         ＃启动
+/etc/init.d/nginx stop          ＃停止
+/etc/init.d/nginx restart       ＃重启
+</code></pre>
+
+<h3 id="基本配置">基本配置</h3>
+
+<pre><code class="language-bash">vim /etc/nginx/conf.d/mysite.conf
+</code></pre>
+
+<p>其中 mysite.conf 可替换为 XXX.conf</p>
+
+<pre><code class="language-conf">upstream django {
+    # 有两种选择，根据 uWSGI 中配置而定
+    # server 127.0.0.1:18001;
+    server unix:///tmp/mysite.sock;
+}
+
+server {
+        listen   18090;
+        charset utf-8;
+        
+        # 认证日志
+	     
+	     access_log /usr/local/var/log/nginx/exam_access_log;
+	     
+	     # 错误日志
+ 	     
+ 	     error_log /usr/local/var/log/nginx/exam_error_log;
+ 	     
+ 	     location /static {
+     	           # 静态文件链接地址
+                alias /your/web/path/static/;
+        }
+
+        location / {
+                include uwsgi_params;
+                uwsgi_pass django;
+        }
+}
+</code></pre>
+
+        
+    </div>
+
+</article>
+<section class="comment">
+    <p class="local-info">
+        Comment is disabled to avoid unwanted discussions from 'localhost:1313' on your Disqus
+        account...
+    </p>
+    <div id="disqus_thread"></div>
+</section>
+<script type="text/javascript">
+
+    (function () {
+        if (window.location.hostname == "localhost") {
+            return
+        }
+        document.querySelector('.local-info').classList.add('hide')
+
+        let dsq = document.createElement('script')
+        dsq.type = 'text/javascript'
+        dsq.async = true
+        let disqus_shortname = ''
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
+    })()
+</script>
+
+
+        </main>
+    </div>
+    <footer class="footer clearfix">
+    <ul class="control social clearfix">
+        <li><a class="author btn" href="#"></a></li>
+        
+        <li>
+            <a class="icon-link btn" href="https://hou-rong.github.io/index.xml" type="application/rss+xml" title="rss">
+                <i class="rss icon"></i></a>
+        </li>
+    </ul>
+
+    <ul class="control status clearfix">
+        <li><a href="#" class="btn">Posts:
+                0</a>
+        </li>
+        <li><a href="#" class="btn">Pages:
+                0</a></li>
+        <li><a href="#" class="btn">en</a></li>
+        <li><a href="https://gohugo.io" class="btn">Hugo, 0.55.5</a></li>
+        <li><a href="https://github.com/jacobsun/edidor" class="btn">Theme: Edidor</a></li>
+        <li>
+            
+        </li>
+    </ul>
+</footer>
+<div class="dialog">
+    <div class="wrapper">
+        <div class="clearfix"><button class="btn close-dialog">X</button></div>
+        <header>
+            <h1 class="title">Theme Name</h1>
+        </header>
+        <main>
+            <div class="clearfix">
+                <label for="theme-name">
+                    <p>Only English Character, space, hyphen are allowed!</p>
+                    <p>Valid name examples: "custom", "fantastic theme", "my-theme"</p>
+                    <p>Invalid name examles: "我的主题", ":)", "123"</p>
+                </label>
+                <input type="text" name="theme-name" id="theme-name">
+            </div>
+            <div class="clearfix">
+                <button class="btn export">Export</button>
+            </div>
+
+        </main>
+        <footer></footer>
+    </div>
+</div>
+
+    <script src="https://hou-rong.github.io/js/main.js"></script>
+
+
+</body>
+
+</html>

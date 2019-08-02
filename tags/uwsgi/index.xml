@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>uwsgi on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/uwsgi/</link>
+    <description>Recent content in uwsgi on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 26 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/uwsgi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Django 使用 uwsgi 启动后日志中显示 UnicodeEncodeError</title>
+      <link>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</link>
+      <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</guid>
+      <description>引入 在做毕设时，系统需要用 uwsgi 进行启动，在打印日志中，请求即使成功也会报 UnicodeEncodeError，而在使用 Debug 模式下不会出现
+解决方案 在 Django 的官网中看到，uwsgi.ini 配置中添加 env = LANG=en_US.UTF-8 ，在重新启动应用后发现仍然有此错误。于是修改为 env = LANG=zh_CN.UTF-8 即可解决此错误。</description>
+    </item>
+    
+    <item>
+      <title>uWSGI &#43; Nginx &#43; Django配置</title>
+      <link>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</guid>
+      <description>引言 在开发 Django 项目开发完成后需要进行部署，使用 uWSGI + Nginx 的方式部署，以增加并发
+Django  测试 $ python manage.py runserver  如果可以正常运行，且可访问页面，证明项目环境已配置完全，可以正常使用。
+uWSGI 安装 sudo apt-get install nginx uwsgi uwsgi-plugin-python  可以使用 uwsgi &amp;ndash;version 查看 uwsgi 版本，如果版本过低则
+$ pip install -U uwsgi $ cd /usr/bin $ mv uwsgi uwsgi-old $ ln -s /usr/local/bin/uwsgi uwsgi   配置 为了测试可以先生成一个测试文件 test.py
+# test.py def application(env, start_response): start_response(&#39;200 OK&#39;, [(&#39;Content-Type&#39;,&#39;text/html&#39;)]) #return [&amp;quot;Hello World&amp;quot;] # python2 return [b&amp;quot;Hello World&amp;quot;] # python3  然后使用 8000 端口架设</description>
+    </item>
+    
+  </channel>
+</rss>

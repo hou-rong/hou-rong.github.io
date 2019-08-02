@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="canonical" href="https://hou-rong.github.io/post/js-%E7%9B%B8%E5%85%B3%E7%88%AC%E8%99%AB%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95%E5%88%86%E4%BA%AB/" />
+    <meta name="description" content="">
+    
+
+    <title>js 相关爬虫解析方法分享 &middot; 海纳百川，有容乃大</title>
+
+    <link rel="shortcut icon" href="https://hou-rong.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://hou-rong.github.io/css/main.css" />
+    
+    
+    
+</head>
+
+
+<body class="loading -mode">
+    
+<div class="top">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+<div class="bottom">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+
+    <header class="header">
+    <ul class="menu clearfix control">
+        
+
+<li class="logo-container logo-default">
+    <a href="https://hou-rong.github.io/" class="btn logo-link">
+        <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+    </a>
+</li>
+
+        
+        
+    </ul>
+</header>
+
+    <div class="middle">
+        <nav class="sidebar">
+            <ul class="posts control">
+    
+    <li><a class="no-break btn" href='/post/first/'><i class="icon icon-post"></i>First</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/'><i class="icon icon-post"></i>MongoDB 数据导入导出</a></li>
+    
+    <li><a class="no-break btn" href='/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/'><i class="icon icon-post"></i>Docker 监控 ui-for-docker</a></li>
+    
+    <li><a class="no-break btn" href='/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/'><i class="icon icon-post"></i>supervisor 3.3.3 在 centos 6 上的安装以及配置</a></li>
+    
+    <li><a class="no-break btn" href='/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/'><i class="icon icon-post"></i>Celery 使用 Customer AutoScaler</a></li>
+    
+    <li><a class="no-break btn" href='/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/'><i class="icon icon-post"></i>requests 请求打印请求信息</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/'><i class="icon icon-post"></i>修复 ssh key 登录服务器</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/'><i class="icon icon-post"></i>搭建自己的 pypi server</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/'><i class="icon icon-post"></i>Mongo 迭代方式查询大量数据</a></li>
+    
+    <li><a class="no-break btn" href='/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/'><i class="icon icon-post"></i>MySql 表，库大小查询</a></li>
+    
+</ul>
+
+        </nav>
+        <main class="main">
+            <article class="article">
+    <h2 class="title"><a href='/post/js-%E7%9B%B8%E5%85%B3%E7%88%AC%E8%99%AB%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95%E5%88%86%E4%BA%AB/' class="btn">js 相关爬虫解析方法分享</a></h2>
+    <div class="article-meta clearfix">
+        <ul class="dates clearfix left control">
+            <li><i class="icon icon-date"></i></li>
+            <li class="publish-date">
+                <time datetime="2017.07.10">2017.07.10</time>
+            </li>
+        </ul>
+        
+        
+        <div class="article-meta-splitter clearfix"></div>
+        <ul class="article-tags clearfix control">
+            <li><i class="icon icon-tags"></i></li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/%E7%88%AC%E8%99%AB/" class="btn">爬虫</a>
+            </li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/python/" class="btn">Python</a>
+            </li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/javascript/" class="btn">JavaScript</a>
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="content">
+        
+        
+
+<h2 id="引入">引入</h2>
+
+<p>由于现在反爬虫机制的加强，传输数据的中间流程也发生了改变，一些不希望被爬取的网站纷纷加入了一些防盗设施，这是反反爬虫的解析 js 进行抓取的流程变得必不可少。</p>
+
+<h2 id="需要解析的-js-包含什么">需要解析的 js 包含什么</h2>
+
+<p>就我现在所见过的需要解析 js 的爬虫</p>
+
+<ul>
+<li><p>不需要请求 key 或者 cookie 里面需要传递什么重要参数的爬虫。简单的 ajax ，直接通过打请求就可以获得数据。WebSocket ，http 1.1 建立的长连接方法，可通过 webSocket.send 发送服务器所要的请求参数直接获取相关数据。</p></li>
+
+<li><p>需要进行进一步解析的 key 或者 cookie 里面需要加入特殊字符的爬虫（由于页面中请求 js 的特性，需要先把源文件下载到本地浏览器中，再执行。这类页面的加密其实都应该是明文的。但由于做了混淆，可能我们阅读起来会非常的费力），其中加密的方式有以下几种：</p>
+
+<ul>
+<li>String.fromCharCode() 系列及其变种。这种一般是将一段数字，或者函数变成文字，然后再转成 charcode 最后保存在页面中。还原方式就是逆向，然后再 eval</li>
+<li>将几个数学函数传入，并进行计算，最终通过返回值确定</li>
+<li>自定义函数，并封装到某个 js 中，最终通过此函数进行计算并返回相关值，同时有可能检测当前浏览器状态</li>
+<li>函数中添加很多注释，导致函数无法阅读</li>
+</ul></li>
+</ul>
+
+<h2 id="具体情况">具体情况</h2>
+
+<p>总之，上面的方法归根结底就是将函数变字符串，中间随便加注释，或者加几个数学函数，再 eval 一下这样。难并不难，只是繁琐。现在以我查看 elong 验证的情况具体介绍遇到这种状况时的各个处理方式。</p>
+
+<h3 id="查看页面">查看页面</h3>
+
+<p>打开页面 <a href="http://m.elong.com/ihotel/315197/?source_id=315197#detailTab">http://m.elong.com/ihotel/315197/?source_id=315197#detailTab</a>并查看源码</p>
+
+<p>首先我们看到了一个十分不和谐的字符串
+<img src="http://olw01uxs5.bkt.clouddn.com/2017-07-10-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-10%20%E4%B8%8A%E5%8D%8812.04.35.png" alt="屏幕快照 2017-07-10 上午12.04.35" /></p>
+
+<p>并能够找到与之配合的 js</p>
+
+<p><img src="http://olw01uxs5.bkt.clouddn.com/2017-07-10-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-10%20%E4%B8%8A%E5%8D%8812.04.43.png" alt="屏幕快照 2017-07-10 上午12.04.43" /></p>
+
+<pre><code class="language-javascript">eval(function(p,a,c,k,e,d){e=function(c){return(c&lt;a?&quot;&quot;:e(parseInt(c/a)))+((c=c%a)&gt;35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('3 i(){g{2 a=$(&quot;#8&quot;).f();5(4==a||a==\'\'||a==\'${8}\'){0-6};2 b=7(a);2 c=9(b);0 c}d(e){0-6}};3 7(a){5(4==a||a==\'\'){0 a};2 b=a.j(/\\)\\^-1/h,&quot;)&amp;-1&quot;);0 b}',20,20,'return||var|function|null|if|99|hijklmn|tsdDetail|eval||||catch||val|try|gm|abcdefgDetail|replace'.split('|'),0,{}))
+</code></pre>
+
+<p>阅读后发现这个函数先生成一个匿名函数，此函数有 6 个参数，并且此函数在生成的同时被调用，传入下方的若干参数，最终结果会被 eval 。</p>
+
+<p>简单查看 function 后，发现这个函数实际上是一个字符串转化的函数，通过下方给入的值以及相关判断规则，确定这个字符串应该如何由 charcode 的偏移生成一段合理的字符串。即通过 a,c,k,e,d 这些对象去修改 p 的值 <code>p=p.replace(new RegExp('\\b'+e(c)+'\\b','g')</code></p>
+
+<p>此函数在运行后会生成类似这种的方法</p>
+
+<pre><code class="language-javascript">function abcdefgDetail() {
+    try {
+        var a = $(&quot;#tsdDetail&quot;).val();
+        if (null == a || a == '' || a == '${tsdDetail}') {
+            return -99
+        }
+        ;
+        var b = hijklmn(a);
+        var c = eval(b);
+        return c
+    } catch (e) {
+        return -99
+    }
+};function hijklmn(a) {
+    if (null == a || a == '') {
+        return a
+    }
+    ;
+    var b = a.replace(/\)\^-1/gm, &quot;)&amp;-1&quot;);
+    return b
+}
+</code></pre>
+
+<p>查看后此方法每次生成的都相同，所以我们构造 javascript 函数可以从这一步开始，而不是第一个地方</p>
+
+<p>此函数的效果为从 tsDetail 中提取值，通过替换其中的字符串 replace(/)\^-1/gm, &ldquo;)&amp;-1&rdquo;)，生成 b ，从而 eval 生成 c。</p>
+
+<h3 id="伪造一个简单且危险的请求测试此部分是否可以正常返回值">伪造一个简单且危险的请求测试此部分是否可以正常返回值</h3>
+
+<p>想法很好，尝试构造简单的 python 调用方法（这样做十分危险，确保你使用的是 PhantomJS 这种带沙盒的环境）。这样获取 check_code ，repr 的原因是因为我们需要原始的字符串，而不是可打印的字符串。</p>
+
+<pre><code class="language-python">value_str = doc('#tsdDetail').val()
+
+ph_runtime = execjs.get('PhantomJS')
+js_func = ph_runtime.compile(
+   '''
+       var a=%s;
+       var b=a.replace(/\)\^-1/gm, &quot;)&amp;-1&quot;);
+       var c=eval(b);
+   ''' % (
+       repr(value_str),))
+       
+check_code = str(js_func.eval('c'))
+</code></pre>
+
+<h3 id="为了强调这一点-我不惜使用标题来说-这样的话一般来说是会失败的-不失败的话危险也是十分巨大的">为了强调这一点，我不惜使用标题来说。这样的话一般来说是会失败的，不失败的话危险也是十分巨大的。</h3>
+
+<p>为什么？</p>
+
+<p>首先我们只知道了 b 的值是怎样的，但是 eval(b) 的结果会是怎样的我们并不知道，同时，即使返回了正确的数据，万一对方在 b 中加入了什么不为人知的代码的话，对我们的损害时毁灭的（比如 rm -rf 这样，如果你的权限管理不好，或者没用沙盒，是不是感觉很爽？）</p>
+
+<h3 id="进一步查看-b-中的信息">进一步查看 b 中的信息</h3>
+
+<p>继续我们的内容，这样返回结果是失败的。我们对 b 的内容继续查看，我们其实只需要查看 b 函数究竟是怎样的就可以明确里面运行了是什么，但由于这个字符串加了很多乱码类型的注释，干扰了我们的查看。</p>
+
+<p>乱码类型的注释像这样。</p>
+
+<pre><code class="language-javascript">/*asdfasdkasl;kfdkl;asdkl;f*/var/*asjdfjklwioerjiowkfskldf*/a/*ajsldfjklwioeruioskdf*/=/*asjdfjklasdjlkfkljasdf*/1/*asdfjklasdjkljklasdfklj*/;
+/*asjdjklfasdfjlkjkl*/console.log(/*asdjfjkasdfjklalsjkdf*/a/*jasdjlkfjlkasdfljalkjsdf*/); 
+</code></pre>
+
+<p>虽然直接看的话还是能看懂的，但是它严重干扰了我的视线，让我非常不舒服。于是乎使用正则匹配出并将其删除。这种注释只能是多行的，所以只需要匹配 <code>/**/</code> 删除就可以，像这样。</p>
+
+<pre><code class="language-python">re.sub('(/\*[\s\S]*?\*/)',' ', your_code)
+</code></pre>
+
+<p>如果在页面上调试，可以直接用 js 的 regex 删去，同理:</p>
+
+<pre><code class="language-javascript">js_code.replace(/\/\*[\s\S]*?\*\//g,' ');
+</code></pre>
+
+<p>处理后生成了这段 js</p>
+
+<pre><code class="language-javascript">var__JtOCokI16 = String
+    .fromCharCode;
+
+
+var_x_QdX = [2891, 427, 1955, 1458, 1704,];//fUXRd9n
+
+
+var_$cYbd = function () {
+    returnarguments[0] ^
+    _x_QdX[0];
+};
+
+
+var_$nK07 = function () {
+    returnarguments[0] ^
+    _x_QdX[1];
+};
+
+
+var_$w4I = function () {
+    returnarguments[0] ^
+    _x_QdX[2];
+};
+var_$DCDm = function () {
+    returnarguments[0] ^
+    _x_QdX[3];
+};
+var_$Bkcs = function () {
+    returnarguments[0] ^
+    _x_QdX[4];
+};
+eval(__JtOCokI16(32)
+    + __JtOCokI16(Math.abs(101) &amp; -1, 0x76, 0x61, 0154, 40, _$w4I(03613), 0x6607 &gt;&gt; 4 &gt;&gt; 4, 117, 110, -1 - ~(0x63 ^ 0),
+        _$w4I(2007), 0x6976 &gt;&gt; 4 &gt;&gt; 4, 0x6f, 110, 403 / 0xA, ~~120, _$DCDm(~~1435), 0x7b39 / 0400, 118, 97,
+        _$w4I(0x7d1), Math.abs(32) &amp; -1, 100, 61, ~(0x22 ^ -1), 0x2250 &gt;&gt; 4 &gt;&gt; 4, 59, ~(0x76 ^ -1), ~~97, 1143 / 0xA,
+        0x2081 &gt;&gt; 4 &gt;&gt; 4, 112, 61, Math.abs(48) &amp; -1, 59, 0x7766 / 0400, ~(0x68 ^ -1), Math.abs(105) &amp; -1, 0x6c, 101 &amp; (-1 ^ 0x00),
+        0x0 | 0x28, _$DCDm(Math.abs(1474) &amp; -1), ~(0x3c ^ -1), 0x7832 / 0400, -1 - ~(0x2e ^ 0), 0x0 | 0x6c, 0x65, 110 &amp; (-1 ^ 0x00), 103, ~(0x74 ^ -1),
+        0x6873 &gt;&gt; 4 &gt;&gt; 4, 051, 0x7b77 / 0400, 105, 102, 40 &amp; (-1 ^ 0x00), 120 &amp; (-1 ^ 0x00), -1 - ~(0x2e ^ 0), _$Bkcs(0x0 | 0x6cb), -1 - ~(0x68 ^ 0),
+        _$w4I(0x7c253 &gt;&gt; 4 &gt;&gt; 4), 114 &amp; (-1 ^ 0x00), 65, ~(0x74 ^ -1), 40, 112, 0x0 | 0x29, ~(0x21 ^ -1), 075, 0x22,
+        ~~96, 0x0 | 0x22, 41, -1 - ~(0x64 ^ 0), 43, _$w4I(1950 &amp; (-1 ^ 0x00)), _$DCDm(1482), 0x2e72 / 0400, -1 - ~(0x63 ^ 0), _$cYbd(0xb23),
+        97, 0x72, ~(0x41 ^ -1), -1 - ~(0x74 ^ 0), ~~40, 0x70, 433 / 0xA, 43, 410 / 0xA, 59,
+        -1 - ~(0x65 ^ 0), 108, 115 &amp; (-1 ^ 0x00), 101, ~(0x7b ^ -1), _$w4I(2005), Math.abs(97) &amp; -1, 114, ~(0x20 ^ -1), -1 - ~(0x6c ^ 0))
+    + __JtOCokI16(_$w4I(0x79e06 / 0400), _$DCDm(14824 / 0xA), -1 - ~(0x2e ^ 0), Math.abs(99) &amp; -1, _$cYbd(~~2851), ~(0x61 ^ -1), 114, ~(0x43 ^ -1), _$Bkcs(1735), 100,
+        101 &amp; (-1 ^ 0x00), 65, 116, _$Bkcs(Math.abs(1664) &amp; -1), 1127 / 0xA, 0x2b, -1 - ~(0x33 ^ 0), 41, _$Bkcs(1669), ~(0x32 ^ -1),
+        -1 - ~(0x38 ^ 0), _$DCDm(~(0x589 ^ -1)), Math.abs(105) &amp; -1, _$Bkcs(0x6ce49 / 0400), 0x28, Math.abs(108) &amp; -1, 0x3e66 &gt;&gt; 4 &gt;&gt; 4, _$nK07(415), 41, 0x64,
+        Math.abs(43) &amp; -1, 61, _$nK07(0x0 | 0x1cf), 0x0 | 0x2e, 115, 0x0 | 0x75, 98, 0x0 | 0x73, 1160 / 0xA, 114,
+        _$w4I(1931), 0x0 | 0x64, 0x0 | 0x2e, 0x6c87 / 0400, ~(0x65 ^ -1), 110, ~~103, 0164, 0x68, 0x2d87 / 0400,
+        120, 46 &amp; (-1 ^ 0x00), 99, 104, 97, Math.abs(114) &amp; -1, 67, 111, 0144, ~~101,
+        -1 - ~(0x41 ^ 0), 116, 40, 0x70, ~(0x2b ^ -1), 49, 41 &amp; (-1 ^ 0x00), 42, 57, 54,
+        45, ~(0x78 ^ -1), 46, 99, 0x6843 &gt;&gt; 4 &gt;&gt; 4, -1 - ~(0x61 ^ 0), 114, 67, 111 &amp; (-1 ^ 0x00), 0x6466 / 0400,
+        101, 0x4135 &gt;&gt; 4 &gt;&gt; 4, 116, 0x2871 / 0400, 112, _$w4I(1928), 50, 051, 43, -1 - ~(0x33 ^ 0),
+        -1 - ~(0x31 ^ 0), ~~48, 52, 0x0 | 0x2d, 0x6c, -1 - ~(0x2c ^ 0), _$DCDm(1502), 41, _$Bkcs(0x693), ~~101)
+    + __JtOCokI16(0154, -1 - ~(0x73 ^ 0), 101 &amp; (-1 ^ 0x00), Math.abs(32) &amp; -1, ~(0x64 ^ -1), 43, 61, _$nK07(0x18908 / 0400), 96, 34,
+        0x3b, _$DCDm(~~1474), 0x2b, 61 &amp; (-1 ^ 0x00), 0x34, 125, 125, _$nK07(Math.abs(473) &amp; -1), ~(0x65 ^ -1), 116,
+        0x7564 &gt;&gt; 4 &gt;&gt; 4, 114, 110 &amp; (-1 ^ 0x00), ~(0x20 ^ -1), 100 &amp; (-1 ^ 0x00), ~(0x7d ^ -1), 41, 0x2817 &gt;&gt; 4 &gt;&gt; 4, ~(0x22 ^ -1), 101,
+        120, 101, 0143, 117 &amp; (-1 ^ 0x00), 116, 0145, _$DCDm(Math.abs(1434) &amp; -1), _$nK07(386), _$Bkcs(03223), 102,
+        0x0 | 0x75, 110, -1 - ~(0x63 ^ 0), 0x7400 &gt;&gt; 4 &gt;&gt; 4, -1 - ~(0x69 ^ 0), 111, 1105 / 0xA, 32, 96, 32,
+        42, 0x2554 / 0400, 320 / 0xA, ~(0x7b ^ -1), 116, 0x0 | 0x72, 121, -1 - ~(0x20 ^ 0), 123, 0x72,
+        _$w4I(19908 / 0xA), Math.abs(116) &amp; -1, 0x7590 / 0400, 0162, Math.abs(110) &amp; -1, 32, -1 - ~(0x64 ^ 0), 0x0 | 0x28, 57, 52,
+        56, Math.abs(44) &amp; -1, 32 &amp; (-1 ^ 0x00), 51, -1 - ~(0x30 ^ 0), 57, 44, -1 - ~(0x20 ^ 0), 0x3920 &gt;&gt; 4 &gt;&gt; 4, ~(0x32 ^ -1),
+        53 &amp; (-1 ^ 0x00), 0x3448 &gt;&gt; 4 &gt;&gt; 4, 57, 0x3814 / 0400, 061, 442 / 0xA, 32, 0x0 | 0x34, -1 - ~(0x38 ^ 0), 48,
+        44 &amp; (-1 ^ 0x00), Math.abs(32) &amp; -1, ~(0x36 ^ -1), ~~53, 49, 443 / 0xA, ~(0x20 ^ -1), 54, _$Bkcs(1681), 48 &amp; (-1 ^ 0x00))
+    + __JtOCokI16(~(0x2c ^ -1), 32, 530 / 0xA, Math.abs(55) &amp; -1, 504 / 0xA, 445 / 0xA, 32 &amp; (-1 ^ 0x00), 0x3542 &gt;&gt; 4 &gt;&gt; 4, 062, -1 - ~(0x32 ^ 0),
+        414 / 0xA, 59, 0x7d, 0x2049 &gt;&gt; 4 &gt;&gt; 4, 99, 0x61, 0x74, Math.abs(99) &amp; -1, 0x6847 / 0400, 0x2066 / 0400,
+        0x28, 0145, 0x2950 / 0400, 96, Math.abs(32) &amp; -1, 89, 37, 45, 57 &amp; (-1 ^ 0x00), 0x0 | 0x39,
+        0x3b00 &gt;&gt; 4 &gt;&gt; 4, Math.abs(125) &amp; -1, 125, 96 &amp; (-1 ^ 0x00), -1 - ~(0x20 ^ 0), 127, Math.abs(37) &amp; -1, 100, ~~40, 0141,
+        0x0 | 0x61, 44, 32, 0142, 98, 441 / 0xA, -1 - ~(0x20 ^ 0), 99, ~(0x63 ^ -1), 0x2c,
+        ~(0x20 ^ -1), 100 &amp; (-1 ^ 0x00), 0x0 | 0x64, 44, 040, 0x0 | 0x65, 101, 054, 32, 102,
+        0x66, 054, ~~32, ~(0x67 ^ -1), 1037 / 0xA, 0x2c74 / 0400, 32 &amp; (-1 ^ 0x00), 1045 / 0xA, 104, 41,
+        -1 - ~(0x20 ^ 0), ~~123, 118, 97, ~(0x72 ^ -1), 0x20, 112 &amp; (-1 ^ 0x00), 977 / 0xA, 114, 971 / 0xA,
+        109, _$DCDm(1411 &amp; (-1 ^ 0x00)), Math.abs(54) &amp; -1, Math.abs(32) &amp; -1, _$cYbd(Math.abs(2934) &amp; -1), Math.abs(32) &amp; -1, 97, 0x61, 0x3b32 / 0400, 966 / 0xA,
+        32, _$DCDm(1429), 0x0 | 0x26, 0x37, _$cYbd(0xb6b97 / 0400), -1 - ~(0x3d ^ 0), 323 / 0xA, 98, 0x6226 / 0400, 96)
+    + __JtOCokI16(32, 38, 0x27, 32, 075, ~~32, 99, 99, Math.abs(96) &amp; -1, -1 - ~(0x20 ^ 0),
+        _$w4I(0x0 | 0x786), 39, 0x32, 0x2076 / 0400, Math.abs(61) &amp; -1, 32, 1001 / 0xA, Math.abs(100) &amp; -1, 0140, 32,
+        _$w4I(0x0 | 0x784), _$DCDm(1428), 502 / 0xA, 040, 61, 0x2086 / 0400, 101, ~(0x65 ^ -1), _$Bkcs(1736), 0x2032 / 0400,
+        -1 - ~(0x26 ^ 0), 046, 51, Math.abs(32) &amp; -1, Math.abs(61) &amp; -1, ~~32, -1 - ~(0x66 ^ 0), _$nK07(~(0x1cd ^ -1)), 0140, 040,
+        38, 38, 064, _$Bkcs(1672), _$cYbd(2934), 0x2076 / 0400, Math.abs(103) &amp; -1, 103, _$Bkcs(1736 &amp; (-1 ^ 0x00)), 040,
+        864 / 0xA, 0x2728 / 0400, 0x3170 / 0400, _$Bkcs(1672), Math.abs(61) &amp; -1, 0x0 | 0x20, 104 &amp; (-1 ^ 0x00), 0x0 | 0x68, 964 / 0xA, 0x2067 &gt;&gt; 4 &gt;&gt; 4,
+        0x2679 &gt;&gt; 4 &gt;&gt; 4, 392 / 0xA, 48, _$Bkcs(0x0 | 0x688), Math.abs(61) &amp; -1, ~(0x20 ^ -1), 97, ~(0x28 ^ -1), ~~96, 041,
+        ~~73, _$DCDm(0x591), 0x2c50 / 0400, 0x6082 / 0400, ~(0x21 ^ -1), 0x4011 / 0400, _$DCDm(0x596), 0x2925 &gt;&gt; 4 &gt;&gt; 4, 0x60, 0x2047 &gt;&gt; 4 &gt;&gt; 4,
+        0x37, 39, -1 - ~(0x34 ^ 0), 326 / 0xA, _$cYbd(2934), 32, 988 / 0xA, _$nK07(-1 - ~(0x183 ^ 0)), 96, 32,
+        _$w4I(~~1951), _$DCDm(~~1430), 060, 96, 32, 61, 35, ~~50, 41 &amp; (-1 ^ 0x00), Math.abs(96) &amp; -1)
+    + __JtOCokI16(322 / 0xA, 92, Math.abs(34) &amp; -1, 35 &amp; (-1 ^ 0x00), 51 &amp; (-1 ^ 0x00), ~(0x60 ^ -1), 323 / 0xA, 0x4042 &gt;&gt; 4 &gt;&gt; 4, _$Bkcs(03200), _$cYbd(0x0 | 0xb7e),
+        96, 32, 99 &amp; (-1 ^ 0x00), 0x2766 / 0400, 0x32, Math.abs(96) &amp; -1, -1 - ~(0x20 ^ 0), 0x6628 / 0400, 0x0 | 0x24, 49,
+        0x2944 / 0400, 32, 0x0 | 0x2b, 0140, Math.abs(33) &amp; -1, 726 / 0xA, _$DCDm(1425 &amp; (-1 ^ 0x00)), ~(0x60 ^ -1), _$Bkcs(1672), 0x41,
+        0x2613 &gt;&gt; 4 &gt;&gt; 4, 53, 0x6031 &gt;&gt; 4 &gt;&gt; 4, _$Bkcs(1672), 113, 332 / 0xA, 96, 32, 59, 92,
+        ~~34, 0x6007 &gt;&gt; 4 &gt;&gt; 4, _$nK07(0613), ~~87, 057, ~~54, ~~32, 61, 966 / 0xA, 32,
+        64, 36, 0x0 | 0x2d, 96 &amp; (-1 ^ 0x00), ~~32, 75 &amp; (-1 ^ 0x00), 0x2d05 / 0400, 55, ~(0x60 ^ -1), 32 &amp; (-1 ^ 0x00),
+        124, ~~38, 96, 33 &amp; (-1 ^ 0x00), 107, 0x2412 / 0400, 52, 0140, 321 / 0xA, 0x51,
+        ~~39, 564 / 0xA, 96, 32, 53, 0x2698 / 0400, _$DCDm(1490), 33, 60, 36,
+        ~(0x34 ^ -1), 41, 0x3b, -1 - ~(0x60 ^ 0), 92, Math.abs(34) &amp; -1, 0147, 37, -1 - ~(0x60 ^ 0), _$cYbd(2920 &amp; (-1 ^ 0x00)),
+        50, 35, _$nK07(~(0x1cb ^ -1)), 0x2138 / 0400, 76, 35 &amp; (-1 ^ 0x00), 51, 0x2051 / 0400, 0x0 | 0x2a, 0x20)
+    + __JtOCokI16(52, 0x60, Math.abs(32) &amp; -1, 55, 92, 346 / 0xA, ~(0x32 ^ -1), 96, 92, 349 / 0xA,
+        Math.abs(61) &amp; -1, 0x28, 52, 96, ~~33, -1 - ~(0x76 ^ 0), ~~36, ~(0x60 ^ -1), 925 / 0xA, ~~34,
+        Math.abs(64) &amp; -1, 36, 50, Math.abs(96) &amp; -1, _$cYbd(29239 / 0xA), 0167, Math.abs(39) &amp; -1, 57, 96, -1 - ~(0x20 ^ 0),
+        ~~95, 36, 56, 32, 42, -1 - ~(0x20 ^ 0), ~~51, Math.abs(96) &amp; -1, ~(0x5c ^ -1), 34,
+        ~(0x55 ^ -1), ~(0x27 ^ -1), 0x3356 &gt;&gt; 4 &gt;&gt; 4, 0x6086 &gt;&gt; 4 &gt;&gt; 4, 32, _$w4I(1938), 36, ~~57, 32, 43,
+        965 / 0xA, 0x5c89 / 0400, Math.abs(34) &amp; -1, -1 - ~(0x36 ^ 0), ~~37, 0x60, 33, 61, 044, -1 - ~(0x37 ^ 0),
+        ~~41, 0x3b21 &gt;&gt; 4 &gt;&gt; 4, 0x6079 &gt;&gt; 4 &gt;&gt; 4, ~~37, ~~110, _$w4I(0x780), Math.abs(99) &amp; -1, 0x60, 32 &amp; (-1 ^ 0x00), _$cYbd(2936),
+        _$w4I(1920), 53, 96, 0x20, 0x7d, 0x2437 &gt;&gt; 4 &gt;&gt; 4, 0x3391 &gt;&gt; 4 &gt;&gt; 4, -1 - ~(0x60 ^ 0), 0x0 | 0x20, 92 &amp; (-1 ^ 0x00),
+        Math.abs(34) &amp; -1, 35, ~~54, 415 / 0xA, 59, -1 - ~(0x60 ^ 0), 0x26, _$nK07(503), 0x2296 &gt;&gt; 4 &gt;&gt; 4, 382 / 0xA,
+        97 &amp; (-1 ^ 0x00), Math.abs(40) &amp; -1, 97 &amp; (-1 ^ 0x00), _$Bkcs(16680 / 0xA), 0x2018 &gt;&gt; 4 &gt;&gt; 4, 0x0 | 0x62, 051, 32, 123, 0x6977 &gt;&gt; 4 &gt;&gt; 4)
+    + __JtOCokI16(102, 040, ~(0x28 ^ -1), 1163 / 0xA, 121, 0160, 0x6548 &gt;&gt; 4 &gt;&gt; 4, 111, 102 &amp; (-1 ^ 0x00), 0x0 | 0x20,
+        108, 0157, 99, ~~97, 0x0 | 0x60, 0x20, 565 / 0xA, 33, 075, _$cYbd(0xb76),
+        32, 92, _$nK07(393), 117, 0x6e, 100, ~~101, 0x6662 &gt;&gt; 4 &gt;&gt; 4, 105, ~(0x6e ^ -1),
+        ~(0x65 ^ -1), _$DCDm(14945 / 0xA), 92, 344 / 0xA, 32, 0x7c44 &gt;&gt; 4 &gt;&gt; 4, 0x7c87 / 0400, -1 - ~(0x20 ^ 0), 96, _$cYbd(0x0 | 0xb6b),
+        51, _$DCDm(14337 / 0xA), 46, 104 &amp; (-1 ^ 0x00), 114, Math.abs(101) &amp; -1, 102, ~~32, 0x0 | 0x21, -1 - ~(0x3d ^ 0),
+        ~~32, ~(0x5c ^ -1), 34 &amp; (-1 ^ 0x00), 0x7359 &gt;&gt; 4 &gt;&gt; 4, ~~116, 114, Math.abs(105) &amp; -1, 110, 103 &amp; (-1 ^ 0x00), ~~92,
+        -1 - ~(0x22 ^ 0), 96, ~(0x27 ^ -1), Math.abs(42) &amp; -1, 38 &amp; (-1 ^ 0x00), 0x6132 &gt;&gt; 4 &gt;&gt; 4, Math.abs(32) &amp; -1, 43, 0x2008 &gt;&gt; 4 &gt;&gt; 4, _$cYbd(2857 &amp; (-1 ^ 0x00)),
+        Math.abs(59) &amp; -1, 125, ~(0x20 ^ -1), 101, 108, 0163, _$DCDm(14959 / 0xA), 0x20, 0x6058 / 0400, 0x20,
+        105, -1 - ~(0x30 ^ 0), 0x21, 96 &amp; (-1 ^ 0x00), 32, 111, 42, _$nK07(397), 046, 96,
+        0x2031 / 0400, 107, ~~46, 0x6f66 &gt;&gt; 4 &gt;&gt; 4, 115, 116, 0x6e, _$nK07(458), _$Bkcs(~(0x6c5 ^ -1)), Math.abs(101) &amp; -1)
+    + __JtOCokI16(Math.abs(96) &amp; -1, 0x2137 &gt;&gt; 4 &gt;&gt; 4, 67 &amp; (-1 ^ 0x00), 337 / 0xA, 0x0 | 0x60, 0x20, _$DCDm(0x5c865 / 0400), 35, ~(0x20 ^ -1), ~(0x26 ^ -1),
+        _$w4I(1925), -1 - ~(0x60 ^ 0), _$nK07(0x0 | 0x18b), 47, 467 / 0xA, Math.abs(46) &amp; -1, 109, ~(0x61 ^ -1), 116, 991 / 0xA,
+        ~(0x68 ^ -1), 40, _$nK07(503), 0x2244 / 0400, 101 &amp; (-1 ^ 0x00), 108, 0x6f, 0x0 | 0x6e, 103, 92,
+        -1 - ~(0x22 ^ 0), 41, 964 / 0xA, _$Bkcs(1673), 57, 0x2865 &gt;&gt; 4 &gt;&gt; 4, 0x2d, 0x0 | 0x60, 33, 59,
+        0x2654 &gt;&gt; 4 &gt;&gt; 4, 1236 / 0xA, -1 - ~(0x62 ^ 0), 32 &amp; (-1 ^ 0x00), ~~61, 96 &amp; (-1 ^ 0x00), ~(0x20 ^ -1), 0x2b03 &gt;&gt; 4 &gt;&gt; 4, 35 &amp; (-1 ^ 0x00), Math.abs(97) &amp; -1,
+        0x0 | 0x20, 619 / 0xA, 32, _$Bkcs(0x6ca), 32, -1 - ~(0x2d ^ 0), 0x20, 976 / 0xA, 96, 0x0 | 0x23,
+        37, -1 - ~(0x24 ^ 0), ~~96, 0x0 | 0x20, 0x4273 &gt;&gt; 4 &gt;&gt; 4, _$w4I(1920), 960 / 0xA, 0x5c, ~~34, 0156,
+        38, ~(0x62 ^ -1), 0x6076 / 0400, 0x0 | 0x5c, 0x2252 / 0400, 0x0 | 0x5c, Math.abs(92) &amp; -1, _$nK07(4038 / 0xA), 966 / 0xA, 33,
+        88, _$DCDm(0x58d79 / 0400), 0x0 | 0x72, Math.abs(101) &amp; -1, 1021 / 0xA, 96 &amp; (-1 ^ 0x00), _$DCDm(1427), 93, 0x36, Math.abs(114) &amp; -1,
+        ~~101, 0x6689 / 0400, -1 - ~(0x60 ^ 0), 338 / 0xA, 0114, 67, 1186 / 0xA, 0141, 114, 32 &amp; (-1 ^ 0x00))
+    + __JtOCokI16(0143, 96, 33, Math.abs(104) &amp; -1, 0x2118 &gt;&gt; 4 &gt;&gt; 4, 0x3e15 &gt;&gt; 4 &gt;&gt; 4, 32, 0x3078 / 0400, 040, 63,
+        0x0 | 0x20, 98, _$nK07(0x18b40 &gt;&gt; 4 &gt;&gt; 4), 58, 0x2093 &gt;&gt; 4 &gt;&gt; 4, 487 / 0xA, 96, 32 &amp; (-1 ^ 0x00), 615 / 0xA, 33 &amp; (-1 ^ 0x00),
+        102, 111 &amp; (-1 ^ 0x00), 0x72, 32 &amp; (-1 ^ 0x00), ~~40, 118, 97, 114, 32, 0x0 | 0x69,
+        32, 61, 32, 48, 0x3b91 &gt;&gt; 4 &gt;&gt; 4, 32, 0x69, _$nK07(0x18b), ~~60, 320 / 0xA,
+        Math.abs(99) &amp; -1, 59 &amp; (-1 ^ 0x00), 32, 105, 0x2b, 43, ~(0x29 ^ -1), 32 &amp; (-1 ^ 0x00), 0x7b68 / 0400, 0x0 | 0x61,
+        32, 053, 61, _$Bkcs(1672), 105, _$w4I(~~1944), 125, Math.abs(96) &amp; -1, ~~32, 108,
+        Math.abs(36) &amp; -1, ~~96, 0134, 348 / 0xA, 056, _$w4I(1931 &amp; (-1 ^ 0x00)), _$DCDm(~~1489), _$nK07(0x1cb46 &gt;&gt; 4 &gt;&gt; 4), 0x5c, 34,
+        53 &amp; (-1 ^ 0x00), 0x0 | 0x21, Math.abs(44) &amp; -1, 0x2013 / 0400, _$cYbd(0xb2845 &gt;&gt; 4 &gt;&gt; 4), _$w4I(1987), 92, Math.abs(34) &amp; -1, 47, 42,
+        100, ~(0x6f ^ -1), 99, 117, 109, 0x0 | 0x65, 0156, 116, 0x6057 / 0400, 37,
+        38, 435 / 0xA, 96, 33, _$cYbd(-1 - ~(0xb05 ^ 0)), _$w4I(0x78456 / 0400), 96, 0x2452 / 0400, ~(0x5a ^ -1), 47)
+    + __JtOCokI16(104, -1 - ~(0x69 ^ 0), 115 &amp; (-1 ^ 0x00), 1165 / 0xA, _$cYbd(-1 - ~(0xb24 ^ 0)), 114, _$DCDm(1483), 0x6009 / 0400, _$Bkcs(0x68884 / 0400), _$cYbd(0xb70),
+        0x35, 96, 37, _$Bkcs(1669), 48, 0x6003 / 0400, 33, _$nK07(0x18b), ~(0x25 ^ -1), 0x60,
+        _$w4I(~~1920), ~(0x34 ^ -1), -1 - ~(0x2e ^ 0), ~(0x60 ^ -1), 0x2055 &gt;&gt; 4 &gt;&gt; 4, 51, 44, 0x2e32 / 0400, 99, _$cYbd(-1 - ~(0xb39 ^ 0)),
+        101, _$DCDm(1491), -1 - ~(0x74 ^ 0), ~~101, ~~69, 0x6c73 / 0400, ~~101, 0x60, 33 &amp; (-1 ^ 0x00), _$cYbd(2842),
+        0x2578 &gt;&gt; 4 &gt;&gt; 4, 96, ~~33, ~(0x7f ^ -1), 0x2485 / 0400, 96 &amp; (-1 ^ 0x00), 38, -1 - ~(0x62 ^ 0), 0x2814 &gt;&gt; 4 &gt;&gt; 4, 0x6010 / 0400,
+        -1 - ~(0x20 ^ 0), 0x0 | 0x34, 0x37, 0x6f12 &gt;&gt; 4 &gt;&gt; 4, 0x62, 0x6a64 &gt;&gt; 4 &gt;&gt; 4, 101, 99, 116 &amp; (-1 ^ 0x00), 96,
+        35, 846 / 0xA, 0x2892 / 0400, 0x6344 / 0400, ~~96, ~(0x23 ^ -1), 835 / 0xA, 379 / 0xA, -1 - ~(0x60 ^ 0), 46,
+        48, ~(0x29 ^ -1), 34 &amp; (-1 ^ 0x00), _$Bkcs(~~1665), _$cYbd(2914)));
+</code></pre>
+
+<h3 id="获取最终的-js-函数">获取最终的 js 函数</h3>
+
+<p>上面是几个方法函数，下面是通过一些数学计算生成了一些数，通过第一个方法函数转成字符串，经过转换后 js 就变得基本上可读了，大概为以下类型：</p>
+
+<pre><code>execute();
+function execute() {
+    try {
+        return d(948, 309, 9254981, 480, 651, 690, 572, 522);
+    } catch (e) {
+        return -99;
+    }
+}
+function d(aa, bb, cc, dd, ee, ff, gg, hh) {
+    var param16 = aa;
+    var param17 = bb;
+    var param1 = cc;
+    var param12 = dd;
+    var param2 = ee;
+    var param3 = ff;
+    var param4 = gg;
+    var param11 = hh;
+    var param10 = a(param16, param17);
+    var param14 = b(a(param10, param2), param3);
+    var param15 = a(param12, param11) + param4;
+    var param5 = b(param1, param3);
+    var param6 = param5 - param4;
+    var param7 = a(param6, param4);
+    var param8 = a(param2, param4);
+    param4 = param2 + param3 * 4;
+    param2 = b(a(param4, param1), param2);
+    var param9 = param8 * 3;
+    var param13 = param9 + b(param12, param7);
+    return c(param15, param13, param6);
+}
+function a(a, b) {
+    if (typeof location == &quot;undefined&quot; || typeof location.href != &quot;string&quot;) {
+        return a + b;
+    } else if (typeof location != &quot;undefined&quot; &amp;&amp; typeof location.hostname == &quot;string&quot; &amp;&amp; location.hostname.match(&quot;elong&quot;)) {
+        return a - b;
+    } else {
+        b = a - b;
+        a = b - a;
+        return a - b;
+    }
+}
+function b(a, b) {
+    if (typeof location != &quot;undefined&quot; &amp;&amp; typeof location.href == &quot;string&quot; &amp;&amp; location.href.match(&quot;elong&quot;)) {
+        return a - b;
+    } else {
+        var c = b &gt; 0 ? b : 0 - b;
+        for (var i = 0; i &lt; c; i++) {
+            a += i;
+        }
+        return a;
+    }
+}
+function c(a, b, c) {
+    if (typeof document == &quot;undefined&quot;) {
+        return a;
+    } else if (typeof history == &quot;undefined&quot;) {
+        return b;
+    } else if (typeof document != &quot;undefined&quot; &amp;&amp; (typeof document.createElement == &quot;function&quot; || typeof document.createElement == &quot;object&quot;)) {
+        return c;
+    } else {
+        return -99;
+    }
+}
+</code></pre>
+
+<h3 id="构造伪造的-python-方法">构造伪造的 python 方法</h3>
+
+<p>这些方法中 execute 为主方法，它调用 d ，d 又调用 a，b，c 三个函数。从 a，b，c 中我们发现了为什么之前我们获取到的 check_code 是不准确的。由于 location ，history，document 等相关判断导致的，但由于这是系统变量，执行执行 location=xxx 的话会跳转到指定页面，所以使用伪造的方法进行运行。以下为最终的解析方法：</p>
+
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2017/7/4 下午9:40
+# @Author  : Hou Rong
+# @Site    : 
+# @File    : test_web.py
+# @Software: PyCharm
+import requests
+import execjs
+import pyquery
+
+if __name__ == '__main__':
+    out_date = '2017-10-05'
+    in_date = '2017-10-04'
+    hotel_id = '315197'
+    session = requests.session()
+
+    new_headers = {
+        'Accept': 'application/json',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'zh-CN,zh;q=0.8',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+        'Host': 'm.elong.com',
+        'DNT': '1',
+        'X-Requested-With': 'XMLHttpRequest',
+        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1',
+    }
+
+    session.headers.update(new_headers)
+
+    url_A = 'http://m.elong.com/ihotel/{0}/?source_id={0}#detailTab'.format(hotel_id)
+    page_A = session.get(url_A)
+
+    # debug
+    doc = pyquery.PyQuery(page_A.text)
+
+    # lxml //*[@id=&quot;tsdDetail&quot;]
+    value_str = doc('#tsdDetail').val()
+
+    ph_runtime = execjs.get('PhantomJS')
+    js_func = ph_runtime.compile(
+        '''
+        var localContext = {
+            &quot;location&quot;: {
+                href: &quot;http://m.elong.com&quot;,
+                hostname: &quot;m.elong.com&quot;
+            },
+            &quot;history&quot;: &quot;history&quot;,
+            &quot;document&quot;: {
+                createElement: function () {
+                }
+            }
+        };
+        with (localContext) 
+        {
+            var a=%s;
+            var b=a.replace(/\)\^-1/gm, &quot;)&amp;-1&quot;);
+            var c=eval(b);
+        }
+        ''' % (
+            repr(value_str),))
+    check_code = str(js_func.eval('c'))
+
+    print('check code', check_code)
+
+    session.headers.update({
+        'Referer': url_A
+    })
+
+    page_B = session.get(
+        'http://m.elong.com/ihotel/detail/DetailRoomList/?hotelId={3}&amp;inDate={0}&amp;outDate={1}&amp;roomPerson=1|2&amp;code={2}'.format(
+            in_date, out_date, check_code, hotel_id)
+    )
+    print(page_B.text)
+</code></pre>
+
+<p>构造 localContext 使得其中的判断正确，而后再次调用我们之前的函数即可。由此我们获取到了最终的 check_code 。</p>
+
+<p>所以我们最终的解析就可以用这两部完成：</p>
+
+<ol>
+<li>打请求，计算并获取 check_code</li>
+<li>通过正确的 check_code 加上相关参数获取数据即可</li>
+</ol>
+
+        
+    </div>
+
+</article>
+<section class="comment">
+    <p class="local-info">
+        Comment is disabled to avoid unwanted discussions from 'localhost:1313' on your Disqus
+        account...
+    </p>
+    <div id="disqus_thread"></div>
+</section>
+<script type="text/javascript">
+
+    (function () {
+        if (window.location.hostname == "localhost") {
+            return
+        }
+        document.querySelector('.local-info').classList.add('hide')
+
+        let dsq = document.createElement('script')
+        dsq.type = 'text/javascript'
+        dsq.async = true
+        let disqus_shortname = ''
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
+    })()
+</script>
+
+
+        </main>
+    </div>
+    <footer class="footer clearfix">
+    <ul class="control social clearfix">
+        <li><a class="author btn" href="#"></a></li>
+        
+        <li>
+            <a class="icon-link btn" href="https://hou-rong.github.io/index.xml" type="application/rss+xml" title="rss">
+                <i class="rss icon"></i></a>
+        </li>
+    </ul>
+
+    <ul class="control status clearfix">
+        <li><a href="#" class="btn">Posts:
+                0</a>
+        </li>
+        <li><a href="#" class="btn">Pages:
+                0</a></li>
+        <li><a href="#" class="btn">en</a></li>
+        <li><a href="https://gohugo.io" class="btn">Hugo, 0.55.5</a></li>
+        <li><a href="https://github.com/jacobsun/edidor" class="btn">Theme: Edidor</a></li>
+        <li>
+            
+        </li>
+    </ul>
+</footer>
+<div class="dialog">
+    <div class="wrapper">
+        <div class="clearfix"><button class="btn close-dialog">X</button></div>
+        <header>
+            <h1 class="title">Theme Name</h1>
+        </header>
+        <main>
+            <div class="clearfix">
+                <label for="theme-name">
+                    <p>Only English Character, space, hyphen are allowed!</p>
+                    <p>Valid name examples: "custom", "fantastic theme", "my-theme"</p>
+                    <p>Invalid name examles: "我的主题", ":)", "123"</p>
+                </label>
+                <input type="text" name="theme-name" id="theme-name">
+            </div>
+            <div class="clearfix">
+                <button class="btn export">Export</button>
+            </div>
+
+        </main>
+        <footer></footer>
+    </div>
+</div>
+
+    <script src="https://hou-rong.github.io/js/main.js"></script>
+
+
+</body>
+
+</html>

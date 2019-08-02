@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MongoDB on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/mongodb/</link>
+    <description>Recent content in MongoDB on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 01 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MongoDB 数据导入导出</title>
+      <link>https://hou-rong.github.io/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</guid>
+      <description> 介绍 在使用 MongoDB 的过程中，偶尔会需要进行数据的导出导入，通过 mongodump 导出，通过 mongoimport 以及 mongorestore 可以简化操作，在此记录备忘
+mongodump mongodump -h host -u user -p pass-d db_name --authenticationDatabase admin  mongoimport mongoimport -h host -u user -p pass-d db_name --authenticationDatabase admin --type csv --headerline --file file_name  mongorestore mongorestore -h host --port port -u user -p pass --authenticationDatabase admin --db db_name file_location  </description>
+    </item>
+    
+  </channel>
+</rss>

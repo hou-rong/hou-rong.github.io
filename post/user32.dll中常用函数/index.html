@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="canonical" href="https://hou-rong.github.io/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" />
+    <meta name="description" content="">
+    
+
+    <title>User32.dll中的函数 &middot; 海纳百川，有容乃大</title>
+
+    <link rel="shortcut icon" href="https://hou-rong.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://hou-rong.github.io/css/main.css" />
+    
+    
+    
+</head>
+
+
+<body class="loading -mode">
+    
+<div class="top">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+<div class="bottom">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+
+    <header class="header">
+    <ul class="menu clearfix control">
+        
+
+<li class="logo-container logo-default">
+    <a href="https://hou-rong.github.io/" class="btn logo-link">
+        <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+    </a>
+</li>
+
+        
+        
+    </ul>
+</header>
+
+    <div class="middle">
+        <nav class="sidebar">
+            <ul class="posts control">
+    
+    <li><a class="no-break btn" href='/post/first/'><i class="icon icon-post"></i>First</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/'><i class="icon icon-post"></i>MongoDB 数据导入导出</a></li>
+    
+    <li><a class="no-break btn" href='/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/'><i class="icon icon-post"></i>Docker 监控 ui-for-docker</a></li>
+    
+    <li><a class="no-break btn" href='/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/'><i class="icon icon-post"></i>supervisor 3.3.3 在 centos 6 上的安装以及配置</a></li>
+    
+    <li><a class="no-break btn" href='/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/'><i class="icon icon-post"></i>Celery 使用 Customer AutoScaler</a></li>
+    
+    <li><a class="no-break btn" href='/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/'><i class="icon icon-post"></i>requests 请求打印请求信息</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/'><i class="icon icon-post"></i>修复 ssh key 登录服务器</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/'><i class="icon icon-post"></i>搭建自己的 pypi server</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/'><i class="icon icon-post"></i>Mongo 迭代方式查询大量数据</a></li>
+    
+    <li><a class="no-break btn" href='/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/'><i class="icon icon-post"></i>MySql 表，库大小查询</a></li>
+    
+</ul>
+
+        </nav>
+        <main class="main">
+            <article class="article">
+    <h2 class="title"><a href='/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/' class="btn">User32.dll中的函数</a></h2>
+    <div class="article-meta clearfix">
+        <ul class="dates clearfix left control">
+            <li><i class="icon icon-date"></i></li>
+            <li class="publish-date">
+                <time datetime="2015.06.07">2015.06.07</time>
+            </li>
+        </ul>
+        
+        
+        <div class="article-meta-splitter clearfix"></div>
+        <ul class="article-tags clearfix control">
+            <li><i class="icon icon-tags"></i></li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/c/" class="btn">C#</a>
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="content">
+        
+        <p>通过<code>dumpbin /exports user32.dll</code>可以获得其中带函数名称</p>
+
+<pre><code class="language-dumpbin.exe```处于```{root}\Program">
+&lt;!-- more --&gt;
+
+```cs
+using System;    
+using System.Collections.Generic;    
+using System.Linq;    
+using System.Text;    
+using System.Runtime.InteropServices;    
+   
+namespace WindowsAPI    
+{    
+    class CSharp_Win32Api    
+    {   
+        #region User32.dll 函数    
+        /// &lt;summary&gt;    
+        /// 该函数检索一指定窗口的客户区域或整个屏幕的显示设备上下文环境的句柄，以后可以在GDI函数中使用该句柄来在设备上下文环境中绘图。hWnd：设备上下文环境被检索的窗口的句柄    
+        /// &lt;/summary&gt;    
+        [DllImport(&quot;user32.dll&quot;, CharSet = CharSet.Auto)]    
+        public static extern IntPtr GetDC(IntPtr hWnd);    
+        /// &lt;summary&gt;    
+        /// 函数释放设备上下文环境（DC）供其他应用程序使用。    
+        /// &lt;/summary&gt;    
+        public static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);    
+        /// &lt;summary&gt;    
+        /// 该函数返回桌面窗口的句柄。桌面窗口覆盖整个屏幕。    
+        /// &lt;/summary&gt;    
+        static public extern IntPtr GetDesktopWindow();    
+        /// &lt;summary&gt;    
+        /// 该函数设置指定窗口的显示状态。    
+        /// &lt;/summary&gt;    
+        static public extern bool ShowWindow(IntPtr hWnd, short State);    
+        /// &lt;summary&gt;    
+        /// 通过发送重绘消息 WM_PAINT 给目标窗体来更新目标窗体客户区的无效区域。    
+        /// &lt;/summary&gt;    
+        static public extern bool UpdateWindow(IntPtr hWnd);    
+        /// &lt;summary&gt;    
+        /// 该函数将创建指定窗口的线程设置到前台，并且激活该窗口。键盘输入转向该窗口，并为用户改各种可视的记号。系统给创建前台窗口的线程分配的权限稍高于其他线程。    
+        /// &lt;/summary&gt;    
+        static public extern bool SetForegroundWindow(IntPtr hWnd);    
+        /// &lt;summary&gt;    
+        /// 该函数改变一个子窗口，弹出式窗口式顶层窗口的尺寸，位置和Z序。    
+        /// &lt;/summary&gt;    
+        static public extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int Width, int Height, uint flags);    
+        /// &lt;summary&gt;    
+        /// 打开剪切板    
+        /// &lt;/summary&gt;    
+        static public extern bool OpenClipboard(IntPtr hWndNewOwner);    
+        /// &lt;summary&gt;    
+        /// 关闭剪切板    
+        /// &lt;/summary&gt;    
+        static public extern bool CloseClipboard();    
+        /// &lt;summary&gt;    
+        /// 打开清空&lt;/summary&gt;    
+        static public extern bool EmptyClipboard();    
+        /// &lt;summary&gt;    
+        /// 将存放有数据的内存块放入剪切板的资源管理中    
+        /// &lt;/summary&gt;    
+        static public extern IntPtr SetClipboardData(uint Format, IntPtr hData);    
+        /// &lt;summary&gt;    
+        /// 在一个矩形中装载指定菜单条目的屏幕坐标信息     
+        /// &lt;/summary&gt;    
+        static public extern bool GetMenuItemRect(IntPtr hWnd, IntPtr hMenu, uint Item, ref RECT rc);    
+   
+        [DllImport(&quot;user32.dll&quot;, ExactSpelling = true, CharSet = CharSet.Auto)]    
+        /// &lt;summary&gt;    
+        /// 该函数获得一个指定子窗口的父窗口句柄。    
+        /// &lt;/summary&gt;    
+        public static extern IntPtr GetParent(IntPtr hWnd);    
+        /// &lt;summary&gt;    
+        /// 该函数将指定的消息发送到一个或多个窗口。此函数为指定的窗口调用窗口程序，直到窗口程序处理完消息再返回。　    
+        /// &lt;/summary&gt;    
+        /// &lt;param name=&quot;hWnd&quot;&gt;其窗口程序将接收消息的窗口的句柄&lt;/param&gt;    
+        /// &lt;param name=&quot;msg&quot;&gt;指定被发送的消息&lt;/param&gt;    
+        /// &lt;param name=&quot;wParam&quot;&gt;指定附加的消息指定信息&lt;/param&gt;    
+        /// &lt;param name=&quot;lParam&quot;&gt;指定附加的消息指定信息&lt;/param&gt;    
+        /// &lt;returns&gt;&lt;/returns&gt;    
+        public static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);    
+        public static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, IntPtr lParam);            
+        public static extern void SendMessage(IntPtr hWnd, int msg, int wParam, ref RECT lParam);    
+        public static extern int SendMessage(IntPtr hWnd, int msg, int wParam, ref POINT lParam);           
+        public static extern void SendMessage(IntPtr hWnd, int msg, int wParam, ref TBBUTTON lParam);            
+        public static extern void SendMessage(IntPtr hWnd, int msg, int wParam, ref TBBUTTONINFO lParam);          
+        public static extern int SendMessage(IntPtr hWnd, int msg, int wParam, ref REBARBANDINFO lParam);          
+        public static extern void SendMessage(IntPtr hWnd, int msg, int wParam, ref TVITEM lParam);           
+        public static extern void SendMessage(IntPtr hWnd, int msg, int wParam, ref LVITEM lParam);        
+        public static extern void SendMessage(IntPtr hWnd, int msg, int wParam, ref HDITEM lParam);       
+        public static extern void SendMessage(IntPtr hWnd, int msg, int wParam, ref HD_HITTESTINFO hti);      
+        /// &lt;summary&gt;    
+        /// 该函数将一个消息放入（寄送）到与指定窗口创建的线程相联系消息队列里    
+        /// &lt;/summary&gt;    
+        public static extern IntPtr PostMessage(IntPtr hWnd, int msg, int wParam, int lParam);    
+        public static extern IntPtr SetWindowsHookEx(int hookid, HookProc pfnhook, IntPtr hinst, int threadid);    
+   
+        [DllImport(&quot;user32.dll&quot;, CharSet = CharSet.Auto, ExactSpelling = true)]    
+        public static extern bool UnhookWindowsHookEx(IntPtr hhook);    
+   
+        [DllImport(&quot;user32.dll&quot;, CharSet = CharSet.Auto, ExactSpelling = true)]    
+        public static extern IntPtr CallNextHookEx(IntPtr hhook, int code, IntPtr wparam, IntPtr lparam);    
+        /// &lt;summary&gt;    
+        /// 该函数对指定的窗口设置键盘焦点。    
+        /// &lt;/summary&gt;    
+        public static extern IntPtr SetFocus(IntPtr hWnd);    
+        /// &lt;summary&gt;    
+        /// 该函数在指定的矩形里写入格式化文本，根据指定的方法对文本格式化（扩展的制表符，字符对齐、折行等）。    
+        /// &lt;/summary&gt;    
+        public extern static int DrawText(IntPtr hdc, string lpString, int nCount, ref RECT lpRect, int uFormat);    
+        /// &lt;summary&gt;    
+        /// 该函数改变指定子窗口的父窗口。    
+        /// &lt;/summary&gt;    
+        public extern static IntPtr SetParent(IntPtr hChild, IntPtr hParent);    
+        /// &lt;summary&gt;    
+        /// 获取对话框中子窗口控件的句柄    
+        /// &lt;/summary&gt;    
+        public extern static IntPtr GetDlgItem(IntPtr hDlg, int nControlID);    
+        /// &lt;summary&gt;    
+        /// 该函数获取窗口客户区的坐标。    
+        /// &lt;/summary&gt;    
+        public extern static int GetClientRect(IntPtr hWnd, ref RECT rc);    
+        /// &lt;summary&gt;    
+        /// 该函数向指定的窗体添加一个矩形，然后窗口客户区域的这一部分将被重新绘制。    
+        /// &lt;/summary&gt;    
+        public extern static int InvalidateRect(IntPtr hWnd, IntPtr rect, int bErase);    
+        /// &lt;summary&gt;    
+        /// 该函数产生对其他线程的控制，如果一个线程没有其他消息在其消息队列里。    
+        /// &lt;/summary&gt;    
+        public static extern bool WaitMessage();    
+        /// &lt;summary&gt;    
+        /// 该函数为一个消息检查线程消息队列，并将该消息（如果存在）放于指定的结构。    
+        /// &lt;/summary&gt;    
+        public static extern bool PeekMessage(ref MSG msg, int hWnd, uint wFilterMin, uint wFilterMax, uint wFlag);    
+        /// &lt;summary&gt;    
+        /// 该函数从调用线程的消息队列里取得一个消息并将其放于指定的结构。此函数可取得与指定窗口联系的消息和由PostThreadMesssge寄送的线程消息。此函数接收一定范围的消息值。    
+        /// &lt;/summary&gt;    
+        public static extern bool GetMessage(ref MSG msg, int hWnd, uint wFilterMin, uint wFilterMax);    
+        /// &lt;summary&gt;    
+        /// 该函数将虚拟键消息转换为字符消息。    
+        /// &lt;/summary&gt;    
+        public static extern bool TranslateMessage(ref MSG msg);    
+        /// &lt;summary&gt;    
+        /// 该函数调度一个消息给窗口程序。    
+        /// &lt;/summary&gt;    
+        public static extern bool DispatchMessage(ref MSG msg);    
+        /// &lt;summary&gt;    
+        /// 该函数从一个与应用事例相关的可执行文件（EXE文件）中载入指定的光标资源.    
+        /// &lt;/summary&gt;    
+        public static extern IntPtr LoadCursor(IntPtr hInstance, uint cursor);    
+        /// &lt;summary&gt;    
+        /// 该函数确定光标的形状。    
+        /// &lt;/summary&gt;    
+        public static extern IntPtr SetCursor(IntPtr hCursor);    
+        /// &lt;summary&gt;    
+        /// 确定当前焦点位于哪个控件上。    
+        /// &lt;/summary&gt;    
+        public static extern IntPtr GetFocus();    
+        /// &lt;summary&gt;    
+        /// 该函数从当前线程中的窗口释放鼠标捕获，并恢复通常的鼠标输入处理。捕获鼠标的窗口接收所有的鼠标输入（无论光标的位置在哪里），除非点击鼠标键时，光标热点在另一个线程的窗口中。    
+        /// &lt;/summary&gt;    
+        public static extern bool ReleaseCapture();    
+        /// &lt;summary&gt;    
+        /// 准备指定的窗口来重绘并将绘画相关的信息放到一个PAINTSTRUCT结构中。    
+        /// &lt;/summary&gt;    
+        public static extern IntPtr BeginPaint(IntPtr hWnd, ref PAINTSTRUCT ps);    
+        /// &lt;summary&gt;    
+        /// 标记指定窗口的绘画过程结束,每次调用BeginPaint函数之后被请求    
+        /// &lt;/summary&gt;    
+        public static extern bool EndPaint(IntPtr hWnd, ref PAINTSTRUCT ps);    
+        /// &lt;summary&gt;    
+        /// 半透明窗体    
+        /// &lt;/summary&gt;    
+        public static extern bool UpdateLayeredWindow(IntPtr hwnd, IntPtr hdcDst, ref POINT pptDst, ref SIZE psize, IntPtr hdcSrc, ref POINT pprSrc, Int32 crKey, ref BLENDFUNCTION pblend, Int32 dwFlags);    
+        /// &lt;summary&gt;    
+        /// 该函数返回指定窗口的边框矩形的尺寸。该尺寸以相对于屏幕坐标左上角的屏幕坐标给出。    
+        /// &lt;/summary&gt;    
+        public static extern bool GetWindowRect(IntPtr hWnd, ref RECT rect);    
+        /// &lt;summary&gt;    
+        /// 该函数将指定点的用户坐标转换成屏幕坐标。    
+        /// &lt;/summary&gt;    
+        public static extern bool ClientToScreen(IntPtr hWnd, ref POINT pt);    
+        /// &lt;summary&gt;    
+        /// 当在指定时间内鼠标指针离开或盘旋在一个窗口上时，此函数寄送消息。    
+        /// &lt;/summary&gt;    
+        public static extern bool TrackMouseEvent(ref TRACKMOUSEEVENTS tme);    
+        /// &lt;summary&gt;    
+        ///     
+        /// &lt;/summary&gt;    
+        public static extern bool SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool redraw);    
+        /// &lt;summary&gt;    
+        /// 该函数检取指定虚拟键的状态。    
+        /// &lt;/summary&gt;    
+        public static extern ushort GetKeyState(int virtKey);    
+        /// &lt;summary&gt;    
+        /// 该函数改变指定窗口的位置和尺寸。对于顶层窗口，位置和尺寸是相对于屏幕的左上角的：对于子窗口，位置和尺寸是相对于父窗口客户区的左上角坐标的。    
+        /// &lt;/summary&gt;    
+        public static extern bool MoveWindow(IntPtr hWnd, int x, int y, int width, int height, bool repaint);    
+        /// &lt;summary&gt;    
+        /// 该函数获得指定窗口所属的类的类名。    
+        /// &lt;/summary&gt;    
+        public static extern int GetClassName(IntPtr hWnd, out STRINGBUFFER ClassName, int nMaxCount);    
+        /// &lt;summary&gt;    
+        /// 该函数改变指定窗口的属性    
+        /// &lt;/summary&gt;    
+        public static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);    
+        /// &lt;summary&gt;    
+        /// 该函数检索指定窗口客户区域或整个屏幕的显示设备上下文环境的句柄，在随后的GDI函数中可以使用该句柄在设备上下文环境中绘图。    
+        /// &lt;/summary&gt;    
+        public static extern IntPtr GetDCEx(IntPtr hWnd, IntPtr hRegion, uint flags);    
+        /// &lt;summary&gt;    
+        /// 获取整个窗口（包括边框、滚动条、标题栏、菜单等）的设备场景 返回值 Long。    
+        /// &lt;/summary&gt;    
+        public static extern IntPtr GetWindowDC(IntPtr hWnd);    
+        /// &lt;summary&gt;    
+        /// 该函数用指定的画刷填充矩形，此函数包括矩形的左上边界，但不包括矩形的右下边界。    
+        /// &lt;/summary&gt;    
+        public static extern int FillRect(IntPtr hDC, ref RECT rect, IntPtr hBrush);    
+        /// &lt;summary&gt;    
+        /// 该函数返回指定窗口的显示状态以及被恢复的、最大化的和最小化的窗口位置。    
+        /// &lt;/summary&gt;    
+        public static extern int GetWindowPlacement(IntPtr hWnd, ref WINDOWPLACEMENT wp);    
+        /// &lt;summary&gt;    
+        /// 该函数改变指定窗口的标题栏的文本内容    
+        /// &lt;/summary&gt;    
+        public static extern int SetWindowText(IntPtr hWnd, string text);    
+        /// &lt;summary&gt;    
+        /// 该函数将指定窗口的标题条文本（如果存在）拷贝到一个缓存区内。如果指定的窗口是一个控制，则拷贝控制的文本。    
+        /// &lt;/summary&gt;    
+        public static extern int GetWindowText(IntPtr hWnd, out STRINGBUFFER text, int maxCount);    
+        /// &lt;summary&gt;    
+        /// 用于得到被定义的系统数据或者系统配置信息.    
+        /// &lt;/summary&gt;    
+        static public extern int GetSystemMetrics(int nIndex);    
+        /// &lt;summary&gt;    
+        /// 该函数设置滚动条参数，包括滚动位置的最大值和最小值，页面大小，滚动按钮的位置。    
+        /// &lt;/summary&gt;    
+        static public extern int SetScrollInfo(IntPtr hwnd, int bar, ref SCROLLINFO si, int fRedraw);    
+        /// &lt;summary&gt;    
+        /// 该函数显示或隐藏所指定的滚动条。    
+        /// &lt;/summary&gt;    
+        public static extern int ShowScrollBar(IntPtr hWnd, int bar, int show);    
+        /// &lt;summary&gt;    
+        /// 该函数可以激活一个或两个滚动条箭头或是使其失效。    
+        /// &lt;/summary&gt;    
+        public static extern int EnableScrollBar(IntPtr hWnd, uint flags, uint arrows);    
+        /// &lt;summary&gt;    
+        /// 该函数将指定的窗口设置到Z序的顶部。    
+        /// &lt;/summary&gt;    
+        public static extern int BringWindowToTop(IntPtr hWnd);    
+        /// &lt;summary&gt;    
+        /// 该函数滚动指定窗体客户区域的目录。    
+        /// &lt;/summary&gt;    
+        static public extern int ScrollWindowEx(IntPtr hWnd, int dx, int dy,ref RECT rcScroll, ref RECT rcClip, IntPtr UpdateRegion, ref RECT rcInvalidated, uint flags);    
+        /// &lt;summary&gt;    
+        /// 该函数确定给定的窗口句柄是否识别一个已存在的窗口。    
+        /// &lt;/summary&gt;    
+        public static extern int IsWindow(IntPtr hWnd);    
+        /// &lt;summary&gt;    
+        /// 该函数将256个虚拟键的状态拷贝到指定的缓冲区中。    
+        /// &lt;/summary&gt;    
+        public static extern int GetKeyboardState(byte[] pbKeyState);    
+        /// &lt;summary&gt;    
+        /// 该函数将指定的虚拟键码和键盘状态翻译为相应的字符或字符串。该函数使用由给定的键盘布局句柄标识的物理键盘布局和输入语言来翻译代码。    
+        /// &lt;/summary&gt;    
+        public static extern int ToAscii(int uVirtKey,int uScanCode, byte[] lpbKeyState, byte[] lpwTransKey,int fuState);   
+        #endregion    
+   
+    }    
+}  
+</code></pre>
+
+        
+    </div>
+
+</article>
+<section class="comment">
+    <p class="local-info">
+        Comment is disabled to avoid unwanted discussions from 'localhost:1313' on your Disqus
+        account...
+    </p>
+    <div id="disqus_thread"></div>
+</section>
+<script type="text/javascript">
+
+    (function () {
+        if (window.location.hostname == "localhost") {
+            return
+        }
+        document.querySelector('.local-info').classList.add('hide')
+
+        let dsq = document.createElement('script')
+        dsq.type = 'text/javascript'
+        dsq.async = true
+        let disqus_shortname = ''
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
+    })()
+</script>
+
+
+        </main>
+    </div>
+    <footer class="footer clearfix">
+    <ul class="control social clearfix">
+        <li><a class="author btn" href="#"></a></li>
+        
+        <li>
+            <a class="icon-link btn" href="https://hou-rong.github.io/index.xml" type="application/rss+xml" title="rss">
+                <i class="rss icon"></i></a>
+        </li>
+    </ul>
+
+    <ul class="control status clearfix">
+        <li><a href="#" class="btn">Posts:
+                0</a>
+        </li>
+        <li><a href="#" class="btn">Pages:
+                0</a></li>
+        <li><a href="#" class="btn">en</a></li>
+        <li><a href="https://gohugo.io" class="btn">Hugo, 0.55.5</a></li>
+        <li><a href="https://github.com/jacobsun/edidor" class="btn">Theme: Edidor</a></li>
+        <li>
+            
+        </li>
+    </ul>
+</footer>
+<div class="dialog">
+    <div class="wrapper">
+        <div class="clearfix"><button class="btn close-dialog">X</button></div>
+        <header>
+            <h1 class="title">Theme Name</h1>
+        </header>
+        <main>
+            <div class="clearfix">
+                <label for="theme-name">
+                    <p>Only English Character, space, hyphen are allowed!</p>
+                    <p>Valid name examples: "custom", "fantastic theme", "my-theme"</p>
+                    <p>Invalid name examles: "我的主题", ":)", "123"</p>
+                </label>
+                <input type="text" name="theme-name" id="theme-name">
+            </div>
+            <div class="clearfix">
+                <button class="btn export">Export</button>
+            </div>
+
+        </main>
+        <footer></footer>
+    </div>
+</div>
+
+    <script src="https://hou-rong.github.io/js/main.js"></script>
+
+
+</body>
+
+</html>

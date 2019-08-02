@@ -29,5 +29,454 @@
       <description> Hello World </description>
     </item>
     
+    <item>
+      <title>MongoDB 数据导入导出</title>
+      <link>https://hou-rong.github.io/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</guid>
+      <description> 介绍 在使用 MongoDB 的过程中，偶尔会需要进行数据的导出导入，通过 mongodump 导出，通过 mongoimport 以及 mongorestore 可以简化操作，在此记录备忘
+mongodump mongodump -h host -u user -p pass-d db_name --authenticationDatabase admin  mongoimport mongoimport -h host -u user -p pass-d db_name --authenticationDatabase admin --type csv --headerline --file file_name  mongorestore mongorestore -h host --port port -u user -p pass --authenticationDatabase admin --db db_name file_location  </description>
+    </item>
+    
+    <item>
+      <title>Docker 监控 ui-for-docker</title>
+      <link>https://hou-rong.github.io/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/</link>
+      <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/</guid>
+      <description> 引入 在本机使用 Docker 的过程中，需要对各个容器的状态进行监控，采用 ui-for-docker 进行，以下内容从 https://github.com/kevana/ui-for-docker 搬运，进行备忘
+QuickStart run -it -d --name docker-web -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock docker.io/uifd/ui-for-docker  启动服务 docker start docker-web  </description>
+    </item>
+    
+    <item>
+      <title>supervisor 3.3.3 在 centos 6 上的安装以及配置</title>
+      <link>https://hou-rong.github.io/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 07 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</guid>
+      <description>引入 由于单一项目需要使用不同的 workdir 以及 environment ，将 supervisor 从 2 更新到 3
+卸载与安装 卸载旧的 supervisor ，安装最新的 supervisor
+yum remove supervisor pip install supervisor  service 配置 由于安装后的 supervisor 没有默认的 init script，官方[https://github.com/Supervisor/initscripts]只给出了 centos 7 的 systemd 的启动脚本，所以修改 redhat 的启动脚本以便使用，如下为修改后的 supervisord 启动脚本
+vim /etc/init.d/supervisord  #!/bin/bash # Source function library . /etc/rc.d/init.d/functions # Source system settings if [ -f /etc/sysconfig/supervisord ]; then . /etc/sysconfig/supervisord fi # Path to the supervisorctl script, server binary, # and short-form for messages.</description>
+    </item>
+    
+    <item>
+      <title>Celery 使用 Customer AutoScaler</title>
+      <link>https://hou-rong.github.io/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/</link>
+      <pubDate>Fri, 06 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/</guid>
+      <description>引入 在使用 celery 进行并发时，发现默认的自动控制并发的算法中没有进行内存的控制，导致服务占用过多内存而出现服务器宕机，现实现 Custom AutoScaler 以解决此问题
+项目配置 首先进行项目配置，将 AutoScaler 配置到 Celery 中
+CELERYD_AUTOSCALER = &#39;proj.tasks.CustomAutoScale&#39;  使用 worker name 区分不同的 worker 仅需在 celery 启动参数的 -n 中添加名称即可
+worker -A proj -l info -P eventlet --autoscale 10,2 -n test_worker  实现 CustomAutoScale 实现自己的 AutoScaler 的主要内容是实现 mabe_scale 函数，或者直接实现 _maybe_scale，本示例为对原先只判断 process 扩充 memory 的判断，当前该方法可以确保内存占用保持在 60-85% 之间
+class CustomAutoScale(Autoscaler): def _maybe_scale(self, req=None): worker_name = self.worker.hostname memory_obj = psutil.virtual_memory() memory_percent = memory_obj.percent procs = self.</description>
+    </item>
+    
+    <item>
+      <title>requests 请求打印请求信息</title>
+      <link>https://hou-rong.github.io/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Wed, 02 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/</guid>
+      <description> 引入 打印请求详细信息，在此记录，以防忘记
+请求参数 try: import http.client as http_client except ImportError: import httplib as http_client http_client.HTTPConnection.debuglevel = 1  </description>
+    </item>
+    
+    <item>
+      <title>修复 ssh key 登录服务器</title>
+      <link>https://hou-rong.github.io/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>引入 服务器一直 ssh 登录正常，突然有段时间发现不能登录了，查看原因
+从客户端查看 ssh -v user@host  查看过后，发现问题不在客户端上面
+从服务器上查找原因 首先查看 .ssh 目录 和 authorized_keys 的权限
+.ssh 为 700，authorized_keys 为 600，正常
+查看日志
+tailf /var/log/secure  返回结果
+Authentication refused: bad ownership or modes for directory /root
+查看 root 文件夹权限
+发现文件夹被改成了 777，改回 755 即可正常登录</description>
+    </item>
+    
+    <item>
+      <title>搭建自己的 pypi server</title>
+      <link>https://hou-rong.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</link>
+      <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</guid>
+      <description>引入 通常我们 pip 安装的 python 包都是从 https://pypi.python.org/pypi 安装，偶尔国内网速慢的话也可以修改为 https://pypi.doubanio.com/simple 但是遇到一些公司内部的私有包需要管理，搭建自己的 pypi server ，可以简化很多
+安装 pip install pypiserver mkdir /data/pypi-package /usr/local/bin/python3.5 /usr/local/bin/pypi-server -p 28080 --fallback-url https://pypi.doubanio.com/simple /data/pypi-package/  增加上传 package 的用户认证部分 pip install passlib yum install httpd-tools htpasswd -sc /PATH/TO/PRIVATEPYPI/.htaccess user_name # 回车后输入用户密码 /usr/local/bin/python3.5 /usr/local/bin/pypi-server -p 28080 -P /root/.htaccess --fallback-url https://pypi.doubanio.com/simple /data/pypi-package/ # 设置密码后使用此方法启动  进程守护 发现可以正常使用，使用 supervisor 进行进程守护，修改如下配置文件后重启 supervisor 这部分即可
+[program:pypiserver] command=/usr/local/bin/python3.5 /usr/local/bin/pypi-server -p 28080 -P /root/.htaccess --fallback-url https://pypi.doubanio.com/simple /data/pypi-package/ numprocs=4 stdout_logfile=/var/log/pypi_server.</description>
+    </item>
+    
+    <item>
+      <title>Mongo 迭代方式查询大量数据</title>
+      <link>https://hou-rong.github.io/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</guid>
+      <description>引入 工作时，使用 mongo 查询全部 collections 的数据，在运行一段时间后，因为内存的问题导致程序被 kill，现使用迭代的查询方式解决
+想法 使用 ObjectId 进行排序，从最小的 id 开始，到最大的 id 结束，并逐条返回内容，最终当完成后抛出 StopIteration 结束迭代
+实现 #!/usr/bin/env python # -*- coding: utf-8 -*- # @Time : 2017/7/21 下午3:45 # @Author : Hou Rong # @Site : # @File : MongoUtils.py # @Software: PyCharm each_line_num = 2000 def mongo_find_iter(collections): # 获取最小，最大 id 以便遍历全部 min_id = list(collections.find().sort(&#39;_id&#39;, 1).limit(1))[0][&#39;_id&#39;] max_id = list(collections.find().sort(&#39;_id&#39;, -1).limit(1))[0][&#39;_id&#39;] now_id = min_id # 返回第一项 __line = collections.</description>
+    </item>
+    
+    <item>
+      <title>MySql 表，库大小查询</title>
+      <link>https://hou-rong.github.io/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/</link>
+      <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/</guid>
+      <description> 引入 在工作中，需要查询表的占用的空间以及数据库占用的空间
+查询语句 查询每个数据库占用的空间的大小
+SELECT table_schema, concat(round(sum(DATA_LENGTH/1024/1024),2),&#39;MB&#39;) as data FROM TABLES group by table_schema;  查询每个表占用空间的大小
+SELECT table_name, concat(round(sum(DATA_LENGTH/1024/1024),2),&#39;MB&#39;) as data FROM TABLES where table_schema=&amp;quot;db name&amp;quot; group by table_name;  所有库和表的大小
+SELECT table_schema, table_name, concat(round(sum(DATA_LENGTH/1024/1024),2),&#39;MB&#39;) as data FROM TABLES group by table_schema, table_name;  </description>
+    </item>
+    
+    <item>
+      <title>爬虫抓取回来的数据重复问题</title>
+      <link>https://hou-rong.github.io/post/%E7%88%AC%E8%99%AB%E6%8A%93%E5%8F%96%E5%9B%9E%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E9%87%8D%E5%A4%8D%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/%E7%88%AC%E8%99%AB%E6%8A%93%E5%8F%96%E5%9B%9E%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E9%87%8D%E5%A4%8D%E9%97%AE%E9%A2%98/</guid>
+      <description>通过返回的页面信息判断重复  完全重复 内容和布局格式上毫无差别 内容重复 内容毫无差别 布局重复 重要内容重复，布局相同 部分重复 重要内容重复，格式不同  页面信息重复无法解决减少抓取流量的问题，但可以解决存储的结果中无重复的数据，减少存储的空间。</description>
+    </item>
+    
+    <item>
+      <title>js 相关爬虫解析方法分享</title>
+      <link>https://hou-rong.github.io/post/js-%E7%9B%B8%E5%85%B3%E7%88%AC%E8%99%AB%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/js-%E7%9B%B8%E5%85%B3%E7%88%AC%E8%99%AB%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95%E5%88%86%E4%BA%AB/</guid>
+      <description>引入 由于现在反爬虫机制的加强，传输数据的中间流程也发生了改变，一些不希望被爬取的网站纷纷加入了一些防盗设施，这是反反爬虫的解析 js 进行抓取的流程变得必不可少。
+需要解析的 js 包含什么 就我现在所见过的需要解析 js 的爬虫
+ 不需要请求 key 或者 cookie 里面需要传递什么重要参数的爬虫。简单的 ajax ，直接通过打请求就可以获得数据。WebSocket ，http 1.1 建立的长连接方法，可通过 webSocket.send 发送服务器所要的请求参数直接获取相关数据。
+ 需要进行进一步解析的 key 或者 cookie 里面需要加入特殊字符的爬虫（由于页面中请求 js 的特性，需要先把源文件下载到本地浏览器中，再执行。这类页面的加密其实都应该是明文的。但由于做了混淆，可能我们阅读起来会非常的费力），其中加密的方式有以下几种：
+ String.fromCharCode() 系列及其变种。这种一般是将一段数字，或者函数变成文字，然后再转成 charcode 最后保存在页面中。还原方式就是逆向，然后再 eval 将几个数学函数传入，并进行计算，最终通过返回值确定 自定义函数，并封装到某个 js 中，最终通过此函数进行计算并返回相关值，同时有可能检测当前浏览器状态 函数中添加很多注释，导致函数无法阅读   具体情况 总之，上面的方法归根结底就是将函数变字符串，中间随便加注释，或者加几个数学函数，再 eval 一下这样。难并不难，只是繁琐。现在以我查看 elong 验证的情况具体介绍遇到这种状况时的各个处理方式。
+查看页面 打开页面 http://m.elong.com/ihotel/315197/?source_id=315197#detailTab并查看源码
+首先我们看到了一个十分不和谐的字符串 并能够找到与之配合的 js
+eval(function(p,a,c,k,e,d){e=function(c){return(c&amp;lt;a?&amp;quot;&amp;quot;:e(parseInt(c/a)))+((c=c%a)&amp;gt;35?String.fromCharCode(c+29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return&#39;\\w+&#39;};c=1;};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;+e(c)+&#39;\\b&#39;,&#39;g&#39;),k[c]);return p;}(&#39;3 i(){g{2 a=$(&amp;quot;#8&amp;quot;).f();5(4==a||a==\&#39;\&#39;||a==\&#39;${8}\&#39;){0-6};2 b=7(a);2 c=9(b);0 c}d(e){0-6}};3 7(a){5(4==a||a==\&#39;\&#39;){0 a};2 b=a.j(/\\)\\^-1/h,&amp;quot;)&amp;amp;-1&amp;quot;);0 b}&#39;,20,20,&#39;return||var|function|null|if|99|hijklmn|tsdDetail|eval||||catch||val|try|gm|abcdefgDetail|replace&#39;.split(&#39;|&#39;),0,{}))  阅读后发现这个函数先生成一个匿名函数，此函数有 6 个参数，并且此函数在生成的同时被调用，传入下方的若干参数，最终结果会被 eval 。</description>
+    </item>
+    
+    <item>
+      <title>CentOS 安装 autofs</title>
+      <link>https://hou-rong.github.io/post/centos-%E5%AE%89%E8%A3%85-autofs/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/centos-%E5%AE%89%E8%A3%85-autofs/</guid>
+      <description> Install 安装 autofs ，直接使用 yum 安装即可
+yum install autofs  Configuration 配置 autofs 相关项
+auto.master 中添加一下语句
+/data/nfs /etc/auto.nfs  auto.nfs 中添加一下语句
+image -rw,soft,intr your-host:/your/folder/path page_saver -rw,soft,intr you-host:/your/folder/path  Auto Start 开机自启动
+rc.local 中添加以下语句
+/sbin/service autofs restart  </description>
+    </item>
+    
+    <item>
+      <title>Django 使用 uwsgi 启动后日志中显示 UnicodeEncodeError</title>
+      <link>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</link>
+      <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</guid>
+      <description>引入 在做毕设时，系统需要用 uwsgi 进行启动，在打印日志中，请求即使成功也会报 UnicodeEncodeError，而在使用 Debug 模式下不会出现
+解决方案 在 Django 的官网中看到，uwsgi.ini 配置中添加 env = LANG=en_US.UTF-8 ，在重新启动应用后发现仍然有此错误。于是修改为 env = LANG=zh_CN.UTF-8 即可解决此错误。</description>
+    </item>
+    
+    <item>
+      <title>Django csrf 部分操作</title>
+      <link>https://hou-rong.github.io/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Mon, 08 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</guid>
+      <description>引入 在毕设的初期 csrf 的中间件 CsrfViewMiddleware 都是被我注视掉的，在之后了解了跨域攻击，认为防御跨域攻击还是需要的
+CsrfViewMiddleware 防止跨域攻击的原理 Django 防止 CSRF 攻击的方法其实是在 cookie 中保存 csrftoken 信息，在 Form 请求或者 Ajax 请求中确认本次请求是否携带有相关参数 。
+CsrfViewMiddleware 中存在 4 个函数
+ _accept csrf 验证成功，允许请求所返回的函数 _reject csrf 验证失败，拒绝请求，默认返回 403 process_view 用于验证返回的 csrf 值是否正确 process_response 用于在 Cookie 中设置 csrftoken  process_response 设置 Cookie 部分 核心部分为 set_cookie
+response.set_cookie(settings.CSRF_COOKIE_NAME, request.META[&amp;quot;CSRF_COOKIE&amp;quot;], max_age=settings.CSRF_COOKIE_AGE, domain=settings.CSRF_COOKIE_DOMAIN, path=settings.CSRF_COOKIE_PATH, secure=settings.CSRF_COOKIE_SECURE, httponly=settings.CSRF_COOKIE_HTTPONLY )  请求部分 Form 部分 如果使用 Django 默认的 Form 可以知道实现原理其实是在 Form 中添加了一条 Hidden 的 input 用于传入 csrfmiddlewaretoken 参数</description>
+    </item>
+    
+    <item>
+      <title>Tomcat 自动启动脚本</title>
+      <link>https://hou-rong.github.io/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</guid>
+      <description>引入 在做毕设时需要将 tomcat 配置成开机自启，同时希望可以快速的开启或关闭 Tomcat，通过查阅资料后增加了 tomcat 的服务脚本，同时添加了开机启动
+Tomcat 服务脚本 vim /etc/init.d/tomcat7  #!/bin/bash export JAVA_HOME=/usr/local/jdk1.7.0_45 PATH=/sbin:/bin:/usr/sbin:/usr/bin start() { sh /usr/local/apache-tomcat-7.0.62/bin/startup.sh } stop() { sh /usr/local/apache-tomcat-7.0.62/bin/shutdown.sh } case $1 in start|stop) $1;; restart) stop; start;; *) echo &amp;quot;Run as $0 &amp;lt;start|stop|restart&amp;gt;&amp;quot;; exit 1;; esac  添加开机自启 vim /etc/rc.local  添加一行 service tomcat7 start</description>
+    </item>
+    
+    <item>
+      <title>ValueError do_handshake_on_connect should not be specified for non-blocking sockets 问题解决</title>
+      <link>https://hou-rong.github.io/post/valueerror-do_handshake_on_connect-should-not-be-specified-for-non-blocking-sockets-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Wed, 26 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/valueerror-do_handshake_on_connect-should-not-be-specified-for-non-blocking-sockets-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description> 引入 更新代码时遇到此问题，搜索解决方案后发现只需要安装库 requests[security] 即可
+解决方案 pip install requests[security]  </description>
+    </item>
+    
+    <item>
+      <title>iframe 全屏幕</title>
+      <link>https://hou-rong.github.io/post/iframe-%E5%85%A8%E5%B1%8F%E5%B9%95/</link>
+      <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/iframe-%E5%85%A8%E5%B1%8F%E5%B9%95/</guid>
+      <description> 引入 在使用 iframe 时需要显示全屏的页面，故做了如下操作
+解决方案 &amp;lt;iframe id=&#39;page-iframe&#39; src=&amp;quot;&amp;quot; style=&amp;quot;position:fixed; top:200px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;&amp;quot;&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 下编译 uwsgi 报错 collect2 ld returned 1 exit status 的解决</title>
+      <link>https://hou-rong.github.io/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</link>
+      <pubDate>Wed, 19 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</guid>
+      <description> 引入 ubuntu 安装 uwsgi 时报出错误 collect2: ld returned 1 exit status
+解决方案 Python3.5 在安装时少了 --enable-shared 在如下添加编译后即可解决
+./configure --enable-shared --prefix=/usr/local LDFLAGS=&amp;quot;-Wl,--rpath=/usr/local/lib&amp;quot; make -j 16 make install  </description>
+    </item>
+    
+    <item>
+      <title>Django 配置 Email</title>
+      <link>https://hou-rong.github.io/post/django-%E9%85%8D%E7%BD%AE-email/</link>
+      <pubDate>Tue, 18 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/django-%E9%85%8D%E7%BD%AE-email/</guid>
+      <description> 引入 在完成毕设的时候，需要发送验证码邮件。由于 Django 有自带的邮件发送函数，所以进行如下配置。
+setting.py 配置 EMAIL_BACKEND = &#39;django.core.mail.backends.smtp.EmailBackend&#39; EMAIL_HOST = &#39;smtp.xxxx&#39; EMAIL_HOST_USER = &#39;from@mail.xxxx&#39; EMAIL_HOST_PASSWORD = &#39;passwd&#39; EMAIL_PORT = 25 EMAIL_USE_TLS = False # 对方看到的 email 发件人 DEFAULT_FROM_EMAIL = &#39;UserName &amp;lt;from@mail.xxx&amp;gt;&#39;  邮件发送部分代码 from django.core.mail import send_mail send_mail( &#39;Title&#39;, &#39;Content&#39;, &#39;from@mail&#39;, [&#39;to@mail&#39;], fail_silently=False, )  </description>
+    </item>
+    
+    <item>
+      <title>利用 expect 通过跳转机链接服务器</title>
+      <link>https://hou-rong.github.io/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>引入 在公司中需要使用跳板机登录服务器，这时候登录需要数据多次命令，十分麻烦。在同事的指点下，使用了 expect + iterm 的配置直接登录，十分方便。
+跳转机添加自己的公钥 在文件 ~/.ssh/authorized_keys 中将自己的公钥字符串添加
+安装 expect yum install expect  expect 登录脚本 vim login.exp
+#!/usr/bin/expect // 设置超时 30 s set timeout 30 // ssh 登录 参数 0 为 user 参数 1 为 hosts spawn ssh [lindex $argv 0]@[lindex $argv 1] expect { // 当首次登录需要确认对方服务器身份时输出 yes &amp;quot;(yes/no)?&amp;quot; {send &amp;quot;yes\n&amp;quot;;exp_continue} // 如果需要输入密码则键入参数 2 &amp;quot;password:&amp;quot; {send &amp;quot;[lindex $argv 2]\n&amp;quot;} } //交互模式,用户会停留在远程服务器上面 interact  Iterm 配置 在 Iterm 中打开设置，进行如下配置</description>
+    </item>
+    
+    <item>
+      <title>PyCharm debug  unable to display frame variables 解决</title>
+      <link>https://hou-rong.github.io/post/pycharm-debug-unable-to-display-frame-variables-%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Mon, 10 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/pycharm-debug-unable-to-display-frame-variables-%E8%A7%A3%E5%86%B3/</guid>
+      <description>引入 在使用 PyCharm 进行 Debug 时，程序会卡死，并显示 unable to display frame variables 问题
+查找 逐步查找后发现程序中使用的 gevent ，PyCharm 默认关闭 gevent 的调试，通过在设置中开启 Gevent compatible ， 如图：
+官方描述 官方链接
+Gevent debug support Posted on August 20, 2012 by Dmitry Trofimov Good news for everyone who uses gevent! Since the last PyCharm 2.6 EAP our visual debugger is able to deal with gevent monkey-patched code. To enable it just edit python/helpers/pydev/pydevd_constants.py in PyCharm installation and set the constant SUPPORT_GEVENT=True Your feedback is welcome as always!</description>
+    </item>
+    
+    <item>
+      <title>uWSGI &#43; Nginx &#43; Django配置</title>
+      <link>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</guid>
+      <description>引言 在开发 Django 项目开发完成后需要进行部署，使用 uWSGI + Nginx 的方式部署，以增加并发
+Django  测试 $ python manage.py runserver  如果可以正常运行，且可访问页面，证明项目环境已配置完全，可以正常使用。
+uWSGI 安装 sudo apt-get install nginx uwsgi uwsgi-plugin-python  可以使用 uwsgi &amp;ndash;version 查看 uwsgi 版本，如果版本过低则
+$ pip install -U uwsgi $ cd /usr/bin $ mv uwsgi uwsgi-old $ ln -s /usr/local/bin/uwsgi uwsgi   配置 为了测试可以先生成一个测试文件 test.py
+# test.py def application(env, start_response): start_response(&#39;200 OK&#39;, [(&#39;Content-Type&#39;,&#39;text/html&#39;)]) #return [&amp;quot;Hello World&amp;quot;] # python2 return [b&amp;quot;Hello World&amp;quot;] # python3  然后使用 8000 端口架设</description>
+    </item>
+    
+    <item>
+      <title>Django 使用外部方法进行用户认证</title>
+      <link>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</link>
+      <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</guid>
+      <description>引入 现在在做毕业设计，需要做一个管理系统。系统中的用户部分需要使用学校的用户进行认证。于是采用修改 ModelBackend 来实现。
+Backend 以下为 Backend 部分的实现。经一同学建议，&amp;rdquo;通过外部认证，如果有此用户则返回，无此用户则新建&amp;rdquo;，觉得这个想法特别好，于是采用。
+同时这一部分也可以用于之后第三方登录的用户认证
+from django.contrib.auth.models import User from django.contrib.auth.backends import ModelBackend def check_username_and_passwd(username, password): # your check function pass class ThirdPartBackend(ModelBackend): def authenticate(self, username=None, password=None, **kwargs): if check_username_and_passwd(username, password): try: user = User.objects.get(username=username) except User.DoesNotExist: user = User(username=username) user.set_password(password) user.save() return user return None def get_user(self, user_id): try: return User.objects.get(pk=user_id) except User.DoesNotExist: return None  Setting 编写新的 Backend 后，需要在 setting 中修改 AUTHENTICATION_BACKENDS 使配置生效</description>
+    </item>
+    
+    <item>
+      <title>Nginx 配置减少请求时间（开启 Gzip 压缩以及缓存）</title>
+      <link>https://hou-rong.github.io/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</link>
+      <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</guid>
+      <description>引言 浏览自己的博客的时候发现需要等待很长时间才能完成页面的加载，通过工具检测后，发现默认配置中只有 html 页面被压缩了，于是进行了如下更改
+开启 Gzip 加速 修改配置 nginx 配置中修改 gzip 部分 http {} 中
+# 默认配置 gzip on; # 开启 gzip gzip_disable &amp;quot;msie6&amp;quot;; # ie6 不压缩 # 增加配置 gzip_proxied any; # 所有请求进行压缩 gzip_min_length 1k; # 最小 1k 进行压缩 gzip_comp_level 4; # 压缩等级 4 （1-10） gzip_types text/plain text/css application/json application/x-javascript text/javascript text/xml image/jpeg image/png image/gif; # 压缩文件类型 # 可选配置 gzip_vary on; # 前端缓存服务器缓存经压缩的页面  修改完配置后重启 nginx 服务
+验证改动 通过工具检测需要进行压缩的文件，可以看到变化还是很大的</description>
+    </item>
+    
+    <item>
+      <title>Django Python3 连接 Mysql 数据库的问题</title>
+      <link>https://hou-rong.github.io/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sun, 12 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description> 引入 在使用 Django 默认的 sqlite 开发一点时间后，需要将数据库修改为 mysql 进行测试
+数据库地址修改 your/project/settings.py
+DATABASES = { &#39;default&#39;: { &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;, &#39;NAME&#39;: &#39;db&#39;, &#39;USER&#39;: &#39;user&#39;, &#39;PASSWORD&#39;: &#39;passwd&#39;, &#39;HOST&#39;: &#39;host&#39;, &#39;PORT&#39;: &#39;port&#39;, } }  如此连接后在 python3 中会报出缺失模块 MySQLdb 的错误，由于 MySQLdb 暂时还没有 python3 版本，则使用 pymysql 代替 MySQLdb，进行如下修改
+your/project/settings.py
+import pymysql pymysql.install_as_MySQLdb()  更新数据表
+python manage.py migrate  </description>
+    </item>
+    
+    <item>
+      <title>娱乐：拍七令</title>
+      <link>https://hou-rong.github.io/post/%E5%A8%B1%E4%B9%90-%E6%8B%8D%E4%B8%83%E4%BB%A4/</link>
+      <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/%E5%A8%B1%E4%B9%90-%E6%8B%8D%E4%B8%83%E4%BB%A4/</guid>
+      <description>引言 这两天班级聚会，喝酒时玩起了拍七令的游戏，输了就罚喝酒。基本上谁输的越多喝的越多就越容易输。于是写个程序，生成数字表，给大家做个参考。同时也给已经喝醉的朋友们一点提示 页面链接
+Python 版本 两个条件：
+ 可迭代对象 not_mod 中任一数与当前数字的取余不为 0 not_in 中的任一数不在当前数字中   def seven_shots(start, end, not_mod, not_in): for i in range(int(start), int(end)): if any(map(lambda x: i % int(x) == 0, not_mod)) or any(map(lambda x: str(x) in str(i), not_in)): yield &#39;拍手&#39; else: yield str(i)  JavaScript 版本  首先实现 Python 中的 any 函数与 Python 版本类似。区别是返回值为 Array  function any(iter) { for (var index = 0; index &amp;lt; iter.</description>
+    </item>
+    
+    <item>
+      <title>Celery 的使用中可能遇到的一些问题</title>
+      <link>https://hou-rong.github.io/post/celery-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%AF%E8%83%BD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/celery-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%AF%E8%83%BD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</guid>
+      <description>Celery 不能用 root 用户启动问题 celery 中增加如下代码
+from celery import platforms platforms.C_FORCE_ROOT = True  config.py 中的一些配置 # Backend CELERY_RESULT_BACKEND = &#39;amqp://rabbit&#39; # Broker 可以配置为 HaProxy 监控的端口 BROKER_URL = &#39;amqp://rabbit&#39; # Broker 支持设置为 list，可以同时设置多个 rabbit BROKER_URL = [ &#39;amqp://rabbit1&#39;, &#39;amqp://rabbit2&#39;, &#39;amqp://rabbit3&#39; ] # 每个子线程 ( 协程 ) 最多执行 40 个任务，防止内存泄漏导致进程僵死 CELERYD_MAX_TASKS_PER_CHILD = 40 # 不保存结果（如果结果不太重要的话直接选择不保存结果， # 否则会随着任务的继续占用过多的空间） CELERY_IGNORE_RESULT = True # celery 更新到 4.0 后会出现非认证中间包的报错，修改包类型为 # pickle，并压缩以及添加 pickle 包的认证 CELERY_ACCEPT_CONTENT = [&#39;pickle&#39;] CELERY_TASK_SERIALIZER = &#39;pickle&#39; CELERY_MESSAGE_COMPRESSION = &#39;gzip&#39;  celery.</description>
+    </item>
+    
+    <item>
+      <title>RabbitMQ 服务搭建</title>
+      <link>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>引入 近期使用 celery 作为任务平台处理大量任务，在 Redis 和 RabbitMQ 中进行选择，于是选择了后者。一则由于看到文档中 broker 的默认值为 ampq:// ，二则由于 RabbitMQ 的监控以及 celery flower 进行任务监控界面都十分友好。
+安装 Erlang centos 环境上使用 yum 安装
+vim /etc/yum.repos.d/erlang-sulutions.repo  [erlang-solutions] name=Centos $releasever - $basearch - Erlang Solutions baseurl=http://binaries.erlang-solutions.com/rpm/centos/$releasever/$basearch gpgcheck=1 gpgkey=http://binaries.erlang-solutions.com/debian/erlang_solutions.asc enabled=1  rpm --import http://binaries.erlang-solutions.com/debian/erlang_solutions.asc 指定源安装 yum install erlang --enablerepo=erlang-solutions 不指定源安装 yum install erlang  也可以使用清华镜像源直接下载某一版本的所有的安装包 https://mirrors.tuna.tsinghua.edu.cn/erlang-solutions/centos/6/
+yum install *.rpm  安装 RabbitMQ 及简单配置 正常安装即可
+wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el6.noarch.rpm yum install **  配置 rabbitmq</description>
+    </item>
+    
+    <item>
+      <title>PhpMyAdmin Docker 配置</title>
+      <link>https://hou-rong.github.io/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</guid>
+      <description>引入 在工作中经常需要进行数据库的查询，使用默认的命令行却不太好用。所有选择使用 PhpMyAdmin 进行图形化的搜索，由于不希望在本机安装太多服务程序，所以使用 Docker 管理 PhpMyAdmin 镜像。
+安装 Docker 官网安装
+安装镜像 docker pull phpmyadmin/phpmyadmin  配置 PhpMyAdmin config.user.inc.php 配置文件 &amp;lt;?php $connect_hosts = array( &#39;1&#39;=&amp;gt;array( &amp;quot;host&amp;quot; =&amp;gt; &amp;quot;Host 1&amp;quot;, // Server 1 ), &#39;2&#39; =&amp;gt; array( &amp;quot;host&amp;quot; =&amp;gt; &amp;quot;Host 2&amp;quot;, // Server 2 ); for ($i=1;$i&amp;lt;=count($connect_hosts);$i++) { /* Server parameters */ $cfg[&#39;Servers&#39;][$i][&#39;host&#39;] = $connect_hosts[$i][&#39;host&#39;]; //修改host $cfg[&#39;Servers&#39;][$i][&#39;connect_type&#39;] = &#39;tcp&#39;; $cfg[&#39;Servers&#39;][$i][&#39;compress&#39;] = false; /* Select mysqli if your server has it */ $cfg[&#39;Servers&#39;][$i][&#39;extension&#39;] = &#39;mysql&#39;; $cfg[&#39;Servers&#39;][$i][&#39;AllowNoPassword&#39;] = true; /* rajk - for blobstreaming */ $cfg[&#39;Servers&#39;][$i][&#39;bs_garbage_threshold&#39;] = 50; $cfg[&#39;Servers&#39;][$i][&#39;bs_repository_threshold&#39;] = &#39;32M&#39;; $cfg[&#39;Servers&#39;][$i][&#39;bs_temp_blob_timeout&#39;] = 600; $cfg[&#39;Servers&#39;][$i][&#39;bs_temp_log_threshold&#39;] = &#39;32M&#39;; }  使用外部配置开启服务 docker run --name myadmin -d -p 8080:80 -v /Users/hourong/Config/config.</description>
+    </item>
+    
+    <item>
+      <title>Python 使用 MySql 的分片的方式读取数据库中大量数据</title>
+      <link>https://hou-rong.github.io/post/python-%E4%BD%BF%E7%94%A8-mysql-%E7%9A%84%E5%88%86%E7%89%87%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Thu, 15 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/python-%E4%BD%BF%E7%94%A8-mysql-%E7%9A%84%E5%88%86%E7%89%87%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</guid>
+      <description>引入 在工作过程中发现某些单条数据特别大的表，希望读取其中的全部数据，于是利用 MySql 的分片进行逐步读取。
+函数主体 import gc import pymysql from pymysql.cursors import DictCursor __sql_dict = { &#39;host&#39;: &#39;&#39;, &#39;user&#39;: &#39; &#39;, &#39;passwd&#39;: &#39;&#39;, &#39;charset&#39;: &#39;utf8&#39;, &#39;db&#39;: &#39;&#39; } def get_data(table, source, step=10000): _conn = pymysql.connect(**__sql_dict) with _conn.cursor(cursor=DictCursor) as cursor: sql = &#39;select count(*) from {0} where source=&amp;quot;{1}&amp;quot;&#39;.format(table, source) cursor.execute(sql) total = list(cursor.fetchall()[0].values())[0] _count = 0 for start in range(0, total + 1, step): sql = &#39;select * from {0} where source=&amp;quot;{1}&amp;quot; limit {2},{3}&#39;.</description>
+    </item>
+    
+    <item>
+      <title>Mysql 备份脚本</title>
+      <link>https://hou-rong.github.io/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sat, 10 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
+      <description> 引入 在工作时没有自动备份 MySql 的习惯，直到有一次 Update 误操作 where 语句的范围写了一个为 True 的值，导致数据错误。还好通过之前的备份恢复，没损失多少数据，这也让我养成经常备份数据的习惯。
+备份脚本 #!/bin/sh DUMP=/usr/bin/mysqldump OUT_DIR=/your/backup/dir/ LINUX_USER=root # 你的数据库信息 DB_NAME= DB_USER= DB_PASS= # 修改保存备份的日期 DAYS=7 cd $OUT_DIR DATE=`date +%Y_%m_%d_%H_%M_%S` OUT_SQL=&amp;quot;$DATE.sql&amp;quot; TAR_SQL=&amp;quot;xxxx_bak_$DATE.tar.gz&amp;quot; $DUMP -u$DB_USER -p$DB_PASS $DB_NAME --default-character-set=utf8 --opt -Q -R &amp;gt; $OUT_SQL tar -zcvf $TAR_SQL $OUT_SQL rm $OUT_SQL chown $LINUX_USER:$LINUX_USER $OUT_DIR/$TAR_SQL find $OUT_DIR -name &amp;quot;xxxx_bak*&amp;quot; -type f -mtime +$DAYS -exec rm {} \;  </description>
+    </item>
+    
+    <item>
+      <title>Python 3.5 Centos 安装方法</title>
+      <link>https://hou-rong.github.io/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</guid>
+      <description> 下载源文件 从 python.org 下载相应源代码
+安装依赖环境 yum install bzip2-devel curses-devel dbm-devel gdbm-devel xz-devel sqlite sqlite-devel openssl openssl-devel tkinter tcl-devel tk-devel readline readline-devel zlib zlib-devel  一些其它库的名称
+build-essential zlib1g-dev libbz2-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev libgdbm-dev liblzma-dev tk8.5-dev  添加依赖库的 path
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib  程序编译安装 tar zxvf xxx.tar.gz ./configure --prefix=/usr/local/ # 其他可以通过 ./configure --help 查看 make -j &amp;lt;编译线程数&amp;gt;（不超过线程数的两倍） make install  </description>
+    </item>
+    
+    <item>
+      <title>LVS DR模式配置</title>
+      <link>https://hou-rong.github.io/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 29 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</guid>
+      <description>LVS-DR模式以及工作原理  LVS有LVS-DR，LVS-NAT，LVS-TUN三种模式，其中DR模式意为Direct Routing（直接路由），是调度器与实际服务器都有一块网卡连在同一物理网段上的情况 Director接收用户的请求，然后根据负载均衡算法选取一台realserver，将包转发过去，最后由realserver直接回复给用户 详细工作原理以及相关问题  ipvsadm 的安装以及调度算法 安装 yum install ipvsadm -y
+调度算法 ipvsadm -A -t 192.168.1.50:80 -s rr，其中rr为调度算法的一种 - 静态方法：仅根据调度算法本身进行调度 - rr: 轮询调度，轮叫调度 - wrr:加权轮询 - sh: 源地址hash - dh: 目标地址hash - 动态方法：根据算法及各RS当前的负载情况进行调度 - lc: 最少连接 - wlc:加权最少连接 - sed: 最短期望延迟 - nq: 永不排队连接 - lblc:基于局部性的最少连接 - lblcr: 带复制的基于局部性的最少连接
+十种调度算法的具体介绍 基本配置 Load Balance 节点  主机节点已将物理网卡改名为eth0 ``` conf
+ifconfig eth0:0 192.168.1.88&amp;frasl;24 up ifconfig eth0:0  eth0:0: flags=4163 mtu 1500 inet 192.</description>
+    </item>
+    
+    <item>
+      <title>极路由1s 9015降级9006 通过TTL 刷OpenWrt</title>
+      <link>https://hou-rong.github.io/post/%E6%9E%81%E8%B7%AF%E7%94%B11s-9015%E9%99%8D%E7%BA%A79006-%E9%80%9A%E8%BF%87ttl-%E5%88%B7openwrt/</link>
+      <pubDate>Thu, 19 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/%E6%9E%81%E8%B7%AF%E7%94%B11s-9015%E9%99%8D%E7%BA%A79006-%E9%80%9A%E8%BF%87ttl-%E5%88%B7openwrt/</guid>
+      <description>极路由降级  拔掉路由器电源 用网线将LAN口语电脑网口项链 将电脑本地连接的IP设置为192.168.1.88，子网掩码255.255.255.0，网关和DNS服务器空着就可以了，设置方法：  Win7/Win8/Win10 XP  下载资源 32位系统运行tftpd32，64位系统运行tftpd64 在已经用尖锐物体按下RESET键，并保持按压的情况下，给路由器供电 待电脑tftpd出现传输recovery.bin的进度条时松开RESET键 路由器面板进入跑马灯状态，待跑马灯结束后，路由器重启，刷机完成 改回正常的本地连接IP属性，访问路由器管理界面，进行初始化设置，在系统版本中可以看到已经路由器版本已经降级到9006  通过TTL建立计算机与路由器的连接  PL2023模块的驱动，从网页上面找一个适合自己电脑的 USB插入PL2023模块，如果在设备管理器中显示正常，说明驱动安装成功。如果你的系统是WIn10，或者其他原因导致显示设备不能使用，显示错误代码Code 10，看解决方案 取下极路由SD卡，用内三角螺丝刀拧开极路由后部的6个螺丝，将电路板拆出 在TX TX GND 3.3V处焊上排针  用排线将PL2023模块与刚焊的排针连接，注意3.3V处一定不要接线  使用Putty，Connection Type选择Serial，Serial line根据自己使用的端口选择，Speed填入115200，使用Open打开
+   接通电源，但出现这句话的时候按F，而后Enter   当出现这句话的时候，按Enter   而后会出现极路由的界面   此时极路由已经与计算机建立了连接  极路由刷PandoraBox系统  给极路由接入网线，Ping某一网址检查路由器网络连接状态 输入
+rm -rf tool.sh &amp;amp;&amp;amp; wget -c http://www.hiwifimi.com/app/tool.sh &amp;amp;&amp;amp; chmod +x tool.sh &amp;amp;&amp;amp; ./tool.sh   输入openwrt后按回车即可  用户名root，密码admin 进入   极路由刷OpenWrt系统  如果需要的话，可以下载镜像 给极路由接入网线，Ping某一网址检查路由器网络连接状态 如果希望使用网上的镜像 输入  cd /tmp wget http://xxxx.</description>
+    </item>
+    
+    <item>
+      <title>Android获得屏幕参数</title>
+      <link>https://hou-rong.github.io/post/%E8%8E%B7%E5%8F%96android%E5%B1%8F%E5%B9%95%E5%8F%82%E6%95%B0/</link>
+      <pubDate>Sun, 18 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/%E8%8E%B7%E5%8F%96android%E5%B1%8F%E5%B9%95%E5%8F%82%E6%95%B0/</guid>
+      <description>public static int getStatusBarHeight(Context context) { Class&amp;lt;?&amp;gt; c = null; Object obj = null; Field field = null; int x = 0, statusBarHeight = 0; try { c = Class.forName(&amp;quot;com.android.internal.R$dimen&amp;quot;); obj = c.newInstance(); field = c.getField(&amp;quot;status_bar_height&amp;quot;); x = Integer.parseInt(field.get(obj).toString()); statusBarHeight = context.getResources().getDimensionPixelSize(x); } catch (Exception e1) { e1.printStackTrace(); } return statusBarHeight; } public static int getNavigationBarHeight(Activity activity) { Resources resources = activity.getResources(); int resourceId = resources.getIdentifier(&amp;quot;navigation_bar_height&amp;quot;, &amp;quot;dimen&amp;quot;, &amp;quot;android&amp;quot;); int height = resources.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 禁用 Ping</title>
+      <link>https://hou-rong.github.io/post/ubuntu_disable_ping/</link>
+      <pubDate>Wed, 15 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/ubuntu_disable_ping/</guid>
+      <description>sudo su  Disable ping:
+echo 1 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_all  or
+iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j DROP  To re-enable ping:
+echo 0 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_all  or
+iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j ACCEPT  To make it permanently, edit the &amp;ldquo;etc/sysctl.conf&amp;rdquo; file so that the setting gets picked up at boot time.
+net.ipv4.icmp_echo_ignore_all=1  </description>
+    </item>
+    
+    <item>
+      <title>User32.dll中的函数</title>
+      <link>https://hou-rong.github.io/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Sun, 07 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</guid>
+      <description>通过dumpbin /exports user32.dll可以获得其中带函数名称
+&amp;lt;!-- more --&amp;gt; ```cs using System; using System.Collections.Generic; using System.Linq; using System.Text; using System.Runtime.InteropServices; namespace WindowsAPI { class CSharp_Win32Api { #region User32.dll 函数 /// &amp;lt;summary&amp;gt; /// 该函数检索一指定窗口的客户区域或整个屏幕的显示设备上下文环境的句柄，以后可以在GDI函数中使用该句柄来在设备上下文环境中绘图。hWnd：设备上下文环境被检索的窗口的句柄 /// &amp;lt;/summary&amp;gt; [DllImport(&amp;quot;user32.dll&amp;quot;, CharSet = CharSet.Auto)] public static extern IntPtr GetDC(IntPtr hWnd); /// &amp;lt;summary&amp;gt; /// 函数释放设备上下文环境（DC）供其他应用程序使用。 /// &amp;lt;/summary&amp;gt; public static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC); /// &amp;lt;summary&amp;gt; /// 该函数返回桌面窗口的句柄。桌面窗口覆盖整个屏幕。 /// &amp;lt;/summary&amp;gt; static public extern IntPtr GetDesktopWindow(); /// &amp;lt;summary&amp;gt; /// 该函数设置指定窗口的显示状态。 /// &amp;lt;/summary&amp;gt; static public extern bool ShowWindow(IntPtr hWnd, short State); /// &amp;lt;summary&amp;gt; /// 通过发送重绘消息 WM_PAINT 给目标窗体来更新目标窗体客户区的无效区域。 /// &amp;lt;/summary&amp;gt; static public extern bool UpdateWindow(IntPtr hWnd); /// &amp;lt;summary&amp;gt; /// 该函数将创建指定窗口的线程设置到前台，并且激活该窗口。键盘输入转向该窗口，并为用户改各种可视的记号。系统给创建前台窗口的线程分配的权限稍高于其他线程。 /// &amp;lt;/summary&amp;gt; static public extern bool SetForegroundWindow(IntPtr hWnd); /// &amp;lt;summary&amp;gt; /// 该函数改变一个子窗口，弹出式窗口式顶层窗口的尺寸，位置和Z序。 /// &amp;lt;/summary&amp;gt; static public extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int Width, int Height, uint flags); /// &amp;lt;summary&amp;gt; /// 打开剪切板 /// &amp;lt;/summary&amp;gt; static public extern bool OpenClipboard(IntPtr hWndNewOwner); /// &amp;lt;summary&amp;gt; /// 关闭剪切板 /// &amp;lt;/summary&amp;gt; static public extern bool CloseClipboard(); /// &amp;lt;summary&amp;gt; /// 打开清空&amp;lt;/summary&amp;gt; static public extern bool EmptyClipboard(); /// &amp;lt;summary&amp;gt; /// 将存放有数据的内存块放入剪切板的资源管理中 /// &amp;lt;/summary&amp;gt; static public extern IntPtr SetClipboardData(uint Format, IntPtr hData); /// &amp;lt;summary&amp;gt; /// 在一个矩形中装载指定菜单条目的屏幕坐标信息 /// &amp;lt;/summary&amp;gt; static public extern bool GetMenuItemRect(IntPtr hWnd, IntPtr hMenu, uint Item, ref RECT rc); [DllImport(&amp;quot;user32.</description>
+    </item>
+    
+    <item>
+      <title>cx_Freeze 使用学习</title>
+      <link>https://hou-rong.github.io/post/cx_freeze-%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 20 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/cx_freeze-%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description> 引入 有时希望将 Python 写的图形程序生成可执行文件，可用 cx_Freeze 进行封装
+Hello World 代码 from cx_Freeze import setup, Executable includes = [&#39;tkinter&#39;] includefiles = [] eggsacutibull = Executable( script = &amp;quot;helloWorld.py&amp;quot;, initScript = None, base = &#39;Win32GUI&#39;, targetName = &amp;quot;helloWorld.exe&amp;quot;, compress = True, copyDependentFiles = True, appendScriptToExe = False, appendScriptToLibrary = False, icon = None ) setup( name = &amp;quot;HelloWorld&amp;quot;, version = &amp;quot;0.1&amp;quot;, author = &#39;HouRong&#39;, description = &amp;quot;HelloWorld UI script&amp;quot;, options = {&amp;quot;build_exe&amp;quot;: {&amp;quot;includes&amp;quot;:includes, &amp;quot;include_files&amp;quot;: includefiles}}, executables = [eggsacutibull] )  </description>
+    </item>
+    
+    <item>
+      <title>Python decorator 学习</title>
+      <link>https://hou-rong.github.io/post/python%E4%BF%AE%E9%A5%B0%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 20 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/python%E4%BF%AE%E9%A5%B0%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description> 函数内容 def div(className): def div_decorate(func): def func_wrapper(name): return &amp;quot;&amp;lt;div class=\&amp;quot;{1}\&amp;quot;&amp;gt;{0}&amp;lt;/div&amp;gt;&amp;quot;.format(func(name),className) return func_wrapper return div_decorate def p_decorate(func): def func_wrapper(name): return &amp;quot;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;quot;.format(func(name)) return func_wrapper @div(&amp;quot;abcTest&amp;quot;) @p_decorate def hello(name): return &amp;quot;Hello {0}!&amp;quot;.format(name) print(hello(&amp;quot;World&amp;quot;))  打印结果 &amp;lt;div class=&amp;quot;abcTest&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Hello World!&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;
+ 修饰器为高阶函数 自上而下的结合 执行 hello(name) 相当于先执行 p_decorate 中的 func_wrapper 再执行 div(className) 获得 div_decorate 以及 className 变量，而后返回 func_wrapper  </description>
+    </item>
+    
   </channel>
 </rss>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="canonical" href="https://hou-rong.github.io/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/" />
+    <meta name="description" content="">
+    
+
+    <title>LVS DR模式配置 &middot; 海纳百川，有容乃大</title>
+
+    <link rel="shortcut icon" href="https://hou-rong.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://hou-rong.github.io/css/main.css" />
+    
+    
+    
+</head>
+
+
+<body class="loading -mode">
+    
+<div class="top">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+<div class="bottom">
+    <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+</div>
+
+    <header class="header">
+    <ul class="menu clearfix control">
+        
+
+<li class="logo-container logo-default">
+    <a href="https://hou-rong.github.io/" class="btn logo-link">
+        <img class="logo" src="https://hou-rong.github.io/images/logo.svg" alt="logo" />
+    </a>
+</li>
+
+        
+        
+    </ul>
+</header>
+
+    <div class="middle">
+        <nav class="sidebar">
+            <ul class="posts control">
+    
+    <li><a class="no-break btn" href='/post/first/'><i class="icon icon-post"></i>First</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/'><i class="icon icon-post"></i>MongoDB 数据导入导出</a></li>
+    
+    <li><a class="no-break btn" href='/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/'><i class="icon icon-post"></i>Docker 监控 ui-for-docker</a></li>
+    
+    <li><a class="no-break btn" href='/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/'><i class="icon icon-post"></i>supervisor 3.3.3 在 centos 6 上的安装以及配置</a></li>
+    
+    <li><a class="no-break btn" href='/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/'><i class="icon icon-post"></i>Celery 使用 Customer AutoScaler</a></li>
+    
+    <li><a class="no-break btn" href='/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/'><i class="icon icon-post"></i>requests 请求打印请求信息</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/'><i class="icon icon-post"></i>修复 ssh key 登录服务器</a></li>
+    
+    <li><a class="no-break btn" href='/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/'><i class="icon icon-post"></i>搭建自己的 pypi server</a></li>
+    
+    <li><a class="no-break btn" href='/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/'><i class="icon icon-post"></i>Mongo 迭代方式查询大量数据</a></li>
+    
+    <li><a class="no-break btn" href='/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/'><i class="icon icon-post"></i>MySql 表，库大小查询</a></li>
+    
+</ul>
+
+        </nav>
+        <main class="main">
+            <article class="article">
+    <h2 class="title"><a href='/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/' class="btn">LVS DR模式配置</a></h2>
+    <div class="article-meta clearfix">
+        <ul class="dates clearfix left control">
+            <li><i class="icon icon-date"></i></li>
+            <li class="publish-date">
+                <time datetime="2015.11.29">2015.11.29</time>
+            </li>
+        </ul>
+        
+        
+        <div class="article-meta-splitter clearfix"></div>
+        <ul class="article-tags clearfix control">
+            <li><i class="icon icon-tags"></i></li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/linux/" class="btn">Linux</a>
+            </li>
+            
+            <li>
+                <a href="https://hou-rong.github.io/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="btn">负载均衡</a>
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="content">
+        
+        
+
+<h2 id="lvs-dr模式以及工作原理">LVS-DR模式以及工作原理</h2>
+
+<ul>
+<li>LVS有LVS-DR，LVS-NAT，LVS-TUN三种模式，其中DR模式意为Direct Routing（直接路由），是调度器与实际服务器都有一块网卡连在同一物理网段上的情况</li>
+<li>Director接收用户的请求，然后根据负载均衡算法选取一台realserver，将包转发过去，最后由realserver直接回复给用户</li>
+<li><a href="http://os.51cto.com/art/201105/264303.htm">详细工作原理</a>以及<a href="http://os.51cto.com/art/201105/262536.htm">相关问题</a></li>
+</ul>
+
+<h2 id="ipvsadm-的安装以及调度算法">ipvsadm 的安装以及调度算法</h2>
+
+<h3 id="安装">安装</h3>
+
+<p><code>yum install ipvsadm -y</code></p>
+
+<h3 id="调度算法">调度算法</h3>
+
+<p><code>ipvsadm -A -t 192.168.1.50:80 -s rr</code>，其中<strong>rr</strong>为调度算法的一种
+- 静态方法：仅根据调度算法本身进行调度
+ - rr: 轮询调度，轮叫调度
+ - wrr:加权轮询
+ - sh: 源地址hash
+ - dh: 目标地址hash
+- 动态方法：根据算法及各RS当前的负载情况进行调度
+ - lc: 最少连接
+ - wlc:加权最少连接
+ - sed: 最短期望延迟
+ - nq: 永不排队连接
+ - lblc:基于局部性的最少连接
+ - lblcr: 带复制的基于局部性的最少连接</p>
+
+<p><strong>十种调度算法的<a href="http://blog.csdn.net/scape1989/article/details/21085659">具体介绍</a></strong>
+<!-- more --></p>
+
+<h2 id="基本配置">基本配置</h2>
+
+<h3 id="load-balance-节点">Load Balance 节点</h3>
+
+<ul>
+<li><p>主机节点已将物理网卡改名为eth0
+``` conf</p>
+
+<h1 id="ifconfig-eth0-0-192-168-1-88-24-up">ifconfig eth0:0 192.168.1.<sup>88</sup>&frasl;<sub>24</sub> up</h1>
+
+<h1 id="ifconfig-eth0-0">ifconfig eth0:0</h1></li>
+</ul>
+
+<p>eth0:0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.88  netmask 255.255.255.0  broadcast 192.168.1.255
+        ether 00:0c:29:f0:fb:5f  txqueuelen 1000  (Ethernet)</p>
+
+<pre><code>
+### Web节点1
+- arp_ignore: 如何响应接收ARP地址请求，默认0，1表示仅在请求的地址配置在请求报文的接口进行响应。
+- arp_announce: 如何通告本地地址，默认0，2表示仅通过网络直连的接口的地址。
+- 配置是由于使用的CentOS7 所以网卡为eno16777736，其他系统一般为eth0，可以使用ls /sys/class/net查看
+``` conf
+# echo 1 &gt;/proc/sys/net/ipv4/conf/eno16777736/arp_ignore 
+# echo 1 &gt;/proc/sys/net/ipv4/conf/all/arp_ignore 
+# echo 2 &gt;/proc/sys/net/ipv4/conf/eno16777736/arp_announce 
+# echo 2 &gt;/proc/sys/net/ipv4/conf/all/arp_announce
+# ifconfig lo:0 192.168.1.88/24 up
+# ifconfig lo:0 192.168.1.88 netmask 255.255.255.255 broadcast 192.168.1.88 up
+# route add -host 192.168.1.88 dev lo:0
+</code></pre>
+
+<h3 id="web节点2">Web节点2</h3>
+
+<ul>
+<li><p>同上</p>
+
+<pre><code class="language-conf"># echo 1 &gt;/proc/sys/net/ipv4/conf/eno16777736/arp_ignore 
+# echo 1 &gt;/proc/sys/net/ipv4/conf/all/arp_ignore 
+# echo 2 &gt;/proc/sys/net/ipv4/conf/eno16777736/arp_announce 
+# echo 2 &gt;/proc/sys/net/ipv4/conf/all/arp_announce
+# ifconfig lo:0 192.168.1.88/24 up
+# ifconfig lo:0 192.168.1.88 netmask 255.255.255.255 broadcast 192.168.1.88 up
+# route add -host 192.168.1.88 dev lo:0
+</code></pre>
+
+<h3 id="load-balance-节点-1">Load Balance 节点</h3>
+
+<pre><code class="language-conf"># ipvsadm -A -t 192.168.1.88:80 -s rr
+# ipvsadm -a -t 192.168.1.88:80 -r 192.168.1.51 -g -w 1
+# ipvsadm -a -t 192.168.1.88:80 -r 192.168.1.52 -g -w 1
+# ipvsadm -L -n
+
+IP Virtual Server version 1.2.1 (size=4096)
+Prot LocalAddress:Port Scheduler Flags
+-&gt; RemoteAddress:Port           Forward Weight ActiveConn InActConn
+TCP  192.168.1.88:80 rr
+-&gt; 192.168.1.51:80              Route   1      0          0         
+-&gt; 192.168.1.52:80              Route   1      0          0   
+</code></pre></li>
+</ul>
+
+<h2 id="配置脚本">配置脚本</h2>
+
+<h3 id="web-节点配置脚本">Web 节点配置脚本</h3>
+
+<pre><code class="language-sh"># vim /etc/init.d/lvsdr-node
+#! /bin/sh
+VIP=192.168.1.88
+IFS=' ' read -r -a device &lt;&lt;&lt; `ls /sys/class/net`
+case &quot;$1&quot; in
+start)
+        echo 1 &gt;/proc/sys/net/ipv4/conf/${device[0]}/arp_ignore 
+        echo 1 &gt;/proc/sys/net/ipv4/conf/all/arp_ignore 
+        echo 2 &gt;/proc/sys/net/ipv4/conf/${device[0]}/arp_announce 
+        echo 2 &gt;/proc/sys/net/ipv4/conf/all/arp_announce
+        /sbin/ifconfig lo:0 $VIP/24 up
+        /sbin/ifconfig lo:0 $VIP netmask 255.255.255.255 broadcast $VIP up
+        /sbin/route add -host $VIP dev lo:0
+        echo &quot;start lvs server node&quot;
+        ;;
+stop)
+        echo 0 &gt;/proc/sys/net/ipv4/conf/${device[0]}/arp_ignore 
+        echo 0 &gt;/proc/sys/net/ipv4/conf/all/arp_ignore 
+        echo 0 &gt;/proc/sys/net/ipv4/conf/${device[0]}/arp_announce 
+        echo 0 &gt;/proc/sys/net/ipv4/conf/all/arp_announce
+        /sbin/ifconfig lo:0 down
+        /sbin/route delete -host $VIP
+        echo &quot;stop lvs server node&quot;
+        ;;
+*)
+        echo &quot;Usage :$0 {start|stop}&quot;
+        exit 1
+esac
+</code></pre>
+
+<p><code>chmod +x /etc/init.d/lvsdr-node</code>
+<code>service lvsdr-node start</code>  启动
+<code>service lvsdr-node stop</code> 停止</p>
+
+<h3 id="load-balance服务开启脚本">Load Balance服务开启脚本</h3>
+
+<pre><code class="language-sh"># vim /etc/init.d/lvsdr-lb
+#!/bin/bash
+VIP=192.168.1.88
+RIP1=192.168.1.51
+RIP2=192.168.1.52
+case &quot;$1&quot; in
+start)
+        /sbin/ifconfig eth0:0 $VIP/24 up
+        /sbin/ipvsadm -A -t $VIP:80 -s rr
+        /sbin/ipvsadm -a -t $VIP:80 -r $RIP1 -g -w 1
+        /sbin/ipvsadm -a -t $VIP:80 -r $RIP2 -g -w 1
+        /sbin/ipvsadm -L -n
+        echo &quot;start lvs server lb&quot;
+        ;;
+stop)
+        /sbin/ipvsadm -C
+        /sbin/ifconfig eth0:0 down
+        echo &quot;stop lvs server lb&quot;
+        ;;
+*)
+        echo &quot;Usage :$0 {start|stop}&quot;
+        exit 1
+esac
+</code></pre>
+
+<p><code>sudo chmod +x /etc/init.d/lvsdr-lb</code>
+<code>service lvsdr-lb start</code>  启动
+<code>service lvsdr-lb stop</code>  停止</p>
+
+<h2 id="检测">检测</h2>
+
+<h3 id="curl-检测">curl 检测</h3>
+
+<p><img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image1.png" alt="Image1" /></p>
+
+<h3 id="浏览器查看">浏览器查看</h3>
+
+<p><img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image2.png" alt="Image2" /></p>
+
+<p><img src="http://olw01uxs5.bkt.clouddn.com/2017-02-25-Image3.png" alt="Image3" /></p>
+
+        
+    </div>
+
+</article>
+<section class="comment">
+    <p class="local-info">
+        Comment is disabled to avoid unwanted discussions from 'localhost:1313' on your Disqus
+        account...
+    </p>
+    <div id="disqus_thread"></div>
+</section>
+<script type="text/javascript">
+
+    (function () {
+        if (window.location.hostname == "localhost") {
+            return
+        }
+        document.querySelector('.local-info').classList.add('hide')
+
+        let dsq = document.createElement('script')
+        dsq.type = 'text/javascript'
+        dsq.async = true
+        let disqus_shortname = ''
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
+    })()
+</script>
+
+
+        </main>
+    </div>
+    <footer class="footer clearfix">
+    <ul class="control social clearfix">
+        <li><a class="author btn" href="#"></a></li>
+        
+        <li>
+            <a class="icon-link btn" href="https://hou-rong.github.io/index.xml" type="application/rss+xml" title="rss">
+                <i class="rss icon"></i></a>
+        </li>
+    </ul>
+
+    <ul class="control status clearfix">
+        <li><a href="#" class="btn">Posts:
+                0</a>
+        </li>
+        <li><a href="#" class="btn">Pages:
+                0</a></li>
+        <li><a href="#" class="btn">en</a></li>
+        <li><a href="https://gohugo.io" class="btn">Hugo, 0.55.5</a></li>
+        <li><a href="https://github.com/jacobsun/edidor" class="btn">Theme: Edidor</a></li>
+        <li>
+            
+        </li>
+    </ul>
+</footer>
+<div class="dialog">
+    <div class="wrapper">
+        <div class="clearfix"><button class="btn close-dialog">X</button></div>
+        <header>
+            <h1 class="title">Theme Name</h1>
+        </header>
+        <main>
+            <div class="clearfix">
+                <label for="theme-name">
+                    <p>Only English Character, space, hyphen are allowed!</p>
+                    <p>Valid name examples: "custom", "fantastic theme", "my-theme"</p>
+                    <p>Invalid name examles: "我的主题", ":)", "123"</p>
+                </label>
+                <input type="text" name="theme-name" id="theme-name">
+            </div>
+            <div class="clearfix">
+                <button class="btn export">Export</button>
+            </div>
+
+        </main>
+        <footer></footer>
+    </div>
+</div>
+
+    <script src="https://hou-rong.github.io/js/main.js"></script>
+
+
+</body>
+
+</html>

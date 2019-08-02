@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C# on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/c#/</link>
+    <description>Recent content in C# on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 07 Jun 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>User32.dll中的函数</title>
+      <link>https://hou-rong.github.io/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Sun, 07 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</guid>
+      <description>通过dumpbin /exports user32.dll可以获得其中带函数名称
+&amp;lt;!-- more --&amp;gt; ```cs using System; using System.Collections.Generic; using System.Linq; using System.Text; using System.Runtime.InteropServices; namespace WindowsAPI { class CSharp_Win32Api { #region User32.dll 函数 /// &amp;lt;summary&amp;gt; /// 该函数检索一指定窗口的客户区域或整个屏幕的显示设备上下文环境的句柄，以后可以在GDI函数中使用该句柄来在设备上下文环境中绘图。hWnd：设备上下文环境被检索的窗口的句柄 /// &amp;lt;/summary&amp;gt; [DllImport(&amp;quot;user32.dll&amp;quot;, CharSet = CharSet.Auto)] public static extern IntPtr GetDC(IntPtr hWnd); /// &amp;lt;summary&amp;gt; /// 函数释放设备上下文环境（DC）供其他应用程序使用。 /// &amp;lt;/summary&amp;gt; public static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC); /// &amp;lt;summary&amp;gt; /// 该函数返回桌面窗口的句柄。桌面窗口覆盖整个屏幕。 /// &amp;lt;/summary&amp;gt; static public extern IntPtr GetDesktopWindow(); /// &amp;lt;summary&amp;gt; /// 该函数设置指定窗口的显示状态。 /// &amp;lt;/summary&amp;gt; static public extern bool ShowWindow(IntPtr hWnd, short State); /// &amp;lt;summary&amp;gt; /// 通过发送重绘消息 WM_PAINT 给目标窗体来更新目标窗体客户区的无效区域。 /// &amp;lt;/summary&amp;gt; static public extern bool UpdateWindow(IntPtr hWnd); /// &amp;lt;summary&amp;gt; /// 该函数将创建指定窗口的线程设置到前台，并且激活该窗口。键盘输入转向该窗口，并为用户改各种可视的记号。系统给创建前台窗口的线程分配的权限稍高于其他线程。 /// &amp;lt;/summary&amp;gt; static public extern bool SetForegroundWindow(IntPtr hWnd); /// &amp;lt;summary&amp;gt; /// 该函数改变一个子窗口，弹出式窗口式顶层窗口的尺寸，位置和Z序。 /// &amp;lt;/summary&amp;gt; static public extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int Width, int Height, uint flags); /// &amp;lt;summary&amp;gt; /// 打开剪切板 /// &amp;lt;/summary&amp;gt; static public extern bool OpenClipboard(IntPtr hWndNewOwner); /// &amp;lt;summary&amp;gt; /// 关闭剪切板 /// &amp;lt;/summary&amp;gt; static public extern bool CloseClipboard(); /// &amp;lt;summary&amp;gt; /// 打开清空&amp;lt;/summary&amp;gt; static public extern bool EmptyClipboard(); /// &amp;lt;summary&amp;gt; /// 将存放有数据的内存块放入剪切板的资源管理中 /// &amp;lt;/summary&amp;gt; static public extern IntPtr SetClipboardData(uint Format, IntPtr hData); /// &amp;lt;summary&amp;gt; /// 在一个矩形中装载指定菜单条目的屏幕坐标信息 /// &amp;lt;/summary&amp;gt; static public extern bool GetMenuItemRect(IntPtr hWnd, IntPtr hMenu, uint Item, ref RECT rc); [DllImport(&amp;quot;user32.</description>
+    </item>
+    
+  </channel>
+</rss>

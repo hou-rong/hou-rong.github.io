@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RabbitMQ on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/rabbitmq/</link>
+    <description>Recent content in RabbitMQ on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 23 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RabbitMQ 服务搭建</title>
+      <link>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>引入 近期使用 celery 作为任务平台处理大量任务，在 Redis 和 RabbitMQ 中进行选择，于是选择了后者。一则由于看到文档中 broker 的默认值为 ampq:// ，二则由于 RabbitMQ 的监控以及 celery flower 进行任务监控界面都十分友好。
+安装 Erlang centos 环境上使用 yum 安装
+vim /etc/yum.repos.d/erlang-sulutions.repo  [erlang-solutions] name=Centos $releasever - $basearch - Erlang Solutions baseurl=http://binaries.erlang-solutions.com/rpm/centos/$releasever/$basearch gpgcheck=1 gpgkey=http://binaries.erlang-solutions.com/debian/erlang_solutions.asc enabled=1  rpm --import http://binaries.erlang-solutions.com/debian/erlang_solutions.asc 指定源安装 yum install erlang --enablerepo=erlang-solutions 不指定源安装 yum install erlang  也可以使用清华镜像源直接下载某一版本的所有的安装包 https://mirrors.tuna.tsinghua.edu.cn/erlang-solutions/centos/6/
+yum install *.rpm  安装 RabbitMQ 及简单配置 正常安装即可
+wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el6.noarch.rpm yum install **  配置 rabbitmq</description>
+    </item>
+    
+  </channel>
+</rss>

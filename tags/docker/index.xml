@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/docker/</link>
+    <description>Recent content in Docker on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 28 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker 监控 ui-for-docker</title>
+      <link>https://hou-rong.github.io/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/</link>
+      <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/</guid>
+      <description> 引入 在本机使用 Docker 的过程中，需要对各个容器的状态进行监控，采用 ui-for-docker 进行，以下内容从 https://github.com/kevana/ui-for-docker 搬运，进行备忘
+QuickStart run -it -d --name docker-web -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock docker.io/uifd/ui-for-docker  启动服务 docker start docker-web  </description>
+    </item>
+    
+  </channel>
+</rss>

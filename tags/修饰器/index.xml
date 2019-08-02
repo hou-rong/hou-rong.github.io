@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>修饰器 on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/%E4%BF%AE%E9%A5%B0%E5%99%A8/</link>
+    <description>Recent content in 修饰器 on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 20 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/%E4%BF%AE%E9%A5%B0%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python decorator 学习</title>
+      <link>https://hou-rong.github.io/post/python%E4%BF%AE%E9%A5%B0%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 20 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/python%E4%BF%AE%E9%A5%B0%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description> 函数内容 def div(className): def div_decorate(func): def func_wrapper(name): return &amp;quot;&amp;lt;div class=\&amp;quot;{1}\&amp;quot;&amp;gt;{0}&amp;lt;/div&amp;gt;&amp;quot;.format(func(name),className) return func_wrapper return div_decorate def p_decorate(func): def func_wrapper(name): return &amp;quot;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;quot;.format(func(name)) return func_wrapper @div(&amp;quot;abcTest&amp;quot;) @p_decorate def hello(name): return &amp;quot;Hello {0}!&amp;quot;.format(name) print(hello(&amp;quot;World&amp;quot;))  打印结果 &amp;lt;div class=&amp;quot;abcTest&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Hello World!&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;
+ 修饰器为高阶函数 自上而下的结合 执行 hello(name) 相当于先执行 p_decorate 中的 func_wrapper 再执行 div(className) 获得 div_decorate 以及 className 变量，而后返回 func_wrapper  </description>
+    </item>
+    
+  </channel>
+</rss>

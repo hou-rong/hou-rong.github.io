@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mongo on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/mongo/</link>
+    <description>Recent content in Mongo on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 01 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/mongo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>修复 ssh key 登录服务器</title>
+      <link>https://hou-rong.github.io/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>引入 服务器一直 ssh 登录正常，突然有段时间发现不能登录了，查看原因
+从客户端查看 ssh -v user@host  查看过后，发现问题不在客户端上面
+从服务器上查找原因 首先查看 .ssh 目录 和 authorized_keys 的权限
+.ssh 为 700，authorized_keys 为 600，正常
+查看日志
+tailf /var/log/secure  返回结果
+Authentication refused: bad ownership or modes for directory /root
+查看 root 文件夹权限
+发现文件夹被改成了 777，改回 755 即可正常登录</description>
+    </item>
+    
+    <item>
+      <title>Mongo 迭代方式查询大量数据</title>
+      <link>https://hou-rong.github.io/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</guid>
+      <description>引入 工作时，使用 mongo 查询全部 collections 的数据，在运行一段时间后，因为内存的问题导致程序被 kill，现使用迭代的查询方式解决
+想法 使用 ObjectId 进行排序，从最小的 id 开始，到最大的 id 结束，并逐条返回内容，最终当完成后抛出 StopIteration 结束迭代
+实现 #!/usr/bin/env python # -*- coding: utf-8 -*- # @Time : 2017/7/21 下午3:45 # @Author : Hou Rong # @Site : # @File : MongoUtils.py # @Software: PyCharm each_line_num = 2000 def mongo_find_iter(collections): # 获取最小，最大 id 以便遍历全部 min_id = list(collections.find().sort(&#39;_id&#39;, 1).limit(1))[0][&#39;_id&#39;] max_id = list(collections.find().sort(&#39;_id&#39;, -1).limit(1))[0][&#39;_id&#39;] now_id = min_id # 返回第一项 __line = collections.</description>
+    </item>
+    
+  </channel>
+</rss>

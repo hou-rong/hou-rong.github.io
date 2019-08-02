@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>负载均衡 on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</link>
+    <description>Recent content in 负载均衡 on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 23 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RabbitMQ 服务搭建</title>
+      <link>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>引入 近期使用 celery 作为任务平台处理大量任务，在 Redis 和 RabbitMQ 中进行选择，于是选择了后者。一则由于看到文档中 broker 的默认值为 ampq:// ，二则由于 RabbitMQ 的监控以及 celery flower 进行任务监控界面都十分友好。
+安装 Erlang centos 环境上使用 yum 安装
+vim /etc/yum.repos.d/erlang-sulutions.repo  [erlang-solutions] name=Centos $releasever - $basearch - Erlang Solutions baseurl=http://binaries.erlang-solutions.com/rpm/centos/$releasever/$basearch gpgcheck=1 gpgkey=http://binaries.erlang-solutions.com/debian/erlang_solutions.asc enabled=1  rpm --import http://binaries.erlang-solutions.com/debian/erlang_solutions.asc 指定源安装 yum install erlang --enablerepo=erlang-solutions 不指定源安装 yum install erlang  也可以使用清华镜像源直接下载某一版本的所有的安装包 https://mirrors.tuna.tsinghua.edu.cn/erlang-solutions/centos/6/
+yum install *.rpm  安装 RabbitMQ 及简单配置 正常安装即可
+wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el6.noarch.rpm yum install **  配置 rabbitmq</description>
+    </item>
+    
+    <item>
+      <title>LVS DR模式配置</title>
+      <link>https://hou-rong.github.io/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 29 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</guid>
+      <description>LVS-DR模式以及工作原理  LVS有LVS-DR，LVS-NAT，LVS-TUN三种模式，其中DR模式意为Direct Routing（直接路由），是调度器与实际服务器都有一块网卡连在同一物理网段上的情况 Director接收用户的请求，然后根据负载均衡算法选取一台realserver，将包转发过去，最后由realserver直接回复给用户 详细工作原理以及相关问题  ipvsadm 的安装以及调度算法 安装 yum install ipvsadm -y
+调度算法 ipvsadm -A -t 192.168.1.50:80 -s rr，其中rr为调度算法的一种 - 静态方法：仅根据调度算法本身进行调度 - rr: 轮询调度，轮叫调度 - wrr:加权轮询 - sh: 源地址hash - dh: 目标地址hash - 动态方法：根据算法及各RS当前的负载情况进行调度 - lc: 最少连接 - wlc:加权最少连接 - sed: 最短期望延迟 - nq: 永不排队连接 - lblc:基于局部性的最少连接 - lblcr: 带复制的基于局部性的最少连接
+十种调度算法的具体介绍 基本配置 Load Balance 节点  主机节点已将物理网卡改名为eth0 ``` conf
+ifconfig eth0:0 192.168.1.88&amp;frasl;24 up ifconfig eth0:0  eth0:0: flags=4163 mtu 1500 inet 192.</description>
+    </item>
+    
+  </channel>
+</rss>
