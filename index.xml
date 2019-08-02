@@ -371,14 +371,5 @@
       <description>函数内容 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 def div(className): def div_decorate(func): def func_wrapper(name): return &amp;#34;&amp;lt;div class=\&amp;#34;{1}\&amp;#34;&amp;gt;{0}&amp;lt;/div&amp;gt;&amp;#34;.format(func(name),className) return func_wrapper return div_decorate def p_decorate(func): def func_wrapper(name): return &amp;#34;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;#34;.format(func(name)) return func_wrapper @div(&amp;#34;abcTest&amp;#34;) @p_decorate def hello(name): return &amp;#34;Hello {0}!&amp;#34;.format(name) print(hello(&amp;#34;World&amp;#34;)) 打印结果 &amp;lt;div class=&amp;quot;abcTest&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Hello World!&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; 修饰器为高阶函数 自上</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>https://hou-rong.github.io/study/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hou-rong.github.io/study/</guid>
-      <description> comments: false </description>
-    </item>
-    
   </channel>
 </rss>

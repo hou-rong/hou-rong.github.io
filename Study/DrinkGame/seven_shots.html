@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
+    <title>拍 7 令</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<form>
+    <div class="box">
+        <h1>拍 7 令</h1>
+        <label for="start">从多少开始？</label>
+        <input type="text" name="start" placeholder="填入数字" value="1" id="start" class="text"/>
+        <br>
+        <label for="end">到多少结束？</label>
+        <input type="text" name="end" placeholder="填入数字" value="100" id="end" class="text"/>
+        <br>
+        <label for="not-mod">不是几的倍数？(中间用 ',' 隔开 )</label>
+        <input type="text" name="not-mod" placeholder="填入数字，中间用 ',' 隔开" value="7" id="not-mod" class="text"/>
+        <br>
+        <label for="not-in">不包含几？(中间用 ',' 隔开)</label>
+        <input type="text" name="not-in" placeholder="填入数字，中间用 ',' 隔开" value="7" id="not-in" class="text"/>
+
+        <a href="#">
+            <div class="btn" onclick="btnClick()">计算</div>
+        </a>
+    </div>
+
+    <div class="box" id="result">
+    </div>
+
+</form>
+</body>
+<footer>
+    <script type="application/javascript" src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script type="application/javascript">
+        function any(iter) {
+            for (var index = 0; index < iter.length; ++index) {
+                if (iter[index]) return true;
+            }
+            return false;
+        }
+
+        function seven_shots(start, end, not_mod, not_in) {
+            var list = [];
+            for (var i = parseInt(start); i < parseInt(end); i++) {
+                if (any(not_mod.map(function (x) {
+                        return i % parseInt(x) === 0;
+                    })) || any(not_in.map(function (x) {
+                        return i.toString().indexOf(x.toString()) > -1;
+                    }))) {
+                    list.push('拍手');
+                }
+                else {
+                    list.push(i.toString());
+                }
+            }
+            return list;
+        }
+
+        function btnClick() {
+            var start = $('#start').val();
+            var end = $('#end').val();
+            var not_mod = $('#not-mod').val().replace('，', ',').split(',');
+            var not_in = $('#not-in').val().replace('，', ',').split(',');
+            var result = $('#result').empty();
+            var result_list = seven_shots(start, end, not_mod, not_in);
+            result.text(result_list.join(', '));
+        }
+    </script>
+</footer>
+</html>
