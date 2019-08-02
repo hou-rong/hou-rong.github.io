@@ -1,0 +1,120 @@
+---
+title: "群晖上配置生产力工具gogs+drone"
+date: 2019-08-03T01:57:14+08:00
+draft: false
+---
+
+## 引入
+
+群晖的 docker 实在是好用，同时当前手上缺少一个私有的 Git 以及 CI / CD 的服务。先想到公司中使用的 gitlab + jenkins 比较好用，尝试在群晖上部署，不得不说 gitlab 动不动就 1.5G 启的内存使用，实在是让人受不了。
+经查询发现 gogs + drone 作为轻量级的私有 Git + CI / CD 服务可以尝试，同时由于两者均为 golang 编写，自己也十分感兴趣，所以尝试在 NAS 上搭建。不得不说 golang 的内存使用真的是少，仅占用几十 MB
+
+## 服务资源使用
+
+![](https://hourong.oss-cn-beijing.aliyuncs.com/img/20190803011108.png)
+
+## gogs 配置
+
+### 配置文件
+
+新增配置文件 app.ini
+
+``` ini
+APP_NAME = Gogs                                                                 
+RUN_USER = git                                                                  
+RUN_MODE = prod                                                                 
+                                                                                
+[database] # 数据库相关配置，我这里配自己的 MySQL                                                                     
+DB_TYPE  = mysql                                                 
+HOST     = host                                                   
+NAME     = name                                                                 
+USER     = user                                                                 
+PASSWD   = passwd                                             
+SSL_MODE = disable                                                              
+PATH     = data/gogs.db                                                         
+                                                                                
+[repository]                                                                    
+ROOT = /data/git/gogs-repositories                                              
+
+[server] # 服务相关配置，域名、端口、url 等                                                                       
+DOMAIN           = domain                                        
+HTTP_PORT        = port                                                         
+ROOT_URL         = root_url                               
+DISABLE_SSH      = false                                                        
+SSH_PORT         = 22                                                           
+START_SSH_SERVER = false                                                        
+OFFLINE_MODE     = false                                                        
+                                                                                
+[mailer]  # 邮箱配置，如果需要注册发邮箱就配置，否则 false 即可                                                                      
+ENABLED = true                                                                  
+HOST    = host                                               
+FROM    = from                                
+USER    = user                                            
+PASSWD  = passwd   
+
+[service]                                                                       
+REGISTER_EMAIL_CONFIRM = true                                                   
+ENABLE_NOTIFY_MAIL     = true                                                   
+DISABLE_REGISTRATION   = true                                                   
+ENABLE_CAPTCHA         = false                                                  
+REQUIRE_SIGNIN_VIEW    = false                                                  
+                                                                                
+[picture]                                                                       
+DISABLE_GRAVATAR        = false                                                 
+ENABLE_FEDERATED_AVATAR = true                                                  
+                                                                                
+[session]                                                                       
+PROVIDER = file                                                                 
+                                                                                
+[log]                                                                           
+MODE      = file                                                                
+LEVEL     = Info                                                                
+ROOT_PATH = /app/gogs/log                                                       
+                                                                                
+[security]                                                                      
+INSTALL_LOCK = true                                                             
+SECRET_KEY   = secret_key  
+```
+
+### 在群晖的 Docker 中修改卷
+
+设置 app.ini 的文件（用于同步设置），以及 git 文件夹（用于保存服务 git 数据）
+
+![](https://hourong.oss-cn-beijing.aliyuncs.com/img/20190803012412.png)
+
+### 开启服务
+
+![](https://hourong.oss-cn-beijing.aliyuncs.com/img/20190803014737.png)
+
+## drone 配置
+
+### 简述
+
+drone 配置无法通过群晖的图形化界面配置，主要由于 drone 在进行自动化部署的过程中，需要通过 docker.sock 调用系统的 docker 执行一些命令，将系统的 docker.sock 进行绑定的过程需要 root 权限。所以该操作只能在命令行中执行
+
+### 具体启动命令
+
+``` bash
+docker run \
+    -d \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /volume3/docker/drone/data/:/data \
+    -e DRONE_GIT_ALWAYS_AUTH=false \
+    -e DRONE_GOGS_SERVER=https://host:port \
+    -e DRONE_SERVER_HOST=host:port \
+    -e DRONE_DATABASE_DRIVER=mysql \
+    -e DRONE_DATABASE_DATASOURCE="mysql_conn_str" \
+    -p 30001:80 \
+    --name=drone \
+    drone/drone:latest
+```
+
+### 启动服务
+
+执行完上述命令后，当前服务已经启动，drone 会加载当前在 gogs 中的项目信息，点击激活项目
+
+![](https://hourong.oss-cn-beijing.aliyuncs.com/img/20190803015311.png)
+
+完成相关配置后可看到最终自动构建、部署并通知提醒的功能
+
+![](https://hourong.oss-cn-beijing.aliyuncs.com/img/20190803015122.png)
