@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://hou-rong.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-02T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2019-08-02T20:26:30&#43;08:00"/>
 
 <meta itemprop="name" content="海纳百川，有容乃大">
 <meta itemprop="description" content="Hugo theme even example site.">
@@ -113,6 +113,27 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/django-%E9%85%8D%E7%BD%AE-email/">Django 配置 Email</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-04-18 </span>
+      
+        <span class="more-meta"> 约 115 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      引入 在完成毕设的时候，需要发送验证码邮件。由于 Django 有自带的邮件发送函数，所以进行如下配置。 setting.py 配置 1 2 3 4 5 6 7 8 EMAIL_BACKEND = &#39;django.core.mail.backends.smtp.EmailBackend&#39; EMAIL_HOST = &#39;smtp.xxxx&#39; EMAIL_HOST_USER = &#39;from@mail.xxxx&#39; EMAIL_HOST_PASSWORD = &#39;passwd&#39; EMAIL_PORT = 25
+    </div>
+    <div class="read-more">
+      <a href="/post/django-%E9%85%8D%E7%BD%AE-email/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/">利用 expect 通过跳转机链接服务器</a></h1>
@@ -512,27 +533,6 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python%E4%BF%AE%E9%A5%B0%E5%99%A8%E5%AD%A6%E4%B9%A0/">Python decorator 学习</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-12-20 </span>
-      
-        <span class="more-meta"> 约 106 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      函数内容 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 def div(className): def div_decorate(func): def func_wrapper(name): return &#34;&lt;div class=\&#34;{1}\&#34;&gt;{0}&lt;/div&gt;&#34;.format(func(name),className) return func_wrapper return div_decorate def p_decorate(func): def func_wrapper(name): return &#34;&lt;p&gt;{0}&lt;/p&gt;&#34;.format(func(name)) return func_wrapper @div(&#34;abcTest&#34;) @p_decorate def hello(name): return &#34;Hello {0}!&#34;.format(name) print(hello(&#34;World&#34;)) 打印结果 &lt;div class=&quot;abcTest&quot;&gt;&lt;p&gt;Hello World!&lt;/p&gt;&lt;/div&gt; 修饰器为高阶函数 自上
-    </div>
-    <div class="read-more">
-      <a href="/post/python%E4%BF%AE%E9%A5%B0%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -540,7 +540,10 @@
         <i class="iconfont icon-left"></i>
         <span class="prev-text">上一页</span>
       </a>
-    
+    <a class="next" href="/page/3/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
         </div>
         

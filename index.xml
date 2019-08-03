@@ -6,10 +6,19 @@
     <description>Recent content on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 02 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2019 20:26:30 +0800</lastBuildDate>
     
 	<atom:link href="https://hou-rong.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo &#43; Gogs &#43; Drone 搭建博客</title>
+      <link>https://hou-rong.github.io/post/hugo&#43;gogs&#43;drone/</link>
+      <pubDate>Fri, 02 Aug 2019 20:26:30 +0800</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/hugo&#43;gogs&#43;drone/</guid>
+      <description>引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo + Gogs + Drone 搭建，使用这个组合的原因如下： - Hugo 是 Golang 的一</description>
+    </item>
     
     <item>
       <title>群晖上配置生产力工具 gogs &#43; drone</title>
