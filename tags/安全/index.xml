@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>安全 on 海纳百川，有容乃大</title>
+    <link>https://hou-rong.github.io/tags/%E5%AE%89%E5%85%A8/</link>
+    <description>Recent content in 安全 on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 04 Aug 2019 00:15:40 +0800</lastBuildDate>
+    
+	<atom:link href="https://hou-rong.github.io/tags/%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>评论插件 gitment 和 gittalk 存在安全性问题</title>
+      <link>https://hou-rong.github.io/post/gitment_and_gittalk_secure/</link>
+      <pubDate>Sun, 04 Aug 2019 00:15:40 +0800</pubDate>
+      
+      <guid>https://hou-rong.github.io/post/gitment_and_gittalk_secure/</guid>
+      <description>引入 在选择博客中的评论插件时，有这么几个备选，disqus、gitment、gittalk 等几个选项，分别申请了 disqus 的帐号和 github 的 OAuth，准</description>
+    </item>
+    
+  </channel>
+</rss>
