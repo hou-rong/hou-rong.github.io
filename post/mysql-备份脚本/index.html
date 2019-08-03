@@ -243,20 +243,25 @@ find <span class="nv">$OUT_DIR</span> -name <span class="s2">&#34;xxxx_bak*&#34;
     </footer>
   </article>
         </div>
-        <div id="disqus_thread"></div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'hou-rongs';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+      var gitment = new Gitment({
+        id: '2016-12-10 00:00:00 \x2b0000 UTC',
+        title: 'Mysql 备份脚本',
+        link: decodeURI(location.href),
+        desc: '引入 在工作时没有自动备份 MySql 的习惯，直到有一次 Update 误操作 where 语句的范围写了一个为 True 的值，导致数据错误。还好通过之前的备份恢复，没损失多少数据，这也',
+        owner: 'hou-rong',
+        repo: 'hou-rong.github.io',
+        oauth: {
+          client_id: '63c9330674e03261dcd5',
+          client_secret: '4e2d9f0701db6d857840e2e97884ba9011203291'
+        }
+      });
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
   
   
 

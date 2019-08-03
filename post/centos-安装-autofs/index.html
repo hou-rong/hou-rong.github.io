@@ -236,20 +236,25 @@ page_saver  -rw,soft,intr you-host:/your/folder/path</pre></td></tr></table>
     </footer>
   </article>
         </div>
-        <div id="disqus_thread"></div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'hou-rongs';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+      var gitment = new Gitment({
+        id: '2017-06-22 00:00:00 \x2b0000 UTC',
+        title: 'CentOS 安装 autofs',
+        link: decodeURI(location.href),
+        desc: 'Install 安装 autofs ，直接使用 yum 安装即可 1 yum install autofs Configuration 配置 autofs 相关项 auto.master 中添加一下语句 1 \/data\/nfs \/etc\/auto.nfs auto.nfs 中添加一下语句 1 2 image -rw,soft,intr your-host:\/your\/folder\/path page_saver -rw,soft,intr you-host:\/your\/folder\/path Auto Start 开机自启动 rc.local 中添加以下语句 1 \/sbin\/service autofs',
+        owner: 'hou-rong',
+        repo: 'hou-rong.github.io',
+        oauth: {
+          client_id: '63c9330674e03261dcd5',
+          client_secret: '4e2d9f0701db6d857840e2e97884ba9011203291'
+        }
+      });
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
   
   
 

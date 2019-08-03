@@ -198,20 +198,25 @@
     </footer>
   </article>
         </div>
-        <div id="disqus_thread"></div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'hou-rongs';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+      var gitment = new Gitment({
+        id: '2017-04-21 00:00:00 \x2b0000 UTC',
+        title: 'iframe 全屏幕',
+        link: decodeURI(location.href),
+        desc: '引入 在使用 iframe 时需要显示全屏的页面，故做了如下操作 解决方案 1 \x26lt;iframe id=\x26#39;page-iframe\x26#39; src=\x26#34;\x26#34; style=\x26#34;position:fixed; top:200px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;\x26#34;\x26gt;',
+        owner: 'hou-rong',
+        repo: 'hou-rong.github.io',
+        oauth: {
+          client_id: '63c9330674e03261dcd5',
+          client_secret: '4e2d9f0701db6d857840e2e97884ba9011203291'
+        }
+      });
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
   
   
 

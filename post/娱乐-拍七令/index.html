@@ -283,20 +283,25 @@
     </footer>
   </article>
         </div>
-        <div id="disqus_thread"></div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'hou-rongs';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+      var gitment = new Gitment({
+        id: '2017-03-06 00:00:00 \x2b0000 UTC',
+        title: '娱乐：拍七令',
+        link: decodeURI(location.href),
+        desc: '引言 这两天班级聚会，喝酒时玩起了拍七令的游戏，输了就罚喝酒。基本上谁输的越多喝的越多就越容易输。于是写个程序，生成数字表，给大家做个参考。同',
+        owner: 'hou-rong',
+        repo: 'hou-rong.github.io',
+        oauth: {
+          client_id: '63c9330674e03261dcd5',
+          client_secret: '4e2d9f0701db6d857840e2e97884ba9011203291'
+        }
+      });
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
   
   
 

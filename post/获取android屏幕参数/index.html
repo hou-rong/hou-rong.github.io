@@ -229,20 +229,25 @@
     </footer>
   </article>
         </div>
-        <div id="disqus_thread"></div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'hou-rongs';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+      var gitment = new Gitment({
+        id: '2015-10-18 00:00:00 \x2b0000 UTC',
+        title: 'Android获得屏幕参数',
+        link: decodeURI(location.href),
+        desc: '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 public static int getStatusBarHeight(Context context) { Class\x26lt;?\x26gt; c = null; Object obj = null; Field field = null; int x = 0, statusBarHeight = 0; try { c = Class.forName(\x26#34;com.android.internal.R$dimen\x26#34;); obj = c.newInstance(); field = c.getField(\x26#34;status_bar_height\x26#34;); x = Integer.parseInt(field.get(obj).toString()); statusBarHeight = context.getResources().getDimensionPixelSize(x); } catch (Exception e1)',
+        owner: 'hou-rong',
+        repo: 'hou-rong.github.io',
+        oauth: {
+          client_id: '63c9330674e03261dcd5',
+          client_secret: '4e2d9f0701db6d857840e2e97884ba9011203291'
+        }
+      });
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
   
   
 

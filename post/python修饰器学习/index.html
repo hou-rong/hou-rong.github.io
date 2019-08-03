@@ -239,20 +239,25 @@
     </footer>
   </article>
         </div>
-        <div id="disqus_thread"></div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'hou-rongs';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+      var gitment = new Gitment({
+        id: '2014-12-20 00:00:00 \x2b0000 UTC',
+        title: 'Python decorator 学习',
+        link: decodeURI(location.href),
+        desc: '函数内容 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 def div(className): def div_decorate(func): def func_wrapper(name): return \x26#34;\x26lt;div class=\\\x26#34;{1}\\\x26#34;\x26gt;{0}\x26lt;\/div\x26gt;\x26#34;.format(func(name),className) return func_wrapper return div_decorate def p_decorate(func): def func_wrapper(name): return \x26#34;\x26lt;p\x26gt;{0}\x26lt;\/p\x26gt;\x26#34;.format(func(name)) return func_wrapper @div(\x26#34;abcTest\x26#34;) @p_decorate def hello(name): return \x26#34;Hello {0}!\x26#34;.format(name) print(hello(\x26#34;World\x26#34;)) 打印结果 \x26lt;div class=\x26quot;abcTest\x26quot;\x26gt;\x26lt;p\x26gt;Hello World!\x26lt;\/p\x26gt;\x26lt;\/div\x26gt; 修饰器为高阶函数 自上',
+        owner: 'hou-rong',
+        repo: 'hou-rong.github.io',
+        oauth: {
+          client_id: '63c9330674e03261dcd5',
+          client_secret: '4e2d9f0701db6d857840e2e97884ba9011203291'
+        }
+      });
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
   
   
 

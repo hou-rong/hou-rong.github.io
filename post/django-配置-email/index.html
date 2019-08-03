@@ -239,20 +239,25 @@ DEFAULT_FROM_EMAIL = &#39;UserName &lt;from@mail.xxx&gt;&#39;</code></pre></td><
     </footer>
   </article>
         </div>
-        <div id="disqus_thread"></div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'hou-rongs';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+      var gitment = new Gitment({
+        id: '2017-04-18 00:00:00 \x2b0000 UTC',
+        title: 'Django 配置 Email',
+        link: decodeURI(location.href),
+        desc: '引入 在完成毕设的时候，需要发送验证码邮件。由于 Django 有自带的邮件发送函数，所以进行如下配置。 setting.py 配置 1 2 3 4 5 6 7 8 EMAIL_BACKEND = \x26#39;django.core.mail.backends.smtp.EmailBackend\x26#39; EMAIL_HOST = \x26#39;smtp.xxxx\x26#39; EMAIL_HOST_USER = \x26#39;from@mail.xxxx\x26#39; EMAIL_HOST_PASSWORD = \x26#39;passwd\x26#39; EMAIL_PORT = 25',
+        owner: 'hou-rong',
+        repo: 'hou-rong.github.io',
+        oauth: {
+          client_id: '63c9330674e03261dcd5',
+          client_secret: '4e2d9f0701db6d857840e2e97884ba9011203291'
+        }
+      });
+      gitment.render('comments-gitment');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
   
   
 
