@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="侯容" /><meta name="description" content="引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo &#43; Gogs &#43; Drone 搭建，使用这个组合的原因如下： - Hugo 是 Golang 的一" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="侯容" /><meta name="description" content="引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo &#43; Gogs &#43; Drone 搭建，使用这个组合的原因如下： Hugo 是 Golang 的一个" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -39,26 +39,26 @@
 
 
 <meta property="og:title" content="Hugo &#43; Gogs &#43; Drone 搭建博客" />
-<meta property="og:description" content="引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo &#43; Gogs &#43; Drone 搭建，使用这个组合的原因如下： - Hugo 是 Golang 的一" />
+<meta property="og:description" content="引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo &#43; Gogs &#43; Drone 搭建，使用这个组合的原因如下： Hugo 是 Golang 的一个" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hou-rong.github.io/post/hugo&#43;gogs&#43;drone/" />
 <meta property="article:published_time" content="2019-08-02T20:26:30&#43;08:00"/>
 <meta property="article:modified_time" content="2019-08-02T20:26:30&#43;08:00"/>
 
 <meta itemprop="name" content="Hugo &#43; Gogs &#43; Drone 搭建博客">
-<meta itemprop="description" content="引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo &#43; Gogs &#43; Drone 搭建，使用这个组合的原因如下： - Hugo 是 Golang 的一">
+<meta itemprop="description" content="引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo &#43; Gogs &#43; Drone 搭建，使用这个组合的原因如下： Hugo 是 Golang 的一个">
 
 
 <meta itemprop="datePublished" content="2019-08-02T20:26:30&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-02T20:26:30&#43;08:00" />
-<meta itemprop="wordCount" content="1318">
+<meta itemprop="wordCount" content="1313">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hugo &#43; Gogs &#43; Drone 搭建博客"/>
-<meta name="twitter:description" content="引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo &#43; Gogs &#43; Drone 搭建，使用这个组合的原因如下： - Hugo 是 Golang 的一"/>
+<meta name="twitter:description" content="引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo &#43; Gogs &#43; Drone 搭建，使用这个组合的原因如下： Hugo 是 Golang 的一个"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -126,7 +126,7 @@
       <div class="post-meta">
         <span class="post-time"> 2019-08-02 </span>
         
-          <span class="more-meta"> 约 1318 字 </span>
+          <span class="more-meta"> 约 1313 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -172,9 +172,12 @@
 
 <h2 id="引入">引入</h2>
 
-<p>已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo + Gogs + Drone 搭建，使用这个组合的原因如下：
-- Hugo 是 Golang 的一个静态博客生成器，对 Golang 感兴趣，所以博客也选择了这个，同时早期的博客使用 Hexo 写的，方便迁移
-- Gogs 作为 git，Drone 作为 CI 工具原因是服务搭建在自己的 NAS 中，这两个服务是轻量级的服务省 CPU、省内存。同时其中语言为 Golang，尤其是 Drone，可以轻松的添加一些自己需要的插件，所以选了这个组合</p>
+<p>已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo + Gogs + Drone 搭建，使用这个组合的原因如下：</p>
+
+<ul>
+<li>Hugo 是 Golang 的一个静态博客生成器，对 Golang 感兴趣，所以博客也选择了这个，同时早期的博客使用 Hexo 写的，方便迁移</li>
+<li>Gogs 作为 git，Drone 作为 CI 工具原因是服务搭建在自己的 NAS 中，这两个服务是轻量级的服务省 CPU、省内存。同时其中语言为 Golang，尤其是 Drone，可以轻松的添加一些自己需要的插件，所以选了这个组合</li>
+</ul>
 
 <h2 id="hugo-配置">Hugo 配置</h2>
 
@@ -355,10 +358,13 @@ steps:
 
 <h2 id="总结">总结</h2>
 
-<p>根据以上这么一顿的折腾，相关配置总算完事儿，说说几个感受吧
-- Hugo 很完美，生成文件速度极快，同时搭配 even 主题，博客的样式也十分好看
-- Gogs + Drone 两个服务的功能轻量级，不过该有的全都有了，Drone 的 UI 也是分好看，比常用的 Jenkins 好多了
-- 最终配置了一个 CI / CD 的功能，修改东西十分方便本地编辑完合并到 git 中，后面的各种功能完全不用操心，等到手机收到微信通知后，在线博客就完成了相关更新</p>
+<p>根据以上这么一顿的折腾，相关配置总算完事儿，说说几个感受吧</p>
+
+<ul>
+<li>Hugo 很完美，生成文件速度极快，同时搭配 even 主题，博客的样式也十分好看</li>
+<li>Gogs + Drone 两个服务的功能轻量级，不过该有的全都有了，Drone 的 UI 也是分好看，比常用的 Jenkins 好多了</li>
+<li>最终配置了一个 CI / CD 的功能，修改东西十分方便本地编辑完合并到 git 中，后面的各种功能完全不用操心，等到手机收到微信通知后，在线博客就完成了相关更新</li>
+</ul>
 
     </div>
 

@@ -17,7 +17,7 @@
       <pubDate>Fri, 02 Aug 2019 20:26:30 +0800</pubDate>
       
       <guid>https://hou-rong.github.io/post/hugo&#43;gogs&#43;drone/</guid>
-      <description>引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo + Gogs + Drone 搭建，使用这个组合的原因如下： - Hugo 是 Golang 的一</description>
+      <description>引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo + Gogs + Drone 搭建，使用这个组合的原因如下： Hugo 是 Golang 的一个</description>
     </item>
     
     <item>
