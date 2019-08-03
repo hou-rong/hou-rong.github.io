@@ -434,25 +434,23 @@ restart<span class="o">()</span> <span class="o">{</span>
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2017-10-07 00:00:00 \x2b0000 UTC',
         title: 'supervisor 3.3.3 在 centos 6 上的安装以及配置',
-        link: decodeURI(location.href),
-        desc: '引入 由于单一项目需要使用不同的 workdir 以及 environment ，将 supervisor 从 2 更新到 3 卸载与安装 卸载旧的 supervisor ，安装最新的 supervisor 1 2 3 yum remove supervisor pip install supervisor service 配置 由于安装后的 supervisor 没有默认的 init',
-        owner: 'hou-rong',
+        clientID: '63c9330674e03261dcd5',
+        clientSecret: '4e2d9f0701db6d857840e2e97884ba9011203291',
         repo: 'hou-rong.github.io',
-        oauth: {
-          client_id: '63c9330674e03261dcd5',
-          client_secret: '4e2d9f0701db6d857840e2e97884ba9011203291'
-        }
+        owner: 'hou-rong',
+        admin: ['hou-rong'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
   
   
 

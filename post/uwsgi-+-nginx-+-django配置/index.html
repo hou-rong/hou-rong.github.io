@@ -451,25 +451,23 @@ server {
     </footer>
   </article>
         </div>
-        <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      var gitment = new Gitment({
+      var gitalk = new Gitalk({
         id: '2017-03-15 00:00:00 \x2b0000 UTC',
         title: 'uWSGI \x2b Nginx \x2b Django配置',
-        link: decodeURI(location.href),
-        desc: '引言 在开发 Django 项目开发完成后需要进行部署，使用 uWSGI \x2b Nginx 的方式部署，以增加并发 Django 测试 1 $ python manage.py runserver 如果可以正常运行，且可访问页面，证明项目环境已配置完',
-        owner: 'hou-rong',
+        clientID: '63c9330674e03261dcd5',
+        clientSecret: '4e2d9f0701db6d857840e2e97884ba9011203291',
         repo: 'hou-rong.github.io',
-        oauth: {
-          client_id: '63c9330674e03261dcd5',
-          client_secret: '4e2d9f0701db6d857840e2e97884ba9011203291'
-        }
+        owner: 'hou-rong',
+        admin: ['hou-rong'],
+        body: decodeURI(location.href)
       });
-      gitment.render('comments-gitment');
+      gitalk.render('gitalk-container');
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
   
   
 
