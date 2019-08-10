@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 海纳百川，有容乃大</title>
-    <link>https://hou-rong.github.io/categories/</link>
+    <link>https://blog.hourong.me/categories/</link>
     <description>Recent content in Categories on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	<atom:link href="https://hou-rong.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hourong.me/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

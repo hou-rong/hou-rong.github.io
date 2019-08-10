@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Django on 海纳百川，有容乃大</title>
-    <link>https://hou-rong.github.io/tags/django/</link>
+    <link>https://blog.hourong.me/tags/django/</link>
     <description>Recent content in Django on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 26 May 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://hou-rong.github.io/tags/django/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hourong.me/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Django 使用 uwsgi 启动后日志中显示 UnicodeEncodeError</title>
-      <link>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</link>
+      <link>https://blog.hourong.me/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</link>
       <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</guid>
+      <guid>https://blog.hourong.me/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</guid>
       <description>引入 在做毕设时，系统需要用 uwsgi 进行启动，在打印日志中，请求即使成功也会报 UnicodeEncodeError，而在使用 Debug 模式下不会出现 解决方案</description>
     </item>
     
     <item>
       <title>Django csrf 部分操作</title>
-      <link>https://hou-rong.github.io/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</link>
+      <link>https://blog.hourong.me/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Mon, 08 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</guid>
+      <guid>https://blog.hourong.me/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</guid>
       <description>引入 在毕设的初期 csrf 的中间件 CsrfViewMiddleware 都是被我注视掉的，在之后了解了跨域攻击，认为防御跨域攻击还是需要的 CsrfViewMiddleware 防止跨域攻击的原理 Django 防止 CSRF 攻击的方法其实是在</description>
     </item>
     
     <item>
       <title>Django 配置 Email</title>
-      <link>https://hou-rong.github.io/post/django-%E9%85%8D%E7%BD%AE-email/</link>
+      <link>https://blog.hourong.me/post/django-%E9%85%8D%E7%BD%AE-email/</link>
       <pubDate>Tue, 18 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/django-%E9%85%8D%E7%BD%AE-email/</guid>
+      <guid>https://blog.hourong.me/post/django-%E9%85%8D%E7%BD%AE-email/</guid>
       <description>引入 在完成毕设的时候，需要发送验证码邮件。由于 Django 有自带的邮件发送函数，所以进行如下配置。 setting.py 配置 1 2 3 4 5 6 7 8 EMAIL_BACKEND = &amp;#39;django.core.mail.backends.smtp.EmailBackend&amp;#39; EMAIL_HOST = &amp;#39;smtp.xxxx&amp;#39; EMAIL_HOST_USER = &amp;#39;from@mail.xxxx&amp;#39; EMAIL_HOST_PASSWORD = &amp;#39;passwd&amp;#39; EMAIL_PORT = 25</description>
     </item>
     
     <item>
       <title>uWSGI &#43; Nginx &#43; Django配置</title>
-      <link>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</link>
+      <link>https://blog.hourong.me/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://blog.hourong.me/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</guid>
       <description>引言 在开发 Django 项目开发完成后需要进行部署，使用 uWSGI + Nginx 的方式部署，以增加并发 Django 测试 1 $ python manage.py runserver 如果可以正常运行，且可访问页面，证明项目环境已配置完</description>
     </item>
     
     <item>
       <title>Django 使用外部方法进行用户认证</title>
-      <link>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</link>
+      <link>https://blog.hourong.me/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</link>
       <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</guid>
+      <guid>https://blog.hourong.me/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</guid>
       <description>引入 现在在做毕业设计，需要做一个管理系统。系统中的用户部分需要使用学校的用户进行认证。于是采用修改 ModelBackend 来实现。 Backend 以下为 Backend 部分的实现。经一同学建</description>
     </item>
     
     <item>
       <title>Django Python3 连接 Mysql 数据库的问题</title>
-      <link>https://hou-rong.github.io/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://blog.hourong.me/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 12 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://blog.hourong.me/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>引入 在使用 Django 默认的 sqlite 开发一点时间后，需要将数据库修改为 mysql 进行测试 数据库地址修改 your/project/settings.py 1 2 3 4 5 6 7 8 9 10 DATABASES = { &amp;#39;default&amp;#39;: { &amp;#39;ENGINE&amp;#39;: &amp;#39;django.db.backends.mysql&amp;#39;, &amp;#39;NAME&amp;#39;: &amp;#39;db&amp;#39;, &amp;#39;USER&amp;#39;: &amp;#39;user&amp;#39;, &amp;#39;PASSWORD&amp;#39;: &amp;#39;passwd&amp;#39;, &amp;#39;HOST&amp;#39;: &amp;#39;host&amp;#39;, &amp;#39;PORT&amp;#39;: &amp;#39;port&amp;#39;, } } 如</description>
     </item>
     

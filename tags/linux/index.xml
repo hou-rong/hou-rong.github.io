@@ -2,120 +2,120 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on 海纳百川，有容乃大</title>
-    <link>https://hou-rong.github.io/tags/linux/</link>
+    <link>https://blog.hourong.me/tags/linux/</link>
     <description>Recent content in Linux on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 26 Jul 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://hou-rong.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hourong.me/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>搭建自己的 pypi server</title>
-      <link>https://hou-rong.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</link>
+      <link>https://blog.hourong.me/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</link>
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</guid>
+      <guid>https://blog.hourong.me/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</guid>
       <description>引入 通常我们 pip 安装的 python 包都是从 https://pypi.python.org/pypi 安装，偶尔国内网速慢的话也可以修改为 https://pypi.doubanio.com/simple 但是遇到一些公司内部的私有包需要管理，搭建自己的 pypi server ，可以简化很多 安装</description>
     </item>
     
     <item>
       <title>CentOS 安装 autofs</title>
-      <link>https://hou-rong.github.io/post/centos-%E5%AE%89%E8%A3%85-autofs/</link>
+      <link>https://blog.hourong.me/post/centos-%E5%AE%89%E8%A3%85-autofs/</link>
       <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/centos-%E5%AE%89%E8%A3%85-autofs/</guid>
+      <guid>https://blog.hourong.me/post/centos-%E5%AE%89%E8%A3%85-autofs/</guid>
       <description>Install 安装 autofs ，直接使用 yum 安装即可 1 yum install autofs Configuration 配置 autofs 相关项 auto.master 中添加一下语句 1 /data/nfs /etc/auto.nfs auto.nfs 中添加一下语句 1 2 image -rw,soft,intr your-host:/your/folder/path page_saver -rw,soft,intr you-host:/your/folder/path Auto Start 开机自启动 rc.local 中添加以下语句 1 /sbin/service autofs</description>
     </item>
     
     <item>
       <title>Tomcat 自动启动脚本</title>
-      <link>https://hou-rong.github.io/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</link>
+      <link>https://blog.hourong.me/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://blog.hourong.me/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</guid>
       <description>引入 在做毕设时需要将 tomcat 配置成开机自启，同时希望可以快速的开启或关闭 Tomcat，通过查阅资料后增加了 tomcat 的服务脚本，同时添加了开机启动 Tomcat 服务脚</description>
     </item>
     
     <item>
       <title>Ubuntu 下编译 uwsgi 报错 collect2 ld returned 1 exit status 的解决</title>
-      <link>https://hou-rong.github.io/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</link>
+      <link>https://blog.hourong.me/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</link>
       <pubDate>Wed, 19 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</guid>
+      <guid>https://blog.hourong.me/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</guid>
       <description>引入 ubuntu 安装 uwsgi 时报出错误 collect2: ld returned 1 exit status 解决方案 Python3.5 在安装时少了 --enable-shared 在如下添加编译后即可解决 1 2 3 4 ./configure --enable-shared --prefix=/usr/local LDFLAGS=&amp;#34;-Wl,--rpath=/usr/local/lib&amp;#34; make -j 16 make install</description>
     </item>
     
     <item>
       <title>利用 expect 通过跳转机链接服务器</title>
-      <link>https://hou-rong.github.io/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://blog.hourong.me/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://blog.hourong.me/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>引入 在公司中需要使用跳板机登录服务器，这时候登录需要数据多次命令，十分麻烦。在同事的指点下，使用了 expect + iterm 的配置直接登录，十分方便。 跳转机添加</description>
     </item>
     
     <item>
       <title>uWSGI &#43; Nginx &#43; Django配置</title>
-      <link>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</link>
+      <link>https://blog.hourong.me/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://blog.hourong.me/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</guid>
       <description>引言 在开发 Django 项目开发完成后需要进行部署，使用 uWSGI + Nginx 的方式部署，以增加并发 Django 测试 1 $ python manage.py runserver 如果可以正常运行，且可访问页面，证明项目环境已配置完</description>
     </item>
     
     <item>
       <title>Nginx 配置减少请求时间（开启 Gzip 压缩以及缓存）</title>
-      <link>https://hou-rong.github.io/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</link>
+      <link>https://blog.hourong.me/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</link>
       <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</guid>
+      <guid>https://blog.hourong.me/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</guid>
       <description>引言 浏览自己的博客的时候发现需要等待很长时间才能完成页面的加载，通过工具检测后，发现默认配置中只有 html 页面被压缩了，于是进行了如下更改 开启 Gzip 加</description>
     </item>
     
     <item>
       <title>RabbitMQ 服务搭建</title>
-      <link>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <link>https://blog.hourong.me/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://blog.hourong.me/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
       <description>引入 近期使用 celery 作为任务平台处理大量任务，在 Redis 和 RabbitMQ 中进行选择，于是选择了后者。一则由于看到文档中 broker 的默认值为 ampq:// ，二则由于 RabbitMQ 的监控以及 celery flower 进行任</description>
     </item>
     
     <item>
       <title>PhpMyAdmin Docker 配置</title>
-      <link>https://hou-rong.github.io/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</link>
+      <link>https://blog.hourong.me/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://blog.hourong.me/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</guid>
       <description>引入 在工作中经常需要进行数据库的查询，使用默认的命令行却不太好用。所有选择使用 PhpMyAdmin 进行图形化的搜索，由于不希望在本机安装太多服务程序，所以使用</description>
     </item>
     
     <item>
       <title>Python 3.5 Centos 安装方法</title>
-      <link>https://hou-rong.github.io/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</link>
+      <link>https://blog.hourong.me/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</link>
       <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://blog.hourong.me/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</guid>
       <description>下载源文件 从 python.org 下载相应源代码 安装依赖环境 1 yum install bzip2-devel curses-devel dbm-devel gdbm-devel xz-devel sqlite sqlite-devel openssl openssl-devel tkinter tcl-devel tk-devel readline readline-devel zlib zlib-devel 一些其它库的名称 1 2 3 4 5 6 7 8 9 10 build-essential zlib1g-dev libbz2-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev libgdbm-dev liblzma-dev tk8.5-dev 添加依</description>
     </item>
     
     <item>
       <title>LVS DR模式配置</title>
-      <link>https://hou-rong.github.io/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</link>
+      <link>https://blog.hourong.me/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 29 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://blog.hourong.me/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</guid>
       <description>LVS-DR模式以及工作原理 LVS有LVS-DR，LVS-NAT，LVS-TUN三种模式，其中DR模式意为Direct Routing（直接路</description>
     </item>
     
     <item>
       <title>Ubuntu 禁用 Ping</title>
-      <link>https://hou-rong.github.io/post/ubuntu_disable_ping/</link>
+      <link>https://blog.hourong.me/post/ubuntu_disable_ping/</link>
       <pubDate>Wed, 15 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/ubuntu_disable_ping/</guid>
+      <guid>https://blog.hourong.me/post/ubuntu_disable_ping/</guid>
       <description>1 sudo su Disable ping: 1 echo 1 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_all or 1 iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j DROP To re-enable ping: 1 echo 0 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_all or 1 iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j ACCEPT To make it permanently, edit the &amp;ldquo;etc/sysctl.conf&amp;rdquo; file so that the setting gets picked up at boot time. 1 net.ipv4.icmp_echo_ignore_all=1</description>
     </item>
     

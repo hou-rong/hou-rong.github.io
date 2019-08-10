@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>工具 on 海纳百川，有容乃大</title>
-    <link>https://hou-rong.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
+    <link>https://blog.hourong.me/tags/%E5%B7%A5%E5%85%B7/</link>
     <description>Recent content in 工具 on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 04 Aug 2019 00:15:40 +0800</lastBuildDate>
     
-	<atom:link href="https://hou-rong.github.io/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hourong.me/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>评论插件 gitment 和 gittalk 存在安全性问题</title>
-      <link>https://hou-rong.github.io/post/gitment_and_gittalk_secure/</link>
+      <link>https://blog.hourong.me/post/gitment_and_gittalk_secure/</link>
       <pubDate>Sun, 04 Aug 2019 00:15:40 +0800</pubDate>
       
-      <guid>https://hou-rong.github.io/post/gitment_and_gittalk_secure/</guid>
+      <guid>https://blog.hourong.me/post/gitment_and_gittalk_secure/</guid>
       <description>引入 在选择博客中的评论插件时，有这么几个备选，disqus、gitment、gittalk 等几个选项，分别申请了 disqus 的帐号和 github 的 OAuth，准</description>
     </item>
     
     <item>
       <title>Hugo &#43; Gogs &#43; Drone 搭建博客</title>
-      <link>https://hou-rong.github.io/post/hugo&#43;gogs&#43;drone/</link>
+      <link>https://blog.hourong.me/post/hugo&#43;gogs&#43;drone/</link>
       <pubDate>Fri, 02 Aug 2019 20:26:30 +0800</pubDate>
       
-      <guid>https://hou-rong.github.io/post/hugo&#43;gogs&#43;drone/</guid>
+      <guid>https://blog.hourong.me/post/hugo&#43;gogs&#43;drone/</guid>
       <description>引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo + Gogs + Drone 搭建，使用这个组合的原因如下： Hugo 是 Golang 的一个</description>
     </item>
     
     <item>
       <title>群晖上配置生产力工具 gogs &#43; drone</title>
-      <link>https://hou-rong.github.io/post/sychnology&#43;gogs&#43;dronw/</link>
+      <link>https://blog.hourong.me/post/sychnology&#43;gogs&#43;dronw/</link>
       <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/sychnology&#43;gogs&#43;dronw/</guid>
+      <guid>https://blog.hourong.me/post/sychnology&#43;gogs&#43;dronw/</guid>
       <description>引入 群晖的 docker 实在是好用，同时当前手上缺少一个私有的 Git 以及 CI / CD 的服务。先想到公司中使用的 gitlab + jenkins 比较好用，尝试在群晖上部署，不得不说 gitlab 动不动就</description>
     </item>
     
     <item>
       <title>supervisor 3.3.3 在 centos 6 上的安装以及配置</title>
-      <link>https://hou-rong.github.io/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</link>
+      <link>https://blog.hourong.me/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sat, 07 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://blog.hourong.me/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</guid>
       <description>引入 由于单一项目需要使用不同的 workdir 以及 environment ，将 supervisor 从 2 更新到 3 卸载与安装 卸载旧的 supervisor ，安装最新的 supervisor 1 2 3 yum remove supervisor pip install supervisor service 配置 由于安装后的 supervisor 没有默认的 init</description>
     </item>
     

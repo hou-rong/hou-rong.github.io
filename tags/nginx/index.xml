@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nginx on 海纳百川，有容乃大</title>
-    <link>https://hou-rong.github.io/tags/nginx/</link>
+    <link>https://blog.hourong.me/tags/nginx/</link>
     <description>Recent content in Nginx on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 13 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://hou-rong.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hourong.me/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Nginx 配置减少请求时间（开启 Gzip 压缩以及缓存）</title>
-      <link>https://hou-rong.github.io/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</link>
+      <link>https://blog.hourong.me/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</link>
       <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</guid>
+      <guid>https://blog.hourong.me/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</guid>
       <description>引言 浏览自己的博客的时候发现需要等待很长时间才能完成页面的加载，通过工具检测后，发现默认配置中只有 html 页面被压缩了，于是进行了如下更改 开启 Gzip 加</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PyCharm on 海纳百川，有容乃大</title>
-    <link>https://hou-rong.github.io/tags/pycharm/</link>
+    <link>https://blog.hourong.me/tags/pycharm/</link>
     <description>Recent content in PyCharm on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 10 Apr 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://hou-rong.github.io/tags/pycharm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hourong.me/tags/pycharm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PyCharm debug  unable to display frame variables 解决</title>
-      <link>https://hou-rong.github.io/post/pycharm-debug-unable-to-display-frame-variables-%E8%A7%A3%E5%86%B3/</link>
+      <link>https://blog.hourong.me/post/pycharm-debug-unable-to-display-frame-variables-%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Mon, 10 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/pycharm-debug-unable-to-display-frame-variables-%E8%A7%A3%E5%86%B3/</guid>
+      <guid>https://blog.hourong.me/post/pycharm-debug-unable-to-display-frame-variables-%E8%A7%A3%E5%86%B3/</guid>
       <description>引入 在使用 PyCharm 进行 Debug 时，程序会卡死，并显示 unable to display frame variables 问题 查找 逐步查找后发现程序中使用的 gevent ，PyCharm 默认关闭 gevent 的调试，通过在设置中开启 Gevent compatible</description>
     </item>
     

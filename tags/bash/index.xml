@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bash on 海纳百川，有容乃大</title>
-    <link>https://hou-rong.github.io/tags/bash/</link>
+    <link>https://blog.hourong.me/tags/bash/</link>
     <description>Recent content in Bash on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 10 Dec 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://hou-rong.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hourong.me/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Mysql 备份脚本</title>
-      <link>https://hou-rong.github.io/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
+      <link>https://blog.hourong.me/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Sat, 10 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://blog.hourong.me/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
       <description>引入 在工作时没有自动备份 MySql 的习惯，直到有一次 Update 误操作 where 语句的范围写了一个为 True 的值，导致数据错误。还好通过之前的备份恢复，没损失多少数据，这也</description>
     </item>
     

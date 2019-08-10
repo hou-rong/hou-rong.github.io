@@ -2,399 +2,399 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>海纳百川，有容乃大</title>
-    <link>https://hou-rong.github.io/</link>
+    <link>https://blog.hourong.me/</link>
     <description>Recent content on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 04 Aug 2019 00:15:40 +0800</lastBuildDate>
     
-	<atom:link href="https://hou-rong.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hourong.me/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>评论插件 gitment 和 gittalk 存在安全性问题</title>
-      <link>https://hou-rong.github.io/post/gitment_and_gittalk_secure/</link>
+      <link>https://blog.hourong.me/post/gitment_and_gittalk_secure/</link>
       <pubDate>Sun, 04 Aug 2019 00:15:40 +0800</pubDate>
       
-      <guid>https://hou-rong.github.io/post/gitment_and_gittalk_secure/</guid>
+      <guid>https://blog.hourong.me/post/gitment_and_gittalk_secure/</guid>
       <description>引入 在选择博客中的评论插件时，有这么几个备选，disqus、gitment、gittalk 等几个选项，分别申请了 disqus 的帐号和 github 的 OAuth，准</description>
     </item>
     
     <item>
       <title>Hugo &#43; Gogs &#43; Drone 搭建博客</title>
-      <link>https://hou-rong.github.io/post/hugo&#43;gogs&#43;drone/</link>
+      <link>https://blog.hourong.me/post/hugo&#43;gogs&#43;drone/</link>
       <pubDate>Fri, 02 Aug 2019 20:26:30 +0800</pubDate>
       
-      <guid>https://hou-rong.github.io/post/hugo&#43;gogs&#43;drone/</guid>
+      <guid>https://blog.hourong.me/post/hugo&#43;gogs&#43;drone/</guid>
       <description>引入 已经好久没有写博客了，近期准备重新拾起这个习惯，决定再次开始写一些东西。最终决定使用 Hugo + Gogs + Drone 搭建，使用这个组合的原因如下： Hugo 是 Golang 的一个</description>
     </item>
     
     <item>
       <title>群晖上配置生产力工具 gogs &#43; drone</title>
-      <link>https://hou-rong.github.io/post/sychnology&#43;gogs&#43;dronw/</link>
+      <link>https://blog.hourong.me/post/sychnology&#43;gogs&#43;dronw/</link>
       <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/sychnology&#43;gogs&#43;dronw/</guid>
+      <guid>https://blog.hourong.me/post/sychnology&#43;gogs&#43;dronw/</guid>
       <description>引入 群晖的 docker 实在是好用，同时当前手上缺少一个私有的 Git 以及 CI / CD 的服务。先想到公司中使用的 gitlab + jenkins 比较好用，尝试在群晖上部署，不得不说 gitlab 动不动就</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://hou-rong.github.io/about/</link>
+      <link>https://blog.hourong.me/about/</link>
       <pubDate>Tue, 30 Jul 2019 08:55:38 +0800</pubDate>
       
-      <guid>https://hou-rong.github.io/about/</guid>
+      <guid>https://blog.hourong.me/about/</guid>
       <description> Hello World </description>
     </item>
     
     <item>
       <title>MongoDB 数据导入导出</title>
-      <link>https://hou-rong.github.io/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</link>
+      <link>https://blog.hourong.me/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</link>
       <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</guid>
+      <guid>https://blog.hourong.me/post/mongodb-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</guid>
       <description>介绍 在使用 MongoDB 的过程中，偶尔会需要进行数据的导出导入，通过 mongodump 导出，通过 mongoimport 以及 mongorestore 可以简化操作，在此记录备忘 mongodump 1 mongodump -h host -u user -p pass-d db_name --authenticationDatabase admin mongoimport 1 mongoimport -h host -u user</description>
     </item>
     
     <item>
       <title>Docker 监控 ui-for-docker</title>
-      <link>https://hou-rong.github.io/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/</link>
+      <link>https://blog.hourong.me/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/</link>
       <pubDate>Sun, 28 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/</guid>
+      <guid>https://blog.hourong.me/post/docker-%E7%9B%91%E6%8E%A7-ui-for-docker/</guid>
       <description>引入 在本机使用 Docker 的过程中，需要对各个容器的状态进行监控，采用 ui-for-docker 进行，以下内容从 https://github.com/kevana/ui-for-docker 搬运，进行备忘 QuickStart 1 run -it -d --name docker-web -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock docker.io/uifd/ui-for-docker 启动服务 1 docker start docker-web</description>
     </item>
     
     <item>
       <title>supervisor 3.3.3 在 centos 6 上的安装以及配置</title>
-      <link>https://hou-rong.github.io/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</link>
+      <link>https://blog.hourong.me/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sat, 07 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://blog.hourong.me/post/supervisor-3.3.3-%E5%9C%A8-centos-6-%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE/</guid>
       <description>引入 由于单一项目需要使用不同的 workdir 以及 environment ，将 supervisor 从 2 更新到 3 卸载与安装 卸载旧的 supervisor ，安装最新的 supervisor 1 2 3 yum remove supervisor pip install supervisor service 配置 由于安装后的 supervisor 没有默认的 init</description>
     </item>
     
     <item>
       <title>Celery 使用 Customer AutoScaler</title>
-      <link>https://hou-rong.github.io/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/</link>
+      <link>https://blog.hourong.me/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/</link>
       <pubDate>Fri, 06 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/</guid>
+      <guid>https://blog.hourong.me/post/celery-%E4%BD%BF%E7%94%A8-customer-autoscaler/</guid>
       <description>引入 在使用 celery 进行并发时，发现默认的自动控制并发的算法中没有进行内存的控制，导致服务占用过多内存而出现服务器宕机，现实现 Custom AutoScaler 以解决此问题 项目配</description>
     </item>
     
     <item>
       <title>requests 请求打印请求信息</title>
-      <link>https://hou-rong.github.io/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/</link>
+      <link>https://blog.hourong.me/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/</link>
       <pubDate>Wed, 02 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/</guid>
+      <guid>https://blog.hourong.me/post/requests-%E8%AF%B7%E6%B1%82%E6%89%93%E5%8D%B0%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF/</guid>
       <description>引入 打印请求详细信息，在此记录，以防忘记 请求参数 1 2 3 4 5 try: import http.client as http_client except ImportError: import httplib as http_client http_client.HTTPConnection.debuglevel = 1</description>
     </item>
     
     <item>
       <title>修复 ssh key 登录服务器</title>
-      <link>https://hou-rong.github.io/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://blog.hourong.me/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://blog.hourong.me/post/%E4%BF%AE%E5%A4%8D-ssh-key-%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>引入 服务器一直 ssh 登录正常，突然有段时间发现不能登录了，查看原因 从客户端查看 1 ssh -v user@host 查看过后，发现问题不在客户端上面 从服务器上查找原因 首先查看</description>
     </item>
     
     <item>
       <title>搭建自己的 pypi server</title>
-      <link>https://hou-rong.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</link>
+      <link>https://blog.hourong.me/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</link>
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</guid>
+      <guid>https://blog.hourong.me/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84-pypi-server/</guid>
       <description>引入 通常我们 pip 安装的 python 包都是从 https://pypi.python.org/pypi 安装，偶尔国内网速慢的话也可以修改为 https://pypi.doubanio.com/simple 但是遇到一些公司内部的私有包需要管理，搭建自己的 pypi server ，可以简化很多 安装</description>
     </item>
     
     <item>
       <title>Mongo 迭代方式查询大量数据</title>
-      <link>https://hou-rong.github.io/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</link>
+      <link>https://blog.hourong.me/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://blog.hourong.me/post/mongo-%E8%BF%AD%E4%BB%A3%E6%96%B9%E5%BC%8F%E6%9F%A5%E8%AF%A2%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</guid>
       <description>引入 工作时，使用 mongo 查询全部 collections 的数据，在运行一段时间后，因为内存的问题导致程序被 kill，现使用迭代的查询方式解决 想法 使用 ObjectId 进行排序，从最小的</description>
     </item>
     
     <item>
       <title>MySql 表，库大小查询</title>
-      <link>https://hou-rong.github.io/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/</link>
+      <link>https://blog.hourong.me/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/</link>
       <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/</guid>
+      <guid>https://blog.hourong.me/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/</guid>
       <description>引入 在工作中，需要查询表的占用的空间以及数据库占用的空间 查询语句 查询每个数据库占用的空间的大小 1 SELECT table_schema, concat(round(sum(DATA_LENGTH/1024/1024),2),&amp;#39;MB&amp;#39;) as data FROM TABLES group by table_schema; 查询每个表占用空间的大小</description>
     </item>
     
     <item>
       <title>爬虫抓取回来的数据重复问题</title>
-      <link>https://hou-rong.github.io/post/%E7%88%AC%E8%99%AB%E6%8A%93%E5%8F%96%E5%9B%9E%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E9%87%8D%E5%A4%8D%E9%97%AE%E9%A2%98/</link>
+      <link>https://blog.hourong.me/post/%E7%88%AC%E8%99%AB%E6%8A%93%E5%8F%96%E5%9B%9E%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E9%87%8D%E5%A4%8D%E9%97%AE%E9%A2%98/</link>
       <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/%E7%88%AC%E8%99%AB%E6%8A%93%E5%8F%96%E5%9B%9E%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E9%87%8D%E5%A4%8D%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://blog.hourong.me/post/%E7%88%AC%E8%99%AB%E6%8A%93%E5%8F%96%E5%9B%9E%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE%E9%87%8D%E5%A4%8D%E9%97%AE%E9%A2%98/</guid>
       <description>通过返回的页面信息判断重复 完全重复 内容和布局格式上毫无差别 内容重复 内容毫无差别 布局重复 重要内容重复，布局相同 部分重复 重要内容重复，格式不同 页</description>
     </item>
     
     <item>
       <title>js 相关爬虫解析方法分享</title>
-      <link>https://hou-rong.github.io/post/js-%E7%9B%B8%E5%85%B3%E7%88%AC%E8%99%AB%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95%E5%88%86%E4%BA%AB/</link>
+      <link>https://blog.hourong.me/post/js-%E7%9B%B8%E5%85%B3%E7%88%AC%E8%99%AB%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95%E5%88%86%E4%BA%AB/</link>
       <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/js-%E7%9B%B8%E5%85%B3%E7%88%AC%E8%99%AB%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95%E5%88%86%E4%BA%AB/</guid>
+      <guid>https://blog.hourong.me/post/js-%E7%9B%B8%E5%85%B3%E7%88%AC%E8%99%AB%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95%E5%88%86%E4%BA%AB/</guid>
       <description>引入 由于现在反爬虫机制的加强，传输数据的中间流程也发生了改变，一些不希望被爬取的网站纷纷加入了一些防盗设施，这是反反爬虫的解析 js 进行抓取的流</description>
     </item>
     
     <item>
       <title>CentOS 安装 autofs</title>
-      <link>https://hou-rong.github.io/post/centos-%E5%AE%89%E8%A3%85-autofs/</link>
+      <link>https://blog.hourong.me/post/centos-%E5%AE%89%E8%A3%85-autofs/</link>
       <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/centos-%E5%AE%89%E8%A3%85-autofs/</guid>
+      <guid>https://blog.hourong.me/post/centos-%E5%AE%89%E8%A3%85-autofs/</guid>
       <description>Install 安装 autofs ，直接使用 yum 安装即可 1 yum install autofs Configuration 配置 autofs 相关项 auto.master 中添加一下语句 1 /data/nfs /etc/auto.nfs auto.nfs 中添加一下语句 1 2 image -rw,soft,intr your-host:/your/folder/path page_saver -rw,soft,intr you-host:/your/folder/path Auto Start 开机自启动 rc.local 中添加以下语句 1 /sbin/service autofs</description>
     </item>
     
     <item>
       <title>Django 使用 uwsgi 启动后日志中显示 UnicodeEncodeError</title>
-      <link>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</link>
+      <link>https://blog.hourong.me/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</link>
       <pubDate>Fri, 26 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</guid>
+      <guid>https://blog.hourong.me/post/django-%E4%BD%BF%E7%94%A8-uwsgi-%E5%90%AF%E5%8A%A8%E5%90%8E%E6%97%A5%E5%BF%97%E4%B8%AD%E6%98%BE%E7%A4%BA-unicodeencodeerror/</guid>
       <description>引入 在做毕设时，系统需要用 uwsgi 进行启动，在打印日志中，请求即使成功也会报 UnicodeEncodeError，而在使用 Debug 模式下不会出现 解决方案</description>
     </item>
     
     <item>
       <title>Django csrf 部分操作</title>
-      <link>https://hou-rong.github.io/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</link>
+      <link>https://blog.hourong.me/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Mon, 08 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</guid>
+      <guid>https://blog.hourong.me/post/django-csrf-%E9%83%A8%E5%88%86%E6%93%8D%E4%BD%9C/</guid>
       <description>引入 在毕设的初期 csrf 的中间件 CsrfViewMiddleware 都是被我注视掉的，在之后了解了跨域攻击，认为防御跨域攻击还是需要的 CsrfViewMiddleware 防止跨域攻击的原理 Django 防止 CSRF 攻击的方法其实是在</description>
     </item>
     
     <item>
       <title>Tomcat 自动启动脚本</title>
-      <link>https://hou-rong.github.io/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</link>
+      <link>https://blog.hourong.me/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://blog.hourong.me/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</guid>
       <description>引入 在做毕设时需要将 tomcat 配置成开机自启，同时希望可以快速的开启或关闭 Tomcat，通过查阅资料后增加了 tomcat 的服务脚本，同时添加了开机启动 Tomcat 服务脚</description>
     </item>
     
     <item>
       <title>ValueError do_handshake_on_connect should not be specified for non-blocking sockets 问题解决</title>
-      <link>https://hou-rong.github.io/post/valueerror-do_handshake_on_connect-should-not-be-specified-for-non-blocking-sockets-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <link>https://blog.hourong.me/post/valueerror-do_handshake_on_connect-should-not-be-specified-for-non-blocking-sockets-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Wed, 26 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/valueerror-do_handshake_on_connect-should-not-be-specified-for-non-blocking-sockets-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <guid>https://blog.hourong.me/post/valueerror-do_handshake_on_connect-should-not-be-specified-for-non-blocking-sockets-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
       <description>引入 更新代码时遇到此问题，搜索解决方案后发现只需要安装库 requests[security] 即可 解决方案 1 pip install requests[security]</description>
     </item>
     
     <item>
       <title>iframe 全屏幕</title>
-      <link>https://hou-rong.github.io/post/iframe-%E5%85%A8%E5%B1%8F%E5%B9%95/</link>
+      <link>https://blog.hourong.me/post/iframe-%E5%85%A8%E5%B1%8F%E5%B9%95/</link>
       <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/iframe-%E5%85%A8%E5%B1%8F%E5%B9%95/</guid>
+      <guid>https://blog.hourong.me/post/iframe-%E5%85%A8%E5%B1%8F%E5%B9%95/</guid>
       <description>引入 在使用 iframe 时需要显示全屏的页面，故做了如下操作 解决方案 1 &amp;lt;iframe id=&amp;#39;page-iframe&amp;#39; src=&amp;#34;&amp;#34; style=&amp;#34;position:fixed; top:200px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;&amp;#34;&amp;gt;</description>
     </item>
     
     <item>
       <title>Ubuntu 下编译 uwsgi 报错 collect2 ld returned 1 exit status 的解决</title>
-      <link>https://hou-rong.github.io/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</link>
+      <link>https://blog.hourong.me/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</link>
       <pubDate>Wed, 19 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</guid>
+      <guid>https://blog.hourong.me/post/ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91-uwsgi-%E6%8A%A5%E9%94%99-collect2-ld-returned-1-exit-status/</guid>
       <description>引入 ubuntu 安装 uwsgi 时报出错误 collect2: ld returned 1 exit status 解决方案 Python3.5 在安装时少了 --enable-shared 在如下添加编译后即可解决 1 2 3 4 ./configure --enable-shared --prefix=/usr/local LDFLAGS=&amp;#34;-Wl,--rpath=/usr/local/lib&amp;#34; make -j 16 make install</description>
     </item>
     
     <item>
       <title>Django 配置 Email</title>
-      <link>https://hou-rong.github.io/post/django-%E9%85%8D%E7%BD%AE-email/</link>
+      <link>https://blog.hourong.me/post/django-%E9%85%8D%E7%BD%AE-email/</link>
       <pubDate>Tue, 18 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/django-%E9%85%8D%E7%BD%AE-email/</guid>
+      <guid>https://blog.hourong.me/post/django-%E9%85%8D%E7%BD%AE-email/</guid>
       <description>引入 在完成毕设的时候，需要发送验证码邮件。由于 Django 有自带的邮件发送函数，所以进行如下配置。 setting.py 配置 1 2 3 4 5 6 7 8 EMAIL_BACKEND = &amp;#39;django.core.mail.backends.smtp.EmailBackend&amp;#39; EMAIL_HOST = &amp;#39;smtp.xxxx&amp;#39; EMAIL_HOST_USER = &amp;#39;from@mail.xxxx&amp;#39; EMAIL_HOST_PASSWORD = &amp;#39;passwd&amp;#39; EMAIL_PORT = 25</description>
     </item>
     
     <item>
       <title>利用 expect 通过跳转机链接服务器</title>
-      <link>https://hou-rong.github.io/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://blog.hourong.me/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://blog.hourong.me/post/%E5%88%A9%E7%94%A8-expect-%E9%80%9A%E8%BF%87%E8%B7%B3%E8%BD%AC%E6%9C%BA%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>引入 在公司中需要使用跳板机登录服务器，这时候登录需要数据多次命令，十分麻烦。在同事的指点下，使用了 expect + iterm 的配置直接登录，十分方便。 跳转机添加</description>
     </item>
     
     <item>
       <title>PyCharm debug  unable to display frame variables 解决</title>
-      <link>https://hou-rong.github.io/post/pycharm-debug-unable-to-display-frame-variables-%E8%A7%A3%E5%86%B3/</link>
+      <link>https://blog.hourong.me/post/pycharm-debug-unable-to-display-frame-variables-%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Mon, 10 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/pycharm-debug-unable-to-display-frame-variables-%E8%A7%A3%E5%86%B3/</guid>
+      <guid>https://blog.hourong.me/post/pycharm-debug-unable-to-display-frame-variables-%E8%A7%A3%E5%86%B3/</guid>
       <description>引入 在使用 PyCharm 进行 Debug 时，程序会卡死，并显示 unable to display frame variables 问题 查找 逐步查找后发现程序中使用的 gevent ，PyCharm 默认关闭 gevent 的调试，通过在设置中开启 Gevent compatible</description>
     </item>
     
     <item>
       <title>uWSGI &#43; Nginx &#43; Django配置</title>
-      <link>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</link>
+      <link>https://blog.hourong.me/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://blog.hourong.me/post/uwsgi-&#43;-nginx-&#43;-django%E9%85%8D%E7%BD%AE/</guid>
       <description>引言 在开发 Django 项目开发完成后需要进行部署，使用 uWSGI + Nginx 的方式部署，以增加并发 Django 测试 1 $ python manage.py runserver 如果可以正常运行，且可访问页面，证明项目环境已配置完</description>
     </item>
     
     <item>
       <title>Django 使用外部方法进行用户认证</title>
-      <link>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</link>
+      <link>https://blog.hourong.me/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</link>
       <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</guid>
+      <guid>https://blog.hourong.me/post/django-%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/</guid>
       <description>引入 现在在做毕业设计，需要做一个管理系统。系统中的用户部分需要使用学校的用户进行认证。于是采用修改 ModelBackend 来实现。 Backend 以下为 Backend 部分的实现。经一同学建</description>
     </item>
     
     <item>
       <title>Nginx 配置减少请求时间（开启 Gzip 压缩以及缓存）</title>
-      <link>https://hou-rong.github.io/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</link>
+      <link>https://blog.hourong.me/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</link>
       <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</guid>
+      <guid>https://blog.hourong.me/post/nginx-%E9%85%8D%E7%BD%AE%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BC%80%E5%90%AF-gzip-%E5%8E%8B%E7%BC%A9%E4%BB%A5%E5%8F%8A%E7%BC%93%E5%AD%98/</guid>
       <description>引言 浏览自己的博客的时候发现需要等待很长时间才能完成页面的加载，通过工具检测后，发现默认配置中只有 html 页面被压缩了，于是进行了如下更改 开启 Gzip 加</description>
     </item>
     
     <item>
       <title>Django Python3 连接 Mysql 数据库的问题</title>
-      <link>https://hou-rong.github.io/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://blog.hourong.me/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 12 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://blog.hourong.me/post/django-python3-%E8%BF%9E%E6%8E%A5-mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>引入 在使用 Django 默认的 sqlite 开发一点时间后，需要将数据库修改为 mysql 进行测试 数据库地址修改 your/project/settings.py 1 2 3 4 5 6 7 8 9 10 DATABASES = { &amp;#39;default&amp;#39;: { &amp;#39;ENGINE&amp;#39;: &amp;#39;django.db.backends.mysql&amp;#39;, &amp;#39;NAME&amp;#39;: &amp;#39;db&amp;#39;, &amp;#39;USER&amp;#39;: &amp;#39;user&amp;#39;, &amp;#39;PASSWORD&amp;#39;: &amp;#39;passwd&amp;#39;, &amp;#39;HOST&amp;#39;: &amp;#39;host&amp;#39;, &amp;#39;PORT&amp;#39;: &amp;#39;port&amp;#39;, } } 如</description>
     </item>
     
     <item>
       <title>娱乐：拍七令</title>
-      <link>https://hou-rong.github.io/post/%E5%A8%B1%E4%B9%90-%E6%8B%8D%E4%B8%83%E4%BB%A4/</link>
+      <link>https://blog.hourong.me/post/%E5%A8%B1%E4%B9%90-%E6%8B%8D%E4%B8%83%E4%BB%A4/</link>
       <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/%E5%A8%B1%E4%B9%90-%E6%8B%8D%E4%B8%83%E4%BB%A4/</guid>
+      <guid>https://blog.hourong.me/post/%E5%A8%B1%E4%B9%90-%E6%8B%8D%E4%B8%83%E4%BB%A4/</guid>
       <description>引言 这两天班级聚会，喝酒时玩起了拍七令的游戏，输了就罚喝酒。基本上谁输的越多喝的越多就越容易输。于是写个程序，生成数字表，给大家做个参考。同</description>
     </item>
     
     <item>
       <title>Celery 的使用中可能遇到的一些问题</title>
-      <link>https://hou-rong.github.io/post/celery-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%AF%E8%83%BD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</link>
+      <link>https://blog.hourong.me/post/celery-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%AF%E8%83%BD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</link>
       <pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/celery-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%AF%E8%83%BD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://blog.hourong.me/post/celery-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%AD%E5%8F%AF%E8%83%BD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</guid>
       <description>Celery 不能用 root 用户启动问题 celery 中增加如下代码 1 2 from celery import platforms platforms.C_FORCE_ROOT = True config.py 中的一些配置 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 # Backend CELERY_RESULT_BACKEND = &amp;#39;amqp://rabbit&amp;#39; # Broker 可以配置</description>
     </item>
     
     <item>
       <title>RabbitMQ 服务搭建</title>
-      <link>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <link>https://blog.hourong.me/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://blog.hourong.me/post/rabbitmq-%E6%9C%8D%E5%8A%A1%E5%8F%8A%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
       <description>引入 近期使用 celery 作为任务平台处理大量任务，在 Redis 和 RabbitMQ 中进行选择，于是选择了后者。一则由于看到文档中 broker 的默认值为 ampq:// ，二则由于 RabbitMQ 的监控以及 celery flower 进行任</description>
     </item>
     
     <item>
       <title>PhpMyAdmin Docker 配置</title>
-      <link>https://hou-rong.github.io/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</link>
+      <link>https://blog.hourong.me/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://blog.hourong.me/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</guid>
       <description>引入 在工作中经常需要进行数据库的查询，使用默认的命令行却不太好用。所有选择使用 PhpMyAdmin 进行图形化的搜索，由于不希望在本机安装太多服务程序，所以使用</description>
     </item>
     
     <item>
       <title>Python 使用 MySql 的分片的方式读取数据库中大量数据</title>
-      <link>https://hou-rong.github.io/post/python-%E4%BD%BF%E7%94%A8-mysql-%E7%9A%84%E5%88%86%E7%89%87%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</link>
+      <link>https://blog.hourong.me/post/python-%E4%BD%BF%E7%94%A8-mysql-%E7%9A%84%E5%88%86%E7%89%87%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Thu, 15 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/python-%E4%BD%BF%E7%94%A8-mysql-%E7%9A%84%E5%88%86%E7%89%87%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://blog.hourong.me/post/python-%E4%BD%BF%E7%94%A8-mysql-%E7%9A%84%E5%88%86%E7%89%87%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</guid>
       <description>引入 在工作过程中发现某些单条数据特别大的表，希望读取其中的全部数据，于是利用 MySql 的分片进行逐步读取。 函数主体 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17</description>
     </item>
     
     <item>
       <title>Mysql 备份脚本</title>
-      <link>https://hou-rong.github.io/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
+      <link>https://blog.hourong.me/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Sat, 10 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://blog.hourong.me/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
       <description>引入 在工作时没有自动备份 MySql 的习惯，直到有一次 Update 误操作 where 语句的范围写了一个为 True 的值，导致数据错误。还好通过之前的备份恢复，没损失多少数据，这也</description>
     </item>
     
     <item>
       <title>Python 3.5 Centos 安装方法</title>
-      <link>https://hou-rong.github.io/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</link>
+      <link>https://blog.hourong.me/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</link>
       <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://blog.hourong.me/post/python-3.5-centos-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/</guid>
       <description>下载源文件 从 python.org 下载相应源代码 安装依赖环境 1 yum install bzip2-devel curses-devel dbm-devel gdbm-devel xz-devel sqlite sqlite-devel openssl openssl-devel tkinter tcl-devel tk-devel readline readline-devel zlib zlib-devel 一些其它库的名称 1 2 3 4 5 6 7 8 9 10 build-essential zlib1g-dev libbz2-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev libgdbm-dev liblzma-dev tk8.5-dev 添加依</description>
     </item>
     
     <item>
       <title>LVS DR模式配置</title>
-      <link>https://hou-rong.github.io/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</link>
+      <link>https://blog.hourong.me/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 29 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://blog.hourong.me/post/lvs-dr%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</guid>
       <description>LVS-DR模式以及工作原理 LVS有LVS-DR，LVS-NAT，LVS-TUN三种模式，其中DR模式意为Direct Routing（直接路</description>
     </item>
     
     <item>
       <title>极路由1s 9015降级9006 通过TTL 刷OpenWrt</title>
-      <link>https://hou-rong.github.io/post/%E6%9E%81%E8%B7%AF%E7%94%B11s-9015%E9%99%8D%E7%BA%A79006-%E9%80%9A%E8%BF%87ttl-%E5%88%B7openwrt/</link>
+      <link>https://blog.hourong.me/post/%E6%9E%81%E8%B7%AF%E7%94%B11s-9015%E9%99%8D%E7%BA%A79006-%E9%80%9A%E8%BF%87ttl-%E5%88%B7openwrt/</link>
       <pubDate>Thu, 19 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/%E6%9E%81%E8%B7%AF%E7%94%B11s-9015%E9%99%8D%E7%BA%A79006-%E9%80%9A%E8%BF%87ttl-%E5%88%B7openwrt/</guid>
+      <guid>https://blog.hourong.me/post/%E6%9E%81%E8%B7%AF%E7%94%B11s-9015%E9%99%8D%E7%BA%A79006-%E9%80%9A%E8%BF%87ttl-%E5%88%B7openwrt/</guid>
       <description>极路由降级 拔掉路由器电源 用网线将LAN口语电脑网口项链 将电脑本地连接的IP设置为192.168.1.88，子网掩码255.255.255.0</description>
     </item>
     
     <item>
       <title>Android获得屏幕参数</title>
-      <link>https://hou-rong.github.io/post/%E8%8E%B7%E5%8F%96android%E5%B1%8F%E5%B9%95%E5%8F%82%E6%95%B0/</link>
+      <link>https://blog.hourong.me/post/%E8%8E%B7%E5%8F%96android%E5%B1%8F%E5%B9%95%E5%8F%82%E6%95%B0/</link>
       <pubDate>Sun, 18 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/%E8%8E%B7%E5%8F%96android%E5%B1%8F%E5%B9%95%E5%8F%82%E6%95%B0/</guid>
+      <guid>https://blog.hourong.me/post/%E8%8E%B7%E5%8F%96android%E5%B1%8F%E5%B9%95%E5%8F%82%E6%95%B0/</guid>
       <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 public static int getStatusBarHeight(Context context) { Class&amp;lt;?&amp;gt; c = null; Object obj = null; Field field = null; int x = 0, statusBarHeight = 0; try { c = Class.forName(&amp;#34;com.android.internal.R$dimen&amp;#34;); obj = c.newInstance(); field = c.getField(&amp;#34;status_bar_height&amp;#34;); x = Integer.parseInt(field.get(obj).toString()); statusBarHeight = context.getResources().getDimensionPixelSize(x); } catch (Exception e1)</description>
     </item>
     
     <item>
       <title>Ubuntu 禁用 Ping</title>
-      <link>https://hou-rong.github.io/post/ubuntu_disable_ping/</link>
+      <link>https://blog.hourong.me/post/ubuntu_disable_ping/</link>
       <pubDate>Wed, 15 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/ubuntu_disable_ping/</guid>
+      <guid>https://blog.hourong.me/post/ubuntu_disable_ping/</guid>
       <description>1 sudo su Disable ping: 1 echo 1 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_all or 1 iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j DROP To re-enable ping: 1 echo 0 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_all or 1 iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j ACCEPT To make it permanently, edit the &amp;ldquo;etc/sysctl.conf&amp;rdquo; file so that the setting gets picked up at boot time. 1 net.ipv4.icmp_echo_ignore_all=1</description>
     </item>
     
     <item>
       <title>User32.dll中的函数</title>
-      <link>https://hou-rong.github.io/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</link>
+      <link>https://blog.hourong.me/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</link>
       <pubDate>Sun, 07 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</guid>
+      <guid>https://blog.hourong.me/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</guid>
       <description>通过dumpbin /exports user32.dll可以获得其中带函数名称 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39</description>
     </item>
     
     <item>
       <title>cx_Freeze 使用学习</title>
-      <link>https://hou-rong.github.io/post/cx_freeze-%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://blog.hourong.me/post/cx_freeze-%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Tue, 20 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/cx_freeze-%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://blog.hourong.me/post/cx_freeze-%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/</guid>
       <description>引入 有时希望将 Python 写的图形程序生成可执行文件，可用 cx_Freeze 进行封装 Hello World 代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 from cx_Freeze import setup, Executable includes = [&amp;#39;tkinter&amp;#39;] includefiles = [] eggsacutibull =</description>
     </item>
     
     <item>
       <title>Python decorator 学习</title>
-      <link>https://hou-rong.github.io/post/python%E4%BF%AE%E9%A5%B0%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://blog.hourong.me/post/python%E4%BF%AE%E9%A5%B0%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Sat, 20 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/python%E4%BF%AE%E9%A5%B0%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://blog.hourong.me/post/python%E4%BF%AE%E9%A5%B0%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
       <description>函数内容 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 def div(className): def div_decorate(func): def func_wrapper(name): return &amp;#34;&amp;lt;div class=\&amp;#34;{1}\&amp;#34;&amp;gt;{0}&amp;lt;/div&amp;gt;&amp;#34;.format(func(name),className) return func_wrapper return div_decorate def p_decorate(func): def func_wrapper(name): return &amp;#34;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;#34;.format(func(name)) return func_wrapper @div(&amp;#34;abcTest&amp;#34;) @p_decorate def hello(name): return &amp;#34;Hello {0}!&amp;#34;.format(name) print(hello(&amp;#34;World&amp;#34;)) 打印结果 &amp;lt;div class=&amp;quot;abcTest&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Hello World!&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; 修饰器为高阶函数 自上</description>
     </item>
     

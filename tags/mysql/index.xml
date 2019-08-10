@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MySql on 海纳百川，有容乃大</title>
-    <link>https://hou-rong.github.io/tags/mysql/</link>
+    <link>https://blog.hourong.me/tags/mysql/</link>
     <description>Recent content in MySql on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 18 Jul 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://hou-rong.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.hourong.me/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MySql 表，库大小查询</title>
-      <link>https://hou-rong.github.io/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/</link>
+      <link>https://blog.hourong.me/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/</link>
       <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/</guid>
+      <guid>https://blog.hourong.me/post/mysql-%E8%A1%A8%E5%A4%A7%E5%B0%8F%E6%9F%A5%E8%AF%A2/</guid>
       <description>引入 在工作中，需要查询表的占用的空间以及数据库占用的空间 查询语句 查询每个数据库占用的空间的大小 1 SELECT table_schema, concat(round(sum(DATA_LENGTH/1024/1024),2),&amp;#39;MB&amp;#39;) as data FROM TABLES group by table_schema; 查询每个表占用空间的大小</description>
     </item>
     
     <item>
       <title>PhpMyAdmin Docker 配置</title>
-      <link>https://hou-rong.github.io/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</link>
+      <link>https://blog.hourong.me/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Mon, 16 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://blog.hourong.me/post/phpmyadmin-docker-%E9%85%8D%E7%BD%AE/</guid>
       <description>引入 在工作中经常需要进行数据库的查询，使用默认的命令行却不太好用。所有选择使用 PhpMyAdmin 进行图形化的搜索，由于不希望在本机安装太多服务程序，所以使用</description>
     </item>
     
     <item>
       <title>Python 使用 MySql 的分片的方式读取数据库中大量数据</title>
-      <link>https://hou-rong.github.io/post/python-%E4%BD%BF%E7%94%A8-mysql-%E7%9A%84%E5%88%86%E7%89%87%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</link>
+      <link>https://blog.hourong.me/post/python-%E4%BD%BF%E7%94%A8-mysql-%E7%9A%84%E5%88%86%E7%89%87%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Thu, 15 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/python-%E4%BD%BF%E7%94%A8-mysql-%E7%9A%84%E5%88%86%E7%89%87%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://blog.hourong.me/post/python-%E4%BD%BF%E7%94%A8-mysql-%E7%9A%84%E5%88%86%E7%89%87%E7%9A%84%E6%96%B9%E5%BC%8F%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE/</guid>
       <description>引入 在工作过程中发现某些单条数据特别大的表，希望读取其中的全部数据，于是利用 MySql 的分片进行逐步读取。 函数主体 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17</description>
     </item>
     
     <item>
       <title>Mysql 备份脚本</title>
-      <link>https://hou-rong.github.io/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
+      <link>https://blog.hourong.me/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Sat, 10 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://hou-rong.github.io/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://blog.hourong.me/post/mysql-%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
       <description>引入 在工作时没有自动备份 MySql 的习惯，直到有一次 Update 误操作 where 语句的范围写了一个为 True 的值，导致数据错误。还好通过之前的备份恢复，没损失多少数据，这也</description>
     </item>
     
