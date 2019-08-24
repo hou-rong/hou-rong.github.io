@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Drone on 海纳百川，有容乃大</title>
+    <link>https://blog.hourong.me/tags/drone/</link>
+    <description>Recent content in Drone on 海纳百川，有容乃大</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 24 Aug 2019 22:46:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.hourong.me/tags/drone/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如果自动提交 Baidu 链接</title>
+      <link>https://blog.hourong.me/post/%E5%A6%82%E6%9E%9C%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4-baidu-%E9%93%BE%E6%8E%A5/</link>
+      <pubDate>Sat, 24 Aug 2019 22:46:07 +0800</pubDate>
+      
+      <guid>https://blog.hourong.me/post/%E5%A6%82%E6%9E%9C%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4-baidu-%E9%93%BE%E6%8E%A5/</guid>
+      <description>简介 建立 blog 后，希望每次在 Drone 自动构建完成博客后，自动提交网站链接。 此种更新一般情况是由站点生成 sitemap.xml 搜素引擎根据 sitemap.xml 记录进行更新。 但是由于 baidu 要求的 sitemap.xml</description>
+    </item>
+    
+  </channel>
+</rss>

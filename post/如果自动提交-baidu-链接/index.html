@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>如果自动提交 Baidu 链接 - 海纳百川，有容乃大</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="侯容" /><meta name="description" content="简介 建立 blog 后，希望每次在 Drone 自动构建完成博客后，自动提交网站链接。 此种更新一般情况是由站点生成 sitemap.xml 搜素引擎根据 sitemap.xml 记录进行更新。 但是由于 baidu 要求的 sitemap.xml" /><meta name="keywords" content="互联网, 技术, internet, technology, hourong, blog, 侯容, 博客, 海纳百川, 有容乃大" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.5 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://blog.hourong.me/post/%E5%A6%82%E6%9E%9C%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4-baidu-%E9%93%BE%E6%8E%A5/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="如果自动提交 Baidu 链接" />
+<meta property="og:description" content="简介 建立 blog 后，希望每次在 Drone 自动构建完成博客后，自动提交网站链接。 此种更新一般情况是由站点生成 sitemap.xml 搜素引擎根据 sitemap.xml 记录进行更新。 但是由于 baidu 要求的 sitemap.xml" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.hourong.me/post/%E5%A6%82%E6%9E%9C%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4-baidu-%E9%93%BE%E6%8E%A5/" />
+<meta property="article:published_time" content="2019-08-24T22:46:07&#43;08:00"/>
+<meta property="article:modified_time" content="2019-08-24T22:46:07&#43;08:00"/>
+
+<meta itemprop="name" content="如果自动提交 Baidu 链接">
+<meta itemprop="description" content="简介 建立 blog 后，希望每次在 Drone 自动构建完成博客后，自动提交网站链接。 此种更新一般情况是由站点生成 sitemap.xml 搜素引擎根据 sitemap.xml 记录进行更新。 但是由于 baidu 要求的 sitemap.xml">
+
+
+<meta itemprop="datePublished" content="2019-08-24T22:46:07&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-24T22:46:07&#43;08:00" />
+<meta itemprop="wordCount" content="793">
+
+
+
+<meta itemprop="keywords" content="Drone,博客,sitemap,baidu,baidu-sitemap,Plugin," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如果自动提交 Baidu 链接"/>
+<meta name="twitter:description" content="简介 建立 blog 后，希望每次在 Drone 自动构建完成博客后，自动提交网站链接。 此种更新一般情况是由站点生成 sitemap.xml 搜素引擎根据 sitemap.xml 记录进行更新。 但是由于 baidu 要求的 sitemap.xml"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">侯容的博客</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">侯容的博客</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">如果自动提交 Baidu 链接</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-08-24 </span>
+        <div class="post-category">
+            <a href="/categories/drone/"> Drone </a>
+            <a href="/categories/%E5%8D%9A%E5%AE%A2/"> 博客 </a>
+            </div>
+          <span class="more-meta"> 约 793 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#原理">原理</a></li>
+<li><a href="#具体实现">具体实现</a>
+<ul>
+<li><a href="#controller">controller</a></li>
+<li><a href="#main-方法">main 方法</a></li>
+<li><a href="#部署流程">部署流程</a>
+<ul>
+<li><a href="#makefile">Makefile</a></li>
+<li><a href="#docker-打包">Docker 打包</a></li>
+<li><a href="#部署配置">部署配置</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#使用">使用</a>
+<ul>
+<li><a href="#drone-配置">drone 配置</a></li>
+<li><a href="#docker-直接运行">Docker 直接运行</a></li>
+</ul></li>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="简介">简介</h2>
+
+<p>建立 blog 后，希望每次在 Drone 自动构建完成博客后，自动提交网站链接。
+此种更新一般情况是由站点生成 sitemap.xml 搜素引擎根据 sitemap.xml 记录进行更新。
+但是由于 baidu 要求的 sitemap.xml 与标准的 sitemap.xml 不同。同时生成起来还需要理解 baidusitemap.xml 的格式，比较麻烦。
+当前通过解析普通的 sitemap.xml，调用 baidu 的「主动提交」接口更新链接</p>
+
+<h2 id="原理">原理</h2>
+
+<ul>
+<li>解析 sitemap.xml</li>
+<li>调用 baidu 主动推送接口更新链接</li>
+</ul>
+
+<p><img src="http://img.henryhou.com/img/20190824223417.png" alt="" /></p>
+
+<h2 id="具体实现">具体实现</h2>
+
+<h3 id="controller">controller</h3>
+
+<p>逻辑很简单，实现解析 xml 和更新 url 的两个函数 ，具体可见文件 <a href="https://home.hourong.me:35000/HenryHou/drone-baidu-sitemap/src/master/pkg/controller/impl/sitemap.go">controller/impl/sitemap.go</a></p>
+
+<h3 id="main-方法">main 方法</h3>
+
+<p>drone 的插件是通过 PLUGIN_XXX 将 drone 中的变量以环境变量的形式打入，该方法中首先通过从 os 中获取 <code>PLUGIN_SITE</code> 等环境变量，近一步调用已实现的 controller 方法完成解析和更新</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">ctx</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">()</span>
+
+	<span class="nx">site</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;PLUGIN_SITE&#34;</span><span class="p">)</span>
+	<span class="nx">token</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;PLUGIN_TOKEN&#34;</span><span class="p">)</span>
+	<span class="nx">path</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;PLUGIN_PATH&#34;</span><span class="p">)</span>
+
+	<span class="nx">SiteMapController</span> <span class="o">:=</span> <span class="nx">impl</span><span class="p">.</span><span class="nx">DefaultSiteMapController</span>
+	<span class="nx">urls</span> <span class="o">:=</span> <span class="nx">SiteMapController</span><span class="p">.</span><span class="nf">GetSiteMapUrls</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">path</span><span class="p">)</span>
+	<span class="nx">SiteMapController</span><span class="p">.</span><span class="nf">SendData</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">site</span><span class="p">,</span> <span class="nx">token</span><span class="p">,</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="nx">urls</span><span class="p">,</span> <span class="s">&#34;\n&#34;</span><span class="p">))</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="部署流程">部署流程</h3>
+
+<h4 id="makefile">Makefile</h4>
+
+<p>生成 release 二进制文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Makefile" data-lang="Makefile"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Makefile" data-lang="Makefile"><span class="nf">build_linux_amd64</span><span class="o">:</span>
+	<span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>linux <span class="nv">GOARCH</span><span class="o">=</span>amd64 <span class="k">$(</span>GO<span class="k">)</span> build -a -tags <span class="s1">&#39;$(TAGS)&#39;</span> -ldflags <span class="s1">&#39;$(EXTLDFLAGS)-s -w $(LDFLAGS)&#39;</span> -o release/linux/amd64/<span class="k">$(</span>DEPLOY_IMAGE<span class="k">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="docker-打包">Docker 打包</h4>
+
+<p>采用 plugins/base:linux-amd64 作为基础镜像，将 Make 方法生成的二进制文件拷入 docker</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="k">FROM</span><span class="s"> plugins/base:linux-amd64</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span>LABEL <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;Hou Rong &lt;nmghr9@gmail.com&gt;&#34;</span> <span class="se">\
+</span><span class="se"></span>  org.label-schema.name<span class="o">=</span><span class="s2">&#34;Drone Baidu Sitemap&#34;</span> <span class="se">\
+</span><span class="se"></span>  org.label-schema.vendor<span class="o">=</span><span class="s2">&#34;Hou Rong&#34;</span> <span class="se">\
+</span><span class="se"></span>  org.label-schema.schema-version<span class="o">=</span><span class="s2">&#34;1.0&#34;</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> apk add --no-cache ca-certificates <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>  rm -rf /var/cache/apk/*<span class="err">
+</span><span class="err">
+</span><span class="err"></span>COPY release/linux/amd64/drone-baidu-sitemap /bin/<span class="err">
+</span><span class="err"></span><span class="k">ENTRYPOINT</span><span class="s"> [&#34;/bin/drone-baidu-sitemap&#34;]</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="部署配置">部署配置</h4>
+
+<p>以上方法实现后，基本功能已经实现，配置 <a href="https://home.hourong.me:35000/HenryHou/drone-baidu-sitemap/src/master/.drone.yml">.drone.yml</a> 自动构建发布</p>
+
+<p>发布至 docker-hub 后效果如下</p>
+
+<p><img src="http://img.henryhou.com/img/20190824231525.png" alt="" /></p>
+
+<h2 id="使用">使用</h2>
+
+<p>使用方法有两种</p>
+
+<ul>
+<li>使用 drone 作为 CI。配置 drone 的 pipeline 进行使用</li>
+<li>使用其他 CI 或本地使用。Docker 运行直接使用<br /></li>
+</ul>
+
+<p>ps: 直接把二进制打包进去的，只有 7MB，镜像很小不用担心网络上的问题</p>
+
+<h3 id="drone-配置">drone 配置</h3>
+
+<p>将 baidu-sitemap 作为构建的一个步骤放入，配置 site、token、path 即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">kind: pipeline
+name: default
+
+steps:
+  - name: baidu-sitemap
+    image: henryhou009/drone-baidu-sitemap:linux-amd64
+    settings:
+      site: henryhou.com
+      token: 
+        from_secret: baidu_sitemap_token
+      path: ./public/sitemap.xml</pre></td></tr></table>
+</div>
+</div>
+<h3 id="docker-直接运行">Docker 直接运行</h3>
+
+<p>采用以下方法启动 drone-baidu-sitemap。
+需要使用 -v 参数，与 -w 参数，将当前工作环境与 docker 中的路径进行匹配，该操作用于在 docker 项目中能够打开 sitemap.xml 文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">docker run --rm \
+           -e PLUGIN_SITE=host \   # site 例如 henryhou.com
+           -e PLUGIN_TOKEN=token \ # baidu token
+           -e PLUGIN_PATH=./public/sitemap.xml \
+           -v $(pwd):$(pwd) \
+           -w $(pwd) henryhou009/drone-baidu-sitemap</pre></td></tr></table>
+</div>
+</div>
+<h2 id="总结">总结</h2>
+
+<p>由于 baidu 要求的 sitemap.xml 与标准 sitemap.xml 不同。在个人博客中需要对 baidu 的链接提交进行定制。通过实现百度的链接提交，采用主动推送的方式自动更新。
+本文中通过百度的「主动推送」接口实现了更新博客链接的插件，并提供打包后的 drone plugin 以便大家使用</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">侯容</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-08-24
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://hourong.oss-cn-beijing.aliyuncs.com/img/20190803234641.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://hourong.oss-cn-beijing.aliyuncs.com/img/20190803234801.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/drone/">Drone</a>
+          <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+          <a href="/tags/sitemap/">sitemap</a>
+          <a href="/tags/baidu/">baidu</a>
+          <a href="/tags/baidu-sitemap/">baidu-sitemap</a>
+          <a href="/tags/plugin/">Plugin</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/gitment_and_gittalk_secure/">
+            <span class="next-text nav-default">评论插件 gitment 和 gittalk 存在安全性问题</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'hou-rongs';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:nmghr9@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/hou-rong" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/u/6481011018" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/hou-rong-5/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://home.hourong.me:35000/HenryHou" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://blog.hourong.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">侯容</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
