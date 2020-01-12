@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.hourong.me/" />
 
-<meta property="og:updated_time" content="2019-08-24T22:46:07&#43;08:00"/>
+<meta property="og:updated_time" content="2020-01-12T03:58:34&#43;08:00"/>
 
 <meta itemprop="name" content="海纳百川，有容乃大">
 <meta itemprop="description" content="海纳百川，有容乃大">
@@ -113,6 +113,27 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/pyhive-%E7%94%A8%E6%88%B7%E5%90%8D%E5%BC%82%E5%B8%B8%E5%B0%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">PyHive 用户名异常小问题解决</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-01-12 </span>
+      
+        <span class="more-meta"> 约 413 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      背景 公司 hive 连接方式调整，手上有些古老代码，仍在使用着 SQLAlchemy + PyHive 的连接方式。建立连接到方式如下 1 2 3 4 5 6 from sqlalchemy.engine import create_engine test_db = create_engine(&#39;hive://{}@{}:{}/{}?auth={}&#39;.format( HIVE_CONFIG[&#39;user&#39;], HIVE_CONFIG[&#39;host&#39;], HIVE_CONFIG[&#39;port&#39;], &#39;test&#39;, HIVE_CONFIG[&#39;auth&#39;], HIVE_CONFIG[&#39;user&#39;]), ) 其中 Auth 发生了
+    </div>
+    <div class="read-more">
+      <a href="/post/pyhive-%E7%94%A8%E6%88%B7%E5%90%8D%E5%BC%82%E5%B8%B8%E5%B0%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/%E5%A6%82%E6%9E%9C%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4-baidu-%E9%93%BE%E6%8E%A5/">如果自动提交 Baidu 链接</a></h1>
@@ -511,27 +532,6 @@
     </div>
     <div class="read-more">
       <a href="/post/tomcat-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/valueerror-do_handshake_on_connect-should-not-be-specified-for-non-blocking-sockets-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">ValueError do_handshake_on_connect should not be specified for non-blocking sockets 问题解决</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-04-26 </span>
-      
-        <span class="more-meta"> 约 39 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      引入 更新代码时遇到此问题，搜索解决方案后发现只需要安装库 requests[security] 即可 解决方案 1 pip install requests[security]
-    </div>
-    <div class="read-more">
-      <a href="/post/valueerror-do_handshake_on_connect-should-not-be-specified-for-non-blocking-sockets-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

@@ -6,10 +6,19 @@
     <description>Recent content on 海纳百川，有容乃大</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 24 Aug 2019 22:46:07 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jan 2020 03:58:34 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.hourong.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PyHive 用户名异常小问题解决</title>
+      <link>https://blog.hourong.me/post/pyhive-%E7%94%A8%E6%88%B7%E5%90%8D%E5%BC%82%E5%B8%B8%E5%B0%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Sun, 12 Jan 2020 03:58:34 +0800</pubDate>
+      
+      <guid>https://blog.hourong.me/post/pyhive-%E7%94%A8%E6%88%B7%E5%90%8D%E5%BC%82%E5%B8%B8%E5%B0%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description>背景 公司 hive 连接方式调整，手上有些古老代码，仍在使用着 SQLAlchemy + PyHive 的连接方式。建立连接到方式如下 1 2 3 4 5 6 from sqlalchemy.engine import create_engine test_db = create_engine(&amp;#39;hive://{}@{}:{}/{}?auth={}&amp;#39;.format( HIVE_CONFIG[&amp;#39;user&amp;#39;], HIVE_CONFIG[&amp;#39;host&amp;#39;], HIVE_CONFIG[&amp;#39;port&amp;#39;], &amp;#39;test&amp;#39;, HIVE_CONFIG[&amp;#39;auth&amp;#39;], HIVE_CONFIG[&amp;#39;user&amp;#39;]), ) 其中 Auth 发生了</description>
+    </item>
     
     <item>
       <title>如果自动提交 Baidu 链接</title>

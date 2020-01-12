@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.hourong.me/" />
 
-<meta property="og:updated_time" content="2019-08-24T22:46:07&#43;08:00"/>
+<meta property="og:updated_time" content="2020-01-12T03:58:34&#43;08:00"/>
 
 <meta itemprop="name" content="海纳百川，有容乃大">
 <meta itemprop="description" content="海纳百川，有容乃大">
@@ -113,6 +113,27 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/ubuntu_disable_ping/">Ubuntu 禁用 Ping</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-07-15 </span>
+      
+        <span class="more-meta"> 约 68 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      1 sudo su Disable ping: 1 echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all or 1 iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j DROP To re-enable ping: 1 echo 0 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all or 1 iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j ACCEPT To make it permanently, edit the &ldquo;etc/sysctl.conf&rdquo; file so that the setting gets picked up at boot time. 1 net.ipv4.icmp_echo_ignore_all=1
+    </div>
+    <div class="read-more">
+      <a href="/post/ubuntu_disable_ping/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/user32.dll%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">User32.dll中的函数</a></h1>

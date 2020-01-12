@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.hourong.me/" />
 
-<meta property="og:updated_time" content="2019-08-24T22:46:07&#43;08:00"/>
+<meta property="og:updated_time" content="2020-01-12T03:58:34&#43;08:00"/>
 
 <meta itemprop="name" content="海纳百川，有容乃大">
 <meta itemprop="description" content="海纳百川，有容乃大">
@@ -113,6 +113,27 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/valueerror-do_handshake_on_connect-should-not-be-specified-for-non-blocking-sockets-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">ValueError do_handshake_on_connect should not be specified for non-blocking sockets 问题解决</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-04-26 </span>
+      
+        <span class="more-meta"> 约 39 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      引入 更新代码时遇到此问题，搜索解决方案后发现只需要安装库 requests[security] 即可 解决方案 1 pip install requests[security]
+    </div>
+    <div class="read-more">
+      <a href="/post/valueerror-do_handshake_on_connect-should-not-be-specified-for-non-blocking-sockets-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/iframe-%E5%85%A8%E5%B1%8F%E5%B9%95/">iframe 全屏幕</a></h1>
@@ -508,27 +529,6 @@
     </div>
     <div class="read-more">
       <a href="/post/%E8%8E%B7%E5%8F%96android%E5%B1%8F%E5%B9%95%E5%8F%82%E6%95%B0/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ubuntu_disable_ping/">Ubuntu 禁用 Ping</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2015-07-15 </span>
-      
-        <span class="more-meta"> 约 68 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1 sudo su Disable ping: 1 echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all or 1 iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j DROP To re-enable ping: 1 echo 0 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all or 1 iptables -I INPUT -i ech0 -p icmp -s 0/0 -d 0/0 -j ACCEPT To make it permanently, edit the &ldquo;etc/sysctl.conf&rdquo; file so that the setting gets picked up at boot time. 1 net.ipv4.icmp_echo_ignore_all=1
-    </div>
-    <div class="read-more">
-      <a href="/post/ubuntu_disable_ping/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
