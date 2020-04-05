@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用远程桌面玩骑马与砍杀 2 遇到的坑 - 海纳百川，有容乃大</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="侯容" /><meta name="description" content="背景 做了 10 年的骑马与砍杀 2 终于发售了，买一个回来尝试一下 在家里玩游戏一般是通过 Remote Desktop 玩的，一方面是主机散热比较大而且太吵，单独放在一个地方，通" /><meta name="keywords" content="互联网, 技术, internet, technology, hourong, blog, 侯容, 博客, 海纳百川, 有容乃大" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.5 with theme even" />
+
+
+<link rel="canonical" href="https://blog.hourong.me/post/%E4%BD%BF%E7%94%A8%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E7%8E%A9%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80-2-%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="使用远程桌面玩骑马与砍杀 2 遇到的坑" />
+<meta property="og:description" content="背景 做了 10 年的骑马与砍杀 2 终于发售了，买一个回来尝试一下 在家里玩游戏一般是通过 Remote Desktop 玩的，一方面是主机散热比较大而且太吵，单独放在一个地方，通" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.hourong.me/post/%E4%BD%BF%E7%94%A8%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E7%8E%A9%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80-2-%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" />
+<meta property="article:published_time" content="2020-04-05T22:09:24&#43;08:00"/>
+<meta property="article:modified_time" content="2020-04-05T22:09:24&#43;08:00"/>
+
+<meta itemprop="name" content="使用远程桌面玩骑马与砍杀 2 遇到的坑">
+<meta itemprop="description" content="背景 做了 10 年的骑马与砍杀 2 终于发售了，买一个回来尝试一下 在家里玩游戏一般是通过 Remote Desktop 玩的，一方面是主机散热比较大而且太吵，单独放在一个地方，通">
+
+
+<meta itemprop="datePublished" content="2020-04-05T22:09:24&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-05T22:09:24&#43;08:00" />
+<meta itemprop="wordCount" content="1845">
+
+
+
+<meta itemprop="keywords" content="游戏," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用远程桌面玩骑马与砍杀 2 遇到的坑"/>
+<meta name="twitter:description" content="背景 做了 10 年的骑马与砍杀 2 终于发售了，买一个回来尝试一下 在家里玩游戏一般是通过 Remote Desktop 玩的，一方面是主机散热比较大而且太吵，单独放在一个地方，通"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">侯容的博客</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">侯容的博客</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用远程桌面玩骑马与砍杀 2 遇到的坑</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-05 </span>
+        
+          <span class="more-meta"> 约 1845 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#背景">背景</a></li>
+<li><a href="#最终解决方案">最终解决方案</a></li>
+<li><a href="#跟踪过程-tldr">跟踪过程（TLDR）</a>
+<ul>
+<li><a href="#直接运行游戏-退出">直接运行游戏（退出）</a></li>
+<li><a href="#尝试按照作者提供的依赖-安装依赖解决">尝试按照作者提供的依赖，安装依赖解决</a></li>
+<li><a href="#浏览论坛确认相似问题">浏览论坛确认相似问题</a>
+<ul>
+<li><a href="#确认-log-文件">确认 log 文件</a></li>
+<li><a href="#确认子模块问题">确认子模块问题</a></li>
+<li><a href="#阶段结论-其实不正确">阶段结论（其实不正确）</a></li>
+</ul></li>
+<li><a href="#论坛中提问咨询">论坛中提问咨询</a>
+<ul>
+<li><a href="#具体问题">具体问题</a></li>
+<li><a href="#首先说明了上面的猜想">首先说明了上面的猜想</a></li>
+<li><a href="#launcher-运行时的错误日志">Launcher 运行时的错误日志</a></li>
+<li><a href="#最终解决">最终解决</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="背景">背景</h1>
+
+<ol>
+<li>做了 10 年的骑马与砍杀 2 终于发售了，买一个回来尝试一下</li>
+<li>在家里玩游戏一般是通过 Remote Desktop 玩的，一方面是主机散热比较大而且太吵，单独放在一个地方，通过远程来玩。另一方面是远程的话不用正襟危坐，可以放在任何地方，方便一些</li>
+<li>以前尝试过使用 Steam Link ，但效果上感觉除了操作 Steam 外不能操作其他，所以一直用的 Remote Desktop 适用性强，</li>
+<li>最终「骑马与砍杀 2」+「Remote Desktop」出现了无法启动的情况，以下进行跟踪，解决</li>
+</ol>
+
+<h1 id="最终解决方案">最终解决方案</h1>
+
+<ol>
+<li>按照作者提示的安装<a href="https://forums.taleworlds.com/index.php?threads/game-failing-crashing-at-launch.397007/">依赖文件</a></li>
+<li>直接连接到主机上开启 steam（其他的或许可以，至少当前尝试过 Remote Desktop 不行）</li>
+<li>使用 Steam Link 连接进行远程游戏</li>
+</ol>
+
+<h1 id="跟踪过程-tldr">跟踪过程（TLDR）</h1>
+
+<p>这里实在是有点坑。从之前的故障以及报错的异常上来看，的确是没想到这个问题可能是使用 Remote Desktop 开启的原因。也正是这个原因多花了 2 个小时的游戏时间来排查该问题，但这个问题很特别，对类似问题的思考方式，在后续处理其他事情有帮助，在此记录</p>
+
+<h2 id="直接运行游戏-退出">直接运行游戏（退出）</h2>
+
+<p>直接运行 <strong>TaleWorlds.MountAndBlade.Launcher.exe</strong> 进程启动了大概 5s 后自动退出。</p>
+
+<h2 id="尝试按照作者提供的依赖-安装依赖解决">尝试按照作者提供的依赖，安装依赖解决</h2>
+
+<p><a href="https://forums.taleworlds.com/index.php?threads/game-failing-crashing-at-launch.397007/">Game Failing/Crashing at Launch</a></p>
+
+<p>均安装后还是有问题</p>
+
+<h2 id="浏览论坛确认相似问题">浏览论坛确认相似问题</h2>
+
+<p>从论坛中看到有些人尝试使用 <strong>Bannerlord.Native.exe</strong> 进行确认，尝试运行了一下（这里占用了比较多的时间，但其实无用。后续与 @Murat Türe 沟通，这个操作打印出错误的加载日志是正常的，因为主要是用来进行测试的）</p>
+
+<h3 id="确认-log-文件">确认 log 文件</h3>
+
+<p>日志目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">C:\ProgramData\Mount and Blade II Bannerlord\logs</pre></td></tr></table>
+</div>
+</div>
+<p>日志记录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Starting new log file...
+05 Apr 2020 Sunday 15:49 ?D1ú±ê×?ê±??
+Computer: DESKTOP-J8G94Q5 User: HenryHou
+Build Version: 223799
+[ERROR] FATAL UNHANDLED EXCEPTION: System.Reflection.ReflectionTypeLoadException: Exception of type &#39;System.Reflection.ReflectionTypeLoadException&#39; was thrown.
+
+Could not load file or assembly &#39;TaleWorlds.MountAndBlade.ViewModelCollection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null&#39; or one of its dependencies.
+
+  at (wrapper managed-to-native) System.Reflection.Assembly.GetTypes(System.Reflection.Assembly,bool)
+
+  at System.Reflection.Assembly.GetTypes () [0x00000] in &lt;f9a20586108e4249b7275ba8971ca7ee&gt;:0 
+
+  at TaleWorlds.MountAndBlade.Module.CollectModuleAssemblyTypes (System.Reflection.Assembly moduleAssembly) [0x00006] in &lt;6de2fb9dcbfd4e57b15d7d0cf628df00&gt;:0 
+
+  at TaleWorlds.MountAndBlade.Module.AddSubModule (System.Reflection.Assembly subModuleAssembly, System.String name) [0x00015] in &lt;6de2fb9dcbfd4e57b15d7d0cf628df00&gt;:0 
+
+  at TaleWorlds.MountAndBlade.Module.LoadSubModules () [0x00198] in &lt;6de2fb9dcbfd4e57b15d7d0cf628df00&gt;:0 
+
+  at TaleWorlds.MountAndBlade.Module.Initialize () [0x00033] in &lt;6de2fb9dcbfd4e57b15d7d0cf628df00&gt;:0 
+
+  at ManagedCallbacks.CoreCallbacksGenerated.Module_Initialize (System.Int32 thisPointer) [0x00006] in &lt;ceca20c21e0b49e9b627f2e1f6b47b3f&gt;:0 
+
+  at (wrapper native-to-managed) ManagedCallbacks.CoreCallbacksGenerated.Module_Initialize(int)
+
+System.IO.FileNotFoundException: Could not load file or assembly &#39;TaleWorlds.MountAndBlade.ViewModelCollection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null&#39; or one of its dependencies.
+
+File name: &#39;TaleWorlds.MountAndBlade.ViewModelCollection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null&#39;</pre></td></tr></table>
+</div>
+</div>
+<p>当时认为是由于子模块 ViewModelCollection 无法加载导致</p>
+
+<h3 id="确认子模块问题">确认子模块问题</h3>
+
+<p>确认子模块文件路径</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[19:04:07.7961912] Loading submodules...
+
+[19:04:08.5820575] opening ../../Modules/Native/ModuleData/banner_icons.xml
+
+[19:04:08.5930250] loading banner_icons.xml:
+
+[19:04:09.3894028] Loading GauntletUI Extra Custom Widgets
+
+[19:04:09.3913972] Loading GauntletUI Bannerlord Custom Widgets</pre></td></tr></table>
+</div>
+</div>
+<p>子模块定位文件位置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">D:\Stream\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox</pre></td></tr></table>
+</div>
+</div>
+<p>具体配置如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;
+&lt;Module&gt;
+    &lt;Name value = &#34;Sandbox&#34;/&gt;
+    &lt;Id value = &#34;Sandbox&#34;/&gt;
+    &lt;Version value = &#34;e1.0.5&#34;/&gt;
+    &lt;DefaultModule value=&#34;true&#34;/&gt;
+    &lt;SingleplayerModule value=&#34;true&#34;/&gt;
+  &lt;Official value =&#34;true&#34; /&gt;
+  &lt;DependedModules&gt;
+        &lt;DependedModule Id=&#34;Native&#34;/&gt;
+        &lt;DependedModule Id=&#34;SandBoxCore&#34;/&gt;
+    &lt;/DependedModules&gt;
+    &lt;SubModules&gt;
+        &lt;SubModule&gt;
+            &lt;Name value = &#34;SandBox&#34;/&gt;
+            &lt;DLLName value = &#34;SandBox.dll&#34;/&gt;
+            &lt;SubModuleClassType value = &#34;SandBox.SandBoxSubModule&#34;/&gt;            
+            &lt;Tags&gt;
+                &lt;Tag key=&#34;DedicatedServerType&#34; value =&#34;none&#34; /&gt;
+                &lt;Tag key=&#34;IsNoRenderModeElement&#34; value =&#34;false&#34; /&gt;
+            &lt;/Tags&gt;
+        &lt;/SubModule&gt;
+        &lt;SubModule&gt;
+            &lt;Name value = &#34;SandBox.View&#34;/&gt;
+            &lt;DLLName value = &#34;SandBox.View.dll&#34;/&gt;
+            &lt;Assemblies&gt;
+                &lt;Assembly value=&#34;SandBox.ViewModelCollection.dll&#34;/&gt;
+            &lt;/Assemblies&gt;
+            &lt;SubModuleClassType value = &#34;SandBox.View.SandBoxViewSubModule&#34;/&gt;
+            &lt;Tags&gt;
+                &lt;Tag key=&#34;DedicatedServerType&#34; value =&#34;none&#34; /&gt;
+                &lt;Tag key=&#34;IsNoRenderModeElement&#34; value =&#34;false&#34; /&gt;
+            &lt;/Tags&gt;
+        &lt;/SubModule&gt;        
+        &lt;SubModule&gt;
+            &lt;Name value = &#34;SandBox.GauntletUI&#34;/&gt;
+            &lt;DLLName value = &#34;SandBox.GauntletUI.dll&#34;/&gt;
+            &lt;SubModuleClassType value = &#34;SandBox.GauntletUI.SandBoxGauntletUISubModule&#34;/&gt;
+            &lt;Tags&gt;
+                &lt;Tag key=&#34;DedicatedServerType&#34; value =&#34;none&#34; /&gt;
+                &lt;Tag key=&#34;IsNoRenderModeElement&#34; value =&#34;false&#34; /&gt;
+            &lt;/Tags&gt;
+        &lt;/SubModule&gt;
+    &lt;/SubModules&gt;
+
+    &lt;Xmls&gt;
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;Items&#34; path=&#34;spitems&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;  
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;SPCultures&#34; path=&#34;spcultures&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;             
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;NPCCharacters&#34; path=&#34;spnpccharacters&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;           
+        &lt;XmlNode&gt;
+            &lt;XmlName id=&#34;partyTemplates&#34; path=&#34;partyTemplates&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;  
+        &lt;XmlNode&gt;               
+            &lt;XmlName id=&#34;NPCCharacters&#34; path=&#34;lords&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;               
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;NPCCharacters&#34; path=&#34;companions&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;               
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;NPCCharacters&#34; path=&#34;bandits&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt; 
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;Heroes&#34; path=&#34;heroes&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;               
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;NPCCharacters&#34; path=&#34;caravans&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;                       
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;NPCCharacters&#34; path=&#34;spspecialcharacters&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;               
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;Kingdoms&#34; path=&#34;spkingdoms&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;               
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;Factions&#34; path=&#34;spclans&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;               
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;WorkshopTypes&#34; path=&#34;spworkshops&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;               
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;LocationComplexTemplates&#34; path=&#34;location_complex_templates&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;               
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;Concepts&#34; path=&#34;concept_strings&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;               
+        &lt;XmlNode&gt;                
+            &lt;XmlName id=&#34;Settlements&#34; path=&#34;settlements&#34;/&gt;
+            &lt;IncludedGameTypes&gt;
+                &lt;GameType value = &#34;Campaign&#34;/&gt;
+                &lt;GameType value = &#34;CampaignStoryMode&#34;/&gt;
+            &lt;/IncludedGameTypes&gt;
+        &lt;/XmlNode&gt;
+    &lt;/Xmls&gt;
+&lt;/Module&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>具体 DLL 文件目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">D:\Stream\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client</pre></td></tr></table>
+</div>
+</div>
+<h3 id="阶段结论-其实不正确">阶段结论（其实不正确）</h3>
+
+<p>认为虽然配置和 dll 库的文件正确，但是仍不能正常加载，决定在论坛里咨询（其实后来发现不正确，该 exe 文件只是检测能否运行的，不能加载子模块是正常的情况）</p>
+
+<h2 id="论坛中提问咨询">论坛中提问咨询</h2>
+
+<h3 id="具体问题">具体问题</h3>
+
+<p><a href="https://forums.taleworlds.com/index.php?threads/game-wont-start.396670/page-8#post-9268380">In Progress Game wont start</a></p>
+
+<h3 id="首先说明了上面的猜想">首先说明了上面的猜想</h3>
+
+<p>与 @Murat Türe 沟通后，该猜想不正确，执行的 <strong>Bannerlord.Native.exe</strong> 只是用于测试。直接看 Launcher 的日志</p>
+
+<h3 id="launcher-运行时的错误日志">Launcher 运行时的错误日志</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[19:10:47.0860681] Checking if any managed object still lives... 
+
+[19:10:47.0860681] There are no living managed objects. 
+
+Managed Interface deleted.
+
+Error: Non-Zero Device Reference Count! (ERC1406)
+Closing log file...</pre></td></tr></table>
+</div>
+</div>
+<p>在论坛下与 @Murat Türe 沟通后，怀疑是 Launcher 某些情况的 bug，采用了直接运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"># 到游戏目录
+cd steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client
+
+# 直接通过命令启动
+Bannerlord.exe /singleplayer _MODULES_*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*_MODULES_ /anticheat</pre></td></tr></table>
+</div>
+</div>
+<p>运行成功，并可以直接打开游戏，但是发现其中的按钮无法点击</p>
+
+<p><img src="http://img.henryhou.com/img/20200405200838.png" alt="http://img.henryhou.com/img/20200405200838.png" /></p>
+
+<p>游戏可以正常启动，但是其中的按键无法点击。@Murat Türe 提示是否使用了远程桌面，尝试直接连接试试。</p>
+
+<h3 id="最终解决">最终解决</h3>
+
+<p>直接连接后，点击正常，同时 Launcher 也是可以正常执行的。问题应该都出现在使用 Remote Desktop 才出现的。同时发现以下几点：</p>
+
+<ol>
+<li>直接连接到机器上使用 Launcher 运行游戏是正常的</li>
+<li>如果使用 Remote Desktop，再运行 Launcher</li>
+<li>Steam Link 链接到远程运行游戏是正常的</li>
+<li>但是使用 Remote Desktop，通过 CMD 启动有些，游戏展示是正常的，点击是异常的。从点击的情况看起来，应该是展示的区域和点击的区域不等大。点击的区域的像素位置应该都向右下偏移</li>
+</ol>
+
+<p><img src="http://img.henryhou.com/img/20200405220545.png" alt="http://img.henryhou.com/img/20200405220545.png" /></p>
+
+<p><img src="http://img.henryhou.com/img/20200405220613.png" alt="http://img.henryhou.com/img/20200405220613.png" /></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">侯容</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-04-05
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://hourong.oss-cn-beijing.aliyuncs.com/img/20190803234641.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://hourong.oss-cn-beijing.aliyuncs.com/img/20190803234801.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/pyhive-%E7%94%A8%E6%88%B7%E5%90%8D%E5%BC%82%E5%B8%B8%E5%B0%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+            <span class="next-text nav-default">PyHive 用户名异常小问题解决</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'hou-rongs';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:nmghr9@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/hou-rong" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/u/6481011018" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/hou-rong-5/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://home.hourong.me:35000/HenryHou" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://blog.hourong.me/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">侯容</span>
+    <span>  •  </span>
+    <span><a target="_blank" href="http://www.beian.miit.gov.cn">京ICP备19038081号</a></span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
